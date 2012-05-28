@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link type="text/css" rel="stylesheet" href="tabs-form.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+        <script type="text/javascript" src="data.js"></script>
+        <script type="text/javascript" src="tabs.js"></script>
+        <script type="text/javascript" src="highcharts.js"></script>
+        <style type="text/css">
+            * {
+                font-size: small;
+            }
+            .left {
+                float: left;
+            }
+            .right {
+                float: right;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="tabs"></div>
+        <script type="text/javascript">
+            var results = {}, pieList = [];
+            /*
+             * 按一定格式对数据结构重新调整
+             * {
+             *      "children": [],
+             *      "y": int,
+             *      "name" string
+             * }
+             */
+            var anlyseData = function (resultData, data, id, key, parentPath) {
+                if (id === 0) {
+                    resultData.name = "";
+                } else {
+                    resultData.name = parentPath + "/" + key;
+                }
+                
+                resultData.id = id++;
+                resultData.y = 0;
+                                
+                if (isNaN(data[key])) {
+                    resultData.children = [];
+                    var j = 0;
+                    for (var subKey in data[key]) {
+                        resultData.children[j] = {};
+                        anlyseData(resultData.children[j], data[key], id++, subKey, resultData.name);
+                        j++;
+                    }
+                } else {
+                    resultData.y = data[key];
+                    return;
+                }
+            }
+                    
+            /*
+             * 计算每一层大小
+             */
+            var countSize = function (data) {
+                for (var i = 0; i < data.children.length; i++) {
+                    var dataList = data.children;
+                    if (dataList[i].children) {
+                        data.y += countSize(dataList[i]);
+                    } else {
+                        data.y += dataList[i].y;
+                    }
+                }
+                return data.y;
+            }
+           
+            /*
+             * 构建饼图
+             */
+            var buildPie = function (point, index) {
+                if (point.children) {
+                    var textList = point.name.split("/"),
+                    height = point.children.length * 16 + 80;
+                    height = height < 360 ? 360 : height; 
+                    var text = textList[textList.length - 1];
+                    
+                    if ($("#pieChart" + index).length === 1 && index > 0) {
+                        // 该 pie 已初始化过的处理。
+                        $("#tabs").tabs("select", "pieChart" + index);
+                        $("#tabs").tabs("update", {
+                            "text": text
+                        }, "pieChart" + index);
+                        
+                        pieList[index].series[0].setData(point.children);
+                        pieList[index].setSize(pieList[index].chartWidth, height);
+                    } else {
+                        $("#tabs").tabs("add", {
+                            "id": "pieChart" + index,
+                            "text": text,
+                            "content": '<div id="pieChart' + index + '"></div>'
+                        });
+                    
+                        var pie = new Highcharts.Chart({
+                            "chart":{
+                                "renderTo":"pieChart" + index,
+                                height: height
+                            },
+                            "title":{"text":""},
+                            "subtitle":{"text":""},
+                            "plotOptions":{
+                                "pie":{
+                                    allowPointSelect: true,
+                                    "cursor":"pointer",
+                                    showInLegend: true,
+                                    dataLabels: {
+                                        enabled: false
+                                    },
+                                    point: {
+                                        events: {
+                                            click: function() {
+                                                buildPie(this, index + 1);
+                                            },
+                                            legendItemClick: function () {
+                                                this.select();
+                                                buildPie(this, index + 1);
+                                                return false;
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "series":[{
+                                    "type":"pie",
+                                    "data": point.children
+                                }],
+                            credits: {
+                                "enabled": false
+                            },
+                            "tooltip": {
+                                formatter: function() {
+                                    return this.point.name +'('+ this.y +')';
+                                }
+                            },
+                            "legend":{"enabled":true,"align":"right","layout":"vertical"}
+                        }); 
+                        pieList.push(pie);
+                    }
+                    
+                    // 重新进行选择后，清理
+                    var tabsLength = $("#tabs").tabs("length");
+                    for (var i = index + 1; i < tabsLength && i > 1; i++) {
+                        if (pieList[i]) {
+                            $("#tabs").tabs("remove", "pieChart" + i);
+                            pieList[i].destroy();
+                        } 
+                        if (i === tabsLength - 1) {
+                            pieList.splice(index + 1, i - index + 1);
+                            if ($("#imageView").length === 1) {
+                                $("#tabs").tabs("remove", "imageView");
+                            }
+                        } 
+                    }
+                } else {
+                    var path = "https:/" + point.name;
+                    $("#tabs").tabs("add", {
+                        "id": "imageView",
+                        "text": "Image View",
+                        "content": '<img id="imageView" src="' + path + '"/>'
+                    });
+                    
+                    $("#imageView").attr("src", path);
+                }
+            };
+            
+            
+            (function () {                
+                $("#tabs").tabs({
+                    "theme": "form",
+                    "data": [{
+                            "id": "pieChart0",
+                            "text": "Pie Chart",
+                            "content": '<div id="pieChart0"></div>'
+                        }]
+                });
+                
+                anlyseData(results, flare, 0, "imageSummaryData", "");
+                countSize(results);
+                buildPie(results, 0)
+                
+                //buildPie(results.children[8], 0)
+
+            })();
+            // TODO: pie 无数据时上移
+        </script>
+    </body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Bezier Curve</title>
+</head>
+<body>
+    <div style="position:relative;">
+        <canvas id="canvas" width='900' height='500' style='border:1px solid #ccc;'></canvas>
+        <input type="button" onclick='con.clearRect(0, 0, 900, 500);vector = [];p=0' style="position:absolute;left:848px;top:5px;" value="刷新"/>
+    </div>
+    <h4>说明</h4>
+    <p>在画布上单击以添加一个点（可以添加N个点）</p>
+    <p>选中某个点可以拖动</p>
+    <p>双击以删除一个点</p>
+    <script type="text/javascript">
+        var canvas = document.getElementById("canvas");
+        var posInfo = document.getElementById("XYPos");
+        var con = canvas.getContext('2d');
+        var vector = []; //路径集合
+        var SP = 0; //当前选中点
+            
+        canvas.onmousedown = setPath;
+        canvas.ondblclick = function(evt){
+            var mp = [evt.layerX || evt.offsetX,evt.layerY || evt.offsetY];
+            if(isInPath(mp,vector))
+                vector.splice(SP,1);
+            if(vector.length>0)
+                paint(vector);
+        }
+        canvas.onmouseup = function(){
+            canvas.onmousemove = null;
+        }
+        function setPath(){
+            var evt = arguments[0];
+            var mp = [evt.layerX || evt.offsetX, evt.layerY || evt.offsetY];
+            if (!isInPath(mp,vector)) {
+                vector.splice(++SP, 0, mp); //插入一个点
+                paint(vector);
+                return ;
+            }
+            canvas.onmousemove = function(e){
+                vector[SP] = [e.layerX || e.offsetX, e.layerY || e.offsetY];
+                paint(vector);
+            }
+        }
+        //是否选中路径中的某点
+        function isInPath(p,pArr){
+            for (var i = 0, j = pArr.length; i < j; i++)
+                if (p[0] - 8 < pArr[i][0] && pArr[i][0] < p[0] + 8 && p[1] - 8 < pArr[i][1] && pArr[i][1] < p[1] + 8) {
+                    SP = i;
+                    return true;
+                }
+            return false;
+        }
+	    
+        //n阶贝赛尔曲线函数		
+        function BezierCurve(p){
+            function getPolynomial(N, p){ //展开Cn_k的多项式
+                var result = [1, N];
+                for (var i = 2, j = Math.floor(N / 2); i <= j; i++) 
+                    result[i] = (result[i - 1] * (N - i + 1)) / i;
+                while (i <= N) 
+                    result[i] = result[N - (i++)];
+                return result;
+            }
+            this.len = p.length - 1;
+            this.Cn = getPolynomial(this.len);
+            this.p = p;
+                
+            return function(t){
+                var n = this.len;
+                if(t==1) 
+                    return this.p[this.len];
+                var lt = 1 - t;
+                var s = Math.pow(lt, n), lt_t = t / lt;
+                var x = this.p[0][0] * s, y = this.p[0][1] * s;
+                for (var i = 1; i <= n; i++) {
+                    s = s / this.Cn[i - 1] * lt_t * this.Cn[i];
+                    x += this.p[i][0] * s
+                    y += this.p[i][1] * s;
+                }
+                return [x, y];
+            }
+        }
+            
+        function paint(path){
+            con.clearRect(0, 0, 900, 500);
+            con.strokeStyle = '#000';
+            con.lineWidth = 0.1;
+            con.beginPath();
+            con.moveTo(path[0][0], path[0][1]);
+            for (var i = 0,j = path.length; i < j; i++) {
+                con.arc(path[i][0], path[i][1], 2, 0, Math.PI * 2, false); //画控制点
+                con.lineTo(path[i][0], path[i][1]);
+            }
+            con.stroke();
+				
+            con.strokeStyle = '#f00';
+            con.lineWidth = 0.9;
+            con.beginPath();
+            var f = BezierCurve(vector);
+            var coor = path[0];
+            con.moveTo(coor[0],coor[1]);
+            for (var i = 0.01; i <= 1; i += 0.01) {
+                coor = f(i);
+                con.lineTo(coor[0], coor[1]);
+            }
+            coor = f(1);
+            con.lineTo(coor[0], coor[1]);
+            delete f;
+            con.stroke();
+        }
+    </script>
+</body>
+</html>

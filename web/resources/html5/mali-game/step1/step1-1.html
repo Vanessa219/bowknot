@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+
+
+<title>My first Game</title>
+
+<style type="text/css">
+body {
+	border:none 0px;
+	margin:0px;
+	padding:10px;
+	font-size : 16px;
+	background-color : #f3f3f3;
+}
+
+canvas {
+	border : 1px solid blue; 
+}
+</style>
+
+
+<script type="text/javascript">
+
+
+function init(){
+	
+	// 创建canvas，并初始化 （我们也可以直接以标签形式写在页面中，然后通过id等方式取得canvas）
+	var canvas=document.createElement("canvas");
+	canvas.width=600;
+	canvas.height=400;
+	document.body.appendChild(canvas);
+		
+	// 取得2d绘图上下文 
+	var context= canvas.getContext("2d");
+	
+	// 加载图片,加载后在context上进行绘制. (图片是异步加载,所以在onload事件里进行绘制)
+	var image = new Image();
+	image.src = "../res/bg.png";
+	image.onload=function(event){
+		var loadedImg=event.target;
+		// 将加载后的图片,绘制在画布坐标[dx,dy]处,也就是图片的左上角坐标为[dx,dy]
+		var dx=0, dy=0 ;
+		context.drawImage(loadedImg,dx,dy);
+	};
+
+}
+
+
+</script>
+
+</head> 
+<body onload="init()"> 
+
+
+</body> 
+</html>

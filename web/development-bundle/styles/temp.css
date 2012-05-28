@@ -1,0 +1,1660 @@
+.f-color-f60
+{
+	color: #f60;
+}
+.f-link-f60:link,.f-link-f60:visited,.f-link-f60 a:link,.f-link-f60 a:visited
+{
+	color: #f60;
+}
+.f-link-f60:hover .f-link-f60:active,.f-link-f60 a:hover,.f-link-f60 a:active
+{
+	color: #f60;
+}
+.f-link-6b:link,.f-link-6b:visited,.f-link-6b a:link,.f-link-6b a:visited
+{
+	color: #6B6B6B;
+}
+.f-link-6b:hover .f-link-6b:active,.f-link-6b a:hover,.f-link-6b a:active
+{
+	color: #6B6B6B;
+}
+#content
+{
+	clear: both;
+	margin: 10px 0 0 0;
+	overflow: visible;
+	zoom: 1;
+}
+#content .sidebar
+{
+	float: left;
+	margin: 0 10px 0 0;
+	width: 200px;
+}
+#content .main
+{
+	float: left;
+	width: 740px;
+}
+#content .sidebar-right
+{
+	float: right;
+	width: 200px;
+}
+#content .main .main-sidebar
+{
+	float: right;
+	margin: 0 0 0 10px;
+	width: 200px;
+}
+#content .main .main-content
+{
+	float: left;
+	width: 530px;
+}
+#header .home-link
+{
+	border-left: 1px #ccc solid;
+	display: inline;
+	float: left;
+	margin: 0 0 0 10px;
+	overflow: hidden;
+	zoom: 1;
+}
+#header .home-link a
+{
+	background: url(https://img.alipay.com/assets/i/v1/h/h1.png) no-repeat scroll 10px -240px;
+	display: block;
+	height: 17px;
+	overflow: hidden;
+	text-indent: -9999px;
+	width: 150px;
+}
+#navHelp
+{
+	margin: 12px 0 0 0;
+	position: relative;
+	z-index: 99;
+}
+.navHelp-links
+{
+	height: 34px;
+	overflow: hidden;
+	padding: 0 0 0 27px;
+	position: relative;
+	z-index: 1;
+	zoom: 1;
+}
+.navHelp-links li
+{
+	float: left;
+	margin: 0 5px 0 0;
+}
+.navHelp-links li a:link,.navHelp-links li a:visited,.navHelp-links li a:hover,.navHelp-links li a:active
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat left -80px;
+	color: #6B6B6B;
+	display: block;
+	float: left;
+	font-size: 14px;
+	height: 34px;
+	padding: 0 0 0 22px;
+}
+.navHelp-links li a strong
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat right -120px;
+	display: block;
+	float: left;
+	height: 23px;
+	padding: 11px 22px 0 0;
+	padding: 9px 22px 0 0;
+}
+.navHelp-links li.current a:link,.navHelp-links li.current a:visited,.navHelp-links li.current a:hover,.navHelp-links li.current a:active
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat left top;
+	color: #fff;
+}
+.navHelp-links li.current a strong
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat right -40px;
+}
+.navHelp-search
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat left -160px;
+	height: 54px;
+	margin: -2px 0 0 0;
+	z-index: 2;
+}
+.navHelp-search .navHelp-search-input
+{
+	float: left;
+	padding: 12px 0 0 98px;
+	width: 550px;
+}
+.navHelp-search .navHelp-search-input .i-text
+{
+	color: #666;
+	font-size: 14px;
+	height: 23px;
+	padding: 5px 0 0 5px;
+	width: 435px;
+}
+.navHelp-search .navHelp-search-input .btn
+{
+	vertical-align: 0;
+}
+.navHelp-search .navHelp-search-regional
+{
+	color: #fff;
+	float: right;
+	padding: 12px 51px 0 0;
+	text-align: right;
+	width: 240px;
+}
+.navHelp-search .navHelp-search-regional a
+{
+	color: #FF0;
+	text-decoration: underline;
+}
+.navHelp-search-keywords
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat left -214px;
+	height: 25px;
+	padding: 10px 0 0 99px;
+}
+.navHelp-search-keywords a
+{
+	color: #666;
+}
+.searchsel
+{
+	background: #FFF;
+	border: 1px solid #666;
+	display: none;
+	font-size: 12px;
+	left: 98px;
+	position: absolute;
+	text-align: left;
+	top: 73px;
+	width: 444px;
+	z-index: 1000;
+}
+.searchsel ul
+{
+	list-style: none outside;
+	margin: 0;
+	padding: 0;
+}
+.searchsel li
+{
+	height: 20px;
+}
+.searchsel li a,.searchsel li a:link,.searchsel li a:visited,.searchsel li a:hover
+{
+	text-decoration: none;
+}
+.searchsel li a span
+{
+	text-decoration: none;
+}
+.searchsel a
+{
+	color: #000;
+	cursor: hand;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	padding: 0 3px;
+	text-decoration: none;
+	width: 438px;
+}
+.searchsel span
+{
+	color: #090;
+	float: right;
+	text-decoration: none;
+}
+.searchsel span b
+{
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: none;
+}
+.f-ib
+{
+	display: inline;
+	display: inline-block;
+	display: -moz-inline-box;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+	text-indent: 0;
+	text-indent: -9999px;
+	vertical-align: middle;
+	zoom: 1;
+}
+.help-crumb
+{
+	background: #F7F8FA;
+	border-top: 1px #D2D2D2 solid;
+	padding: 7px 10px 7px 9px;
+}
+.help-crumb font
+{
+	color: #888;
+}
+.mod
+{
+	border: 1px #D2D2D2 solid;
+	border-top: none;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+.mod-title
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) 0 -441px repeat-x;
+}
+.mod-title
+{
+	height: 31px;
+	line-height: 31px;
+	overflow: hidden;
+	padding-left: 12px;
+}
+.mod-title h2
+{
+	float: left;
+}
+.mod-title a
+{
+	color: #07f;
+}
+.mod-title .link
+{
+	float: right;
+	padding-right: 15px;
+}
+.mod-content,.mod-content-np
+{
+	overflow: hidden;
+	zoom: 1;
+}
+.mod-content
+{
+	padding: 10px;
+}
+.mod-content-np
+{
+	padding: 0;
+}
+.page
+{
+	background: none;
+	border-bottom: none;
+	color: #333;
+	float: right;
+	font-family: verdana;
+	font-weight: 600;
+}
+.page a:link,.page a:visited
+{
+	font-weight: 400;
+	margin: 0 2px;
+	text-decoration: underline;
+}
+.page a:hover,.page a:active
+{
+	text-decoration: none;
+}
+.page .btn-normal-s span
+{
+	color: #878787;
+	font-weight: 400;
+}
+.PageChanger
+{
+	background: none;
+	border-bottom: none;
+	color: #333;
+	float: right;
+	font-family: verdana;
+	font-weight: 600;
+	height: 25px;
+	overflow: hidden;
+}
+.PageChanger div
+{
+	margin: 0 0 20px 0;
+}
+.PageChanger a:link,.PageChanger a:visited
+{
+	font-weight: 400;
+	margin: 0 2px;
+	text-decoration: none;
+}
+.PageChanger a:hover,.PageChanger a:active
+{
+	text-decoration: none;
+}
+.m-page-prev,.m-page-prev-active,.m-page-next,.m-page-next-active
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -800px -1140px;
+	color: #878787;
+	display: inline;
+	display: inline-block;
+	display: -moz-inline-box;
+	padding: 3px 0 5px 0;
+	padding: 5px 0 5px 0;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+	width: 50px;
+	zoom: 1;
+}
+.m-page-prev:hover,.m-page-next:hover
+{
+	color: #878787;
+}
+.m-page-prev-active,.m-page-next-active
+{
+	color: #ccc;
+	font-weight: 400;
+}
+.m-page-prev-active:hover,.m-page-next-active:hover
+{
+	color: #ccc;
+}
+.m-page-next,.m-page-next-active
+{
+	margin-left: 5px;
+}
+.tab-title li
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) 0 -360px no-repeat;
+}
+.tab-title li span
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) right -400px no-repeat;
+}
+.tab-title li.current span
+{
+	font-weight: 600;
+}
+.tab-title a,.tab-title a:hover
+{
+	color: #4D4D4D;
+	text-decoration: none;
+}
+#xbox-overlay
+{
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+}
+* html #xbox-overlay
+{
+	position: absolute;
+}
+.xbox-overlay-MacFF
+{
+	background: url(https://static.alipay.com/js/arale/source/assets/images/xbox-ff-hack.png) repeat;
+}
+.xbox-overlay-bg
+{
+	background-color: #000;
+	filter: alpha(opacity=20);
+	moz-opacity: .20;
+	opacity: .20;
+}
+#xbox-hide-select
+{
+	background-color: #fff;
+	border: none;
+	filter: alpha(opacity=0);
+	height: 100%;
+	left: 0;
+	moz-opacity: 0;
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+#xbox-mock
+{
+	background: #fff;
+	border: 6px solid #767576;
+	color: #000;
+	left: 30%;
+	overflow: hidden;
+	position: fixed;
+	text-align: left;
+	top: 16%;
+	z-index: 1002;
+}
+*html #xbox-mock
+{
+	position: absolute;
+}
+#xbox-load
+{
+	height: 13px;
+	left: 50%;
+	margin: -6px 0 0 -104px;
+	position: fixed;
+	top: 50%;
+	width: 208px;
+	z-index: 1003;
+}
+* html #xbox-load
+{
+	position: absolute;
+}
+#xbox-content
+{
+	border: 1px #6b6a6b solid;
+	height: 100%;
+	width: 100%;
+}
+#xbox-iframe
+{
+	_margin-bottom: 1px;
+	border: none;
+	clear: both;
+	height: 100%;
+	margin-bottom: -1px;
+	margin-top: 1px;
+	width: 100%;
+}
+.xbox-caption
+{
+	display: none;
+}
+.more-search .i-text
+{
+	margin: 0 0 30px 0;
+	width: 280px;
+}
+.more-search .btn
+{
+	vertical-align: 1px;
+	vertical-align: -1px;
+}
+.help-map
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat left -1200px;
+	clear: both;
+	height: 226px;
+	overflow: hidden;
+	zoom: 1;
+}
+.help-map ul
+{
+	float: left;
+	line-height: 1.5;
+	padding: 10px 0 0 10px;
+	width: 148px;
+}
+.help-map ul li strong
+{
+	color: #454545;
+}
+#help-self-way ul
+{
+	overflow: hidden;
+	padding: 3px 0 3px 3px;
+	width: 194px;
+	zoom: 1;
+}
+#help-self-way li
+{
+	float: left;
+	margin: 0 2px 3px 0;
+}
+#help-self-way li a
+{
+	background: transparent url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -800px -1100px;
+	display: block;
+	float: left;
+	height: 25px;
+	padding: 10px 0 0 0;
+	text-align: center;
+	width: 95px;
+}
+#help-self-way p
+{
+	clear: both;
+	padding: 3px 7px 7px 0;
+	text-align: right;
+}
+#help-else-way
+{
+	color: #6B6B6B;
+	line-height: 1.5;
+}
+#help-else-way ul li
+{
+	margin: 0 0 3px 0;
+	padding: 0 0 0 20px;
+}
+#help-else-way ul li.ask
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat left -918px;
+}
+#help-else-way ul li.report
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat left -958px;
+}
+#help-else-way ul li.complain
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat left -998px;
+}
+#help-else-way ul li.contact
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -400px -1029px;
+	border-top: 1px #E5E5E5 solid;
+	color: #f60;
+	margin: 10px 0 3px;
+	padding: 10px 0 0 20px;
+}
+#help-placard
+{
+	_height: auto;
+	background: #FBFBFB;
+	border: 1px #D2D2D2 solid;
+	height: 13px;
+	margin: 0 0 10px 0;
+	overflow: hidden;
+	padding: 8px 10px 8px;
+	zoom: 1;
+}
+.help-placard-ico
+{
+	_background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat left -1038px;
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat left -1038px;
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat left -1040px;
+	float: left;
+	padding: 0 0 0 18px;
+}
+.help-placard-content
+{
+	float: left;
+}
+.help-placard-content li
+{
+	height: 15px;
+	overflow: hidden;
+}
+#help-hot-question .tab-title
+{
+	float: left;
+	padding: 1px 0 0 0;
+}
+#help-hot-question .mod-content
+{
+	height: 82px;
+	overflow: hidden;
+}
+#help-hot-question .tab-content ul
+{
+	float: left;
+	width: 50%;
+}
+#help-hot-question .tab-content li
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -200px -1072px;
+	line-height: 1.8;
+	margin: 0 0 0 15px;
+	overflow: hidden;
+	padding: 0 0 0 10px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 334px;
+}
+#help-question-cate
+{
+	line-height: 1.6;
+}
+#help-question-cate dl
+{
+	float: left;
+	height: 82px;
+	overflow: hidden;
+	width: 50%;
+}
+#help-question-cate dt
+{
+	font-weight: 700;
+}
+#help-question-cate dt a:link,#help-question-cate dt a:visited
+{
+	color: #000;
+}
+#help-question-cate dd
+{
+	height: 60px;
+	overflow: hidden;
+}
+#help-question-cate dd a
+{
+	margin: 0 11px 0 0;
+}
+#help-menu #qMenu li
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -9999px -9999px;
+}
+#help-menu #qMenu
+{
+	background-color: #fff;
+	list-style: none outside;
+	margin: 0;
+	padding: 0;
+}
+#help-menu #qMenu a
+{
+	color: #333;
+}
+#help-menu #qMenu li
+{
+	background-position: 0 -480px;
+	color: #374060;
+	cursor: pointer;
+	line-height: 26px;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	text-indent: 2.5em;
+	width: 100%;
+}
+#help-menu #qMenu li.activeItem
+{
+	background-position: -500px -480px;
+	font-weight: bold;
+	line-height: 26px;
+	margin: 0;
+	padding: 0;
+	text-indent: 2.5em;
+	width: 100%;
+}
+#help-menu #qMenu li.activeItem a
+{
+	color: #F60;
+}
+#help-menu #qMenu li.activeColor a
+{
+	color: #000;
+}
+#help-menu #qMenu .qMenu2
+{
+	background-color: #fff;
+	margin: 0;
+	padding: 1px 0;
+	width: 100%;
+}
+#help-menu #qMenu .qMenu2 li
+{
+	background-position: -368px -952px;
+	cursor: auto;
+	font-weight: normal;
+	height: 21px;
+	line-height: 21px;
+	list-style: none outside;
+	text-indent: 3.5em;
+	width: 100%;
+}
+#help-menu #qMenu .qMenu2 li a
+{
+	color: #333;
+}
+#help-menu #qMenu .qMenu2 li a.activeA
+{
+	color: #F60;
+	font-weight: 700;
+}
+#help-cate-current
+{
+	background: #F7F7F7;
+	border: 1px #EEE solid;
+	margin: 10px;
+	padding: 10px 15px;
+}
+#help-cate-current ul
+{
+	overflow: hidden;
+	zoom: 1;
+}
+#help-cate-current li
+{
+	float: left;
+	margin: 5px 0;
+	width: 25%;
+}
+#help-cate-current li.current
+{
+	font-weight: 700;
+}
+#help-list-article
+{
+	margin: 0 10px 10px 10px;
+}
+#help-list-article ul li
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -391px -907px;
+	border-bottom: 1px #EAEAEA dashed;
+	font-size: 14px;
+	padding: 8px 0 8px 27px;
+}
+#help-list-article ul li a:link,#help-list-article ul li a:visited
+{
+	color: #333;
+}
+#help-list-article ul li a:hover,#help-list-article ul li a:active
+{
+	color: #999;
+}
+#help-list-article .help-page
+{
+	color: #6B6B6B;
+	padding: 10px 0 0 10px;
+}
+.help-page .else
+{
+	float: left;
+	padding: 5px 0 0 0;
+}
+.help-detail
+{
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.help-detail .detail-title
+{
+	border-bottom: 1px #E6E6E6 dashed;
+	font-size: 22px;
+	font-weight: 700;
+	padding: 30px 0 20px;
+	text-align: center;
+}
+.help-detail .detail-flow
+{
+	padding: 20px 0 20px 0;
+	text-align: center;
+}
+.help-detail .detail-content
+{
+	font-size: 14px;
+	line-height: 1.8;
+	overflow: hidden;
+	padding: 0 30px 40px;
+	width: 680px;
+}
+.detail-operate
+{
+	border-bottom: 1px #F2F2F2 solid;
+	padding: 0 30px 10px 0;
+	text-align: right;
+}
+.detail-operate .ico-print
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -200px -920px;
+	margin: 0 20px 0 0;
+	padding: 0 0 0 20px;
+}
+.detail-operate .ico-favorites
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -200px -960px;
+	padding: 0 0 0 20px;
+}
+.detail-feedback
+{
+	padding: 10px 0 0 0;
+}
+.detail-feedback .ico-square
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat 8px -1074px;
+	height: 16px;
+	width: 12px;
+}
+.detail-feedback .ico-yes
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -200px -998px;
+	height: 16px;
+	width: 16px;
+}
+.detail-feedback .ico-no
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -200px -1034px;
+	height: 16px;
+	width: 16px;
+}
+.detail-feedback .f1
+{
+	margin: 0 0 10px 0;
+}
+.detail-feedback .f2
+{
+	margin: 0 0 8px 0;
+}
+.detail-feedback .f3
+{
+	margin: 0 0 15px 0;
+	padding: 0 0 0 15px;
+}
+.detail-feedback .f3 a.help-btn:link,.detail-feedback .f3 a.help-btn:visited
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat 0 -1480px;
+	color: #0078FD;
+	cursor: pointer;
+	display: inline;
+	display: inline-block;
+	display: -moz-inline-box;
+	font-size: 12px;
+	height: 27px;
+	line-height: 100%;
+	overflow: visible;
+	padding: 0 0 0 12px;
+	position: relative;
+	text-align: left;
+	vertical-align: middle;
+	width: auto;
+	z-index: 10;
+	zoom: 1;
+}
+.detail-feedback .f3 a.help-btn:hover,.detail-feedback .f3 a.help-btn:active
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat 0 -1560px;
+	color: #FE6601;
+	text-decoration: none;
+}
+.detail-feedback .f3 a.help-btn span
+{
+	_line-height: 16px;
+	_padding: 5px 12px 7px 0;
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat right -1520px;
+	display: block;
+	float: left;
+	line-height: 12px;
+	line-height: 15px;
+	padding: 5px 12px 7px 0;
+	padding: 6px 12px 7px 0;
+	vertical-align: baseline;
+	width: auto;
+}
+.detail-feedback .f3 a.help-btn:hover span,.detail-feedback .f3 a.help-btn:active span
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat right -1600px;
+}
+.detail-feedback .f3 a.on:link,.detail-feedback .f3 a.on:visited,.detail-feedback .f3 a.on:hover,.detail-feedback .f3 a.on:active
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat 0 -1720px;
+	color: #4E4E4E;
+	font-weight: 600;
+	height: 32px;
+	margin: 6px 0 0 0;
+}
+.detail-feedback .f3 a.on span,.detail-feedback .f3 a.on:hover span,.detail-feedback .f3 a.on:active span
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat right -1780px;
+	height: 19px;
+}
+.detail-feedback .f3 a.off:link,.detail-feedback .f3 a.off:visited,.detail-feedback .f3 a.off:hover,.detail-feedback .f3 a.off:active
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat 0 -1640px;
+	color: #aaa;
+}
+.detail-feedback .f3 a.off span,.detail-feedback .f3 a.off:hover span,.detail-feedback .f3 a.off:active span
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat right -1680px;
+}
+.detail-feedback .f3 #detail-feedback-content-yes,.detail-feedback .f3 #detail-feedback-content-no
+{
+	border: 1px #D2D2D2 solid;
+	clear: both;
+	margin: -1px 0 0 0;
+	padding: 13px;
+	zoom: 1;
+}
+.detail-feedback .f3 #detail-feedback-content-yes #detail-feedback-content-yes-close,.detail-feedback .f3 #detail-feedback-content-no #detail-feedback-content-no-close
+{
+	_background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -400px -997px;
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -400px -997px;
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -400px -999px;
+	float: right;
+	margin: 0 0 0 20px;
+	padding: 0 0 0 15px;
+}
+.detail-feedback .f3 #detail-feedback-content-no label
+{
+	float: left;
+	width: 150px;
+}
+.detail-feedback .f3 #detail-feedback-content-no .submit
+{
+	clear: both;
+	margin: 10px 0 0;
+	margin: 30px 0 0;
+}
+.detail-feedback .f3 #detail-feedback-content-no #r_search
+{
+	background-color: #FA0;
+}
+.detail-feedback .f3 #detail-feedback-content-no label input
+{
+	vertical-align: -2px;
+}
+.m-mainbox
+{
+	margin: 10px 0 15px 0;
+}
+.m-mainbox h3
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat 8px -1074px;
+	display: inline;
+	font-weight: 400;
+	padding: 0 0 0 16px;
+}
+.m-mainbox p
+{
+	margin: 5px 0 0 34px;
+}
+.detail-feedback .detail-correlate
+{
+	background: #F2F2F2;
+	border: 1px #E8E8E8 solid;
+	margin: 0 0 20px 0;
+	overflow: hidden;
+	padding: 10px;
+	zoom: 1;
+}
+.detail-feedback .detail-correlate h4
+{
+	color: #4E4E4E;
+	margin: 0 0 5px 0;
+}
+.detail-feedback .detail-correlate ul
+{
+	line-height: 1.5;
+	padding: 0 0 0 10px;
+}
+.detail-feedback .detail-correlate ul li
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -200px -1072px;
+	float: left;
+	line-height: 1.6;
+	padding: 0 0 0 10px;
+	width: 45%;
+}
+.detail-feedback .detail-correlate ul li font
+{
+	color: #07F;
+}
+#task-self-entry
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg-school-new.jpg) no-repeat 0 0;
+	clear: both;
+	height: 268px;
+	overflow: hidden;
+	padding: 0;
+	zoom: 1;
+}
+#task-self-entry ul
+{
+	float: left;
+	height: 100px;
+	margin: 0;
+	padding: 20px 30px 10px 75px;
+	width: 210px;
+}
+#task-self-entry ul.last
+{
+	margin: 0;
+}
+#task-self-entry ul li.entry-title
+{
+	color: #707070;
+	height: 70px;
+	line-height: 1.5;
+}
+#task-self-entry ul li.entry-title h3
+{
+	color: #000;
+	font-size: 14px;
+}
+#task-self-entry-all
+{
+	border: 1px #D2D2D2 solid;
+	clear: both;
+	margin: 10px 0 0 0;
+	padding: 16px;
+}
+#task-self-entry-all .entry-title
+{
+	color: #000;
+	font-size: 14px;
+	font-weight: 700;
+}
+#task-self-entry-all dl
+{
+	margin: 8px 0 0 0;
+	overflow: hidden;
+	zoom: 1;
+}
+#task-self-entry-all dt
+{
+	color: #707070;
+	float: left;
+}
+#task-self-entry-all dt .erect-line
+{
+	_margin: 0 5px 0 5px;
+	color: #CCC;
+	margin: 0 11px 0 5px;
+	vertical-align: 0;
+}
+#task-self-entry-all dd
+{
+	_margin: 0;
+	margin: 0;
+	margin: 2px 0 0 0;
+}
+#task-self-entry-all dd a
+{
+	margin: 0 16px 0 0;
+}
+#task-list table th,#task-list table td
+{
+	text-align: center;
+}
+#task-list .doing
+{
+	color: #F60;
+}
+#task-list .done
+{
+	color: #391;
+}
+#task-list .title .cancel strong
+{
+	color: #F60;
+}
+#task-list p
+{
+	color: #999;
+	line-height: 1.5;
+}
+.helptable th
+{
+	background-position: 0 -1963px;
+	border-bottom: 1px solid #e8e8e8;
+	height: 32px;
+	text-align: center;
+}
+.helptable td
+{
+	border-bottom: 1px dashed #e8e8e8;
+	height: 35px;
+	text-align: center;
+}
+.helptable tr.l_sec td
+{
+	background: #f2f6fc;
+}
+.helptable tr.l_last td
+{
+	border-bottom: none;
+}
+.helptable
+{
+	border: 1px solid #DDD;
+}
+.helptable2 th
+{
+	background-position: 0 -1963px;
+	border-bottom: 1px solid #e8e8e8;
+	height: 32px;
+	text-align: center;
+}
+.helptable2 td
+{
+	border-bottom: 1px solid #e8e8e8;
+	border-left: 1px solid #e8e8e8;
+	height: 35px;
+	padding-left: 5px;
+}
+.helptable2 tr.l_sec td
+{
+	background: #f2f6fc;
+}
+.helptable2 tr.l_last td
+{
+	border-bottom: none;
+}
+.helptable2
+{
+	border: 1px solid #DDD;
+}
+em.SuccessMsg
+{
+	background: #F5FAEF url(https://img.alipay.com/assets/i/base/icon/info_16.png) no-repeat scroll 6px -596px;
+	background-color: transparent;
+	border: medium none;
+	font-style: normal;
+	font-weight: bold;
+	line-height: 24px;
+	margin-bottom: 10px;
+	margin-top: 5px;
+	padding: 6px 5px 6px 25px;
+	text-indent: 0;
+}
+#school-new
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat 0 -520px;
+	height: 98px;
+	overflow: hidden;
+	padding: 25px 0 0 280px;
+	width: 670px;
+}
+#school-new div
+{
+	color: #666;
+	font-size: 14px;
+	margin: 0 0 20px 0;
+}
+#school-new div em
+{
+	_vertical-align: -10px;
+	border-top: 1px #ddd solid;
+	display: inline;
+	display: inline-block;
+	display: -moz-inline-box;
+	height: 1px;
+	margin: 0 3px;
+	overflow: visible;
+	text-indent: -9999px;
+	vertical-align: middle;
+	width: 8px;
+	zoom: 1;
+}
+#school-new div a.btn:link,#school-new div a.btn:visited
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat 0 -1480px;
+	color: #0078FD;
+	cursor: pointer;
+	display: inline;
+	display: inline-block;
+	display: -moz-inline-box;
+	font-size: 14px;
+	height: 27px;
+	line-height: 100%;
+	overflow: visible;
+	padding: 0 0 0 12px;
+	position: relative;
+	text-align: left;
+	vertical-align: middle;
+	width: auto;
+	z-index: 10;
+	zoom: 1;
+}
+#school-new div a.btn:hover,#school-new div a.btn:active
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat 0 -1560px;
+	color: #FE6601;
+	text-decoration: none;
+}
+#school-new div a.btn span
+{
+	_line-height: 16px;
+	_padding: 7px 12px 5px 0;
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat right -1520px;
+	display: block;
+	float: left;
+	line-height: 12px;
+	line-height: 15px;
+	padding: 6px 12px 7px 0;
+	padding: 9px 12px 6px 0;
+	vertical-align: baseline;
+	width: auto;
+}
+#school-new div a.btn:hover span,#school-new div a.btn:active span
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat right -1600px;
+}
+#school-new ul
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat 0 -680px;
+	height: 22px;
+	margin: 0 0 9px 0;
+	overflow: hidden;
+	padding: 8px 0 0 20px;
+	width: 549px;
+}
+#school-new ul.school-gathering
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat 0 -720px;
+}
+#school-new ul.school-life
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat 0 -760px;
+}
+#school-new ul li
+{
+	float: left;
+	margin: 0 48px 0 0;
+}
+#school-new .more
+{
+	display: block;
+	position: absolute;
+	right: 13px;
+	top: 100px;
+}
+#school-train
+{
+	border: 1px #D2D2D2 solid;
+	margin: 10px 0 0 0;
+	overflow: hidden;
+	position: relative;
+	zoom: 1;
+}
+#school-train .school-train-bg
+{
+	background: #F7F7F7 url(https://img.alipay.com/assets/i/cn/helpPa/school-train-bg.jpg) no-repeat 0 243px;
+	border-right: 1px #D2D2D2 solid;
+	height: 330px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 197px;
+	z-index: 1;
+}
+#school-train .train-left
+{
+	float: left;
+	position: relative;
+	width: 198px;
+	z-index: 2;
+}
+#school-train .train-left ul
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -795px -645px;
+	height: 290px;
+	overflow: hidden;
+	padding: 40px 0 0 0;
+}
+#school-train .train-left ul li a
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -200px -1440px;
+	color: #4D4D4D;
+	display: block;
+	height: 27px;
+	padding: 13px 0 0 25px;
+	text-decoration: none;
+	width: 175px;
+}
+#school-train .train-left ul li.current a
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -00px -1440px;
+	font-size: 14px;
+	font-weight: 600;
+}
+#school-train .train-right
+{
+	float: left;
+	height: 300px;
+	overflow: hidden;
+	padding: 20px 30px 0 20px;
+	width: 690px;
+}
+#school-train .train-right dl
+{
+	line-height: 1.5;
+	margin: 0 0 15px 0;
+}
+#school-train .train-right dt
+{
+	font-weight: 700;
+}
+#school-train .train-right .ico-square
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat 8px -1074px;
+	height: 16px;
+	margin: 0 6px 0 0;
+	width: 10px;
+}
+#school-train .train-right dd
+{
+	padding: 0 0 0 16px;
+}
+#mutual-week .mod-content
+{
+	_height: 177px;
+	_padding-top: 8px;
+	background: url(https://img.alipay.com/images/cms2/200911/20091110077238.png) no-repeat 8px 14px;
+	height: 184px;
+	height: 186px;
+	line-height: 18px;
+	overflow: hidden;
+	padding-top: 10px;
+	padding-top: 8px;
+}
+#mutual-week ul li
+{
+	list-style: none outside;
+	margin: 0 0 0 15px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 160px;
+}
+#mutual-pro
+{
+	line-height: 1.5;
+}
+#mutual-pro .c-avatar li
+{
+	clear: both;
+	overflow: hidden;
+	zoom: 1;
+}
+#mutual-pro .c-avatar li.l1
+{
+	margin: 0 0 10px 0;
+}
+#mutual-pro .c-avatar div
+{
+	float: left;
+	height: 72px;
+	margin: 0 10px 0 0;
+	width: 72px;
+}
+#mutual-pro .c-avatar div img
+{
+	border: 1px #DDD solid;
+	height: 70px;
+	width: 70px;
+}
+#mutual-askbar
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -64px -801px;
+	border: 1px #D2D2D2 solid;
+	font-size: 14px;
+	padding: 10px 0;
+	text-align: center;
+}
+#mutual-askbar strong
+{
+	color: #391;
+}
+#mutual-askbar .btn-normal
+{
+	margin: 10px 0 0 0;
+}
+#mutual-cate .mod-content-np
+{
+	height: 502px;
+	height: 505px;
+	overflow: hidden;
+}
+#mutual-cate dl
+{
+	line-height: 1.5;
+	margin: 7px 10px;
+}
+#mutual-cate dt
+{
+	color: #000;
+	font-weight: 700;
+}
+#mutual-cate dt a:link,#mutual-cate dt a:hover
+{
+	color: #000;
+}
+#mutual-iask
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat left -800px;
+	height: 86px;
+	margin: 0 0 10px 0;
+	width: 530px;
+}
+#mutual-iask .mutual-iask-left
+{
+	float: left;
+	padding: 23px 0 0 70px;
+}
+#mutual-iask .mutual-iask-right
+{
+	float: right;
+	padding: 23px 25px 0 0;
+}
+#mutual-iask strong
+{
+	font-family: simhei;
+	font-size: 20px;
+	font-weight: 400;
+}
+#mutual-answer,#mutual-question
+{
+	line-height: 1.5;
+}
+#mutual-answer li,#mutual-question li
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -200px -1072px;
+	line-height: 1.6;
+	padding: 0 0 0 10px;
+}
+#mutual-search .title
+{
+	margin-top: 10px;
+}
+#mutual-search .title div
+{
+	padding: 5px 0 0 0;
+}
+#mutual-search .title div strong
+{
+	color: #349A13;
+}
+#mutual-search .title div span
+{
+	color: #FB6600;
+	font-weight: 600;
+}
+#mutual-search .sch-list
+{
+	padding: 10px;
+	width: 600px;
+}
+#mutual-search .sch-list li
+{
+	line-height: 1.5;
+	margin: 0 0 24px 0;
+}
+#mutual-search .sch-list li h4
+{
+	font-size: 14px;
+	font-weight: 400;
+}
+#mutual-search .sch-list li h4 a
+{
+	color: #2300D0;
+	text-decoration: underline;
+}
+#mutual-search .sch-list li a font
+{
+	color: #C60A00;
+	text-decoration: underline;
+}
+#mutual-search .sch-list li p font
+{
+	color: #C60A00;
+}
+#more-search
+{
+	background: #F2F2F2;
+	border: 1px #E8E8E8 solid;
+	clear: both;
+	height: 37px;
+	margin: 15px 0;
+	overflow: hidden;
+	padding: 5px 10px 10px 10px;
+	position: relative;
+	zoom: 1;
+}
+#more-search .more-search-title
+{
+	font-weight: 600;
+	left: 20px;
+	position: absolute;
+	top: 8px;
+}
+#more-search .more-search-title h4
+{
+	color: #4D4D4D;
+}
+#more-search ul
+{
+	padding: 0 0 0 120px;
+}
+#more-search ul li
+{
+	float: left;
+	line-height: 1.8;
+	width: 20%;
+}
+#more-search ul li a
+{
+	display: inline-block;
+	height: 18px;
+	overflow: hidden;
+	width: 8em;
+}
+#mutual-common-list
+{
+	overflow: hidden;
+	width: 198px;
+	word-wrap: break-word;
+}
+#mutual-common-list ul li
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/bg.png) no-repeat -200px -1072px;
+	line-height: 1.5;
+	padding: 3px 0 3px 10px;
+}
+#mutual-common-list ul li a font
+{
+	color: #C60A00;
+}
+#mutual-common-list p
+{
+	clear: both;
+	padding: 3px 7px 0 0;
+	text-align: right;
+}
+#mutual-common-list p a
+{
+	color: #07F;
+}
+#loadMoreCnt
+{
+	display: block;
+	overflow: hidden;
+	padding-right: 1px;
+	position: relative;
+	text-align: center;
+	top: -60px;
+	width: auto;
+}
+#loadMoreCnt span
+{
+	width: 704px;
+}
+#loadNext
+{
+	float: right;
+	margin-bottom: 15px;
+}
+.helpCounter
+{
+	display: inline;
+	float: right;
+}
+.helpCounter .helpNum
+{
+	color: red;
+	padding: 0 2px;
+}
+.PageChanger,#loadNext
+{
+	float: left;
+	margin-bottom: 0;
+	position: relative;
+	top: -40px;
+}
+.noAnswer
+{
+	font-size: 14px;
+}
+#loadMoreCnt
+{
+	margin-bottom: 0;
+}
+.sch-list
+{
+	margin-bottom: 25px;
+}
+#more-search
+{
+	margin-top: 0;
+	margin-top: -20px;
+}
+.suggestBox
+{
+	background: #eff8df;
+	border-radius: 4px;
+	margin-bottom: 20px;
+	padding: 20px;
+	position: relative;
+}
+.suggestBox .icon
+{
+	background: url(https://img.alipay.com/assets/i/cn/helpPa/suggestAnswer.png) no-repeat 0 0;
+	height: 26px;
+	position: absolute;
+	right: 5px;
+	top: -3px;
+	width: 116px;
+}
+.suggestBox img
+{
+	float: left;
+	margin-right: 15px;
+}
+.suggestBox h2
+{
+	color: #07F;
+	font-size: 15px;
+	margin-bottom: 9px;
+}
+.suggestBox p
+{
+	margin-bottom: 9px;
+}
+.type1 h2
+{
+	position: relative;
+	top: -60px;
+	zoom: 1;
+}
+.type1 img
+{
+	float: none;
+	position: relative;
+	top: 20px;
+}
+.type1 textarea,.type2 textarea
+{
+	display: none;
+}

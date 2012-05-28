@@ -1,0 +1,75 @@
+/* 
+    Document   : default-adapter
+    Author     : Vanessa
+    Version    : 0.0.0.1
+    Description:
+        Adapter style for paginate.
+*/
+.paginate-paginate {
+	line-height: 22px;
+        height: 50px;
+}
+
+.paginate-paginate div, .paginate-paginate span {
+    color: #005982;
+    float: left;
+    padding: 0 4px;
+}
+
+.paginate-prePage, .paginate-nextPage, .paginate-prePageHover, .paginate-nextPageHover,
+.paginate-prePageDisable, .paginate-nextPageDisable {
+    border: 1px solid #DDDDDD;
+    cursor: pointer;
+    margin: 0 3px;
+}
+
+.paginate-prePageDisable, .paginate-nextPageDisable {
+    cursor: auto;
+    color: #DDDDDD;
+}
+
+.paginate-prePage {
+    color: #000000;
+}
+
+.paginate-nextPage {
+    color: #000000;
+}
+
+.paginate-prePageHover {
+    background-color: #EEEEEE;
+    color: #000000;
+}
+
+.paginate-nextPageHover {
+    background-color: #EEEEEE;
+    color: #000000;
+}
+
+.paginate-pageCount {
+
+}
+
+.paginate-inputPage {
+    width: 20px;
+}
+
+.paginate-goPage {
+    
+}
+
+.paginate-goPageHover {
+
+}
+
+.pagination-pages {
+    padding: 0 8px;
+    color: #666666;
+    cursor: pointer;
+}
+
+.pagination-current-page {
+    color: #005982;
+    font-weight: bold;
+    text-decoration: underline;
+}

@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+
+
+<title>My first Game</title>
+
+<style type="text/css">
+body {
+	border:none 0px;
+	margin:0px;
+	padding:10px;
+	font-size : 16px;
+	background-color : #f3f3f3;
+}
+
+canvas {
+	border : 1px solid blue; 
+}
+</style>
+
+
+<script type="text/javascript">
+
+//一个简单的图片加载函数,  callback为当所有图片加载完毕后的回调函数.
+function loadImage(srcList,callback){
+	var imgs={};
+	var totalCount=srcList.length;
+	var loadedCount=0;
+	for (var i=0;i<totalCount;i++){
+		var img=srcList[i];
+		var image=imgs[img.id]=new Image();		
+		image.src=img.url;
+		image.onload=function(event){
+			loadedCount++;
+		}		
+	}
+	if (typeof callback=="function"){
+		var Me=this;
+		function check(){
+			if (loadedCount>=totalCount){
+				callback.apply(Me,arguments);
+			}else{		
+				setTimeout(check,100);
+			}	
+		}
+		check();
+	}
+	return imgs;
+}
+
+var ImgCache=null;
+var canvas=null;
+var context=null;
+
+function init(){
+	
+	// 创建canvas，并初始化 （我们也可以直接以标签形式写在页面中，然后通过id等方式取得canvas）
+	canvas=document.createElement("canvas");
+	canvas.width=600;
+	canvas.height=400;
+	document.body.appendChild(canvas);
+		
+	// 取得2d绘图上下文 
+	context= canvas.getContext("2d");
+	
+	//将加载的所有图片存入ImgCache, 图片加载完成后, 调用startDemo
+	ImgCache=loadImage( [ 
+			{ 	id : "player",
+				url : "../res/player.png"
+			},
+			{ 	id : "bg",
+				url : "../res/bg.png"
+			}
+		], 
+		startDemo );
+
+}
+
+function startDemo(){
+
+	// 绘制背景
+	var dx=0, dy=0 ;
+	context.drawImage(ImgCache["bg"],dx,dy);	
+
+	//绘制站在地上的player, 坐标为200,284
+	var sx=0, sy=60, sw=50, sh=60;
+	var dx=400, dy=284, dw=50, dh=60;
+	context.drawImage(ImgCache["player"], sx, sy, sw, sh, dx, dy, dw, dh );	
+
+}
+
+
+	
+</script>
+
+</head> 
+<body onload="init()"> 
+
+
+</body> 
+</html>

@@ -1,0 +1,100 @@
+/*
+    Document   : tabs form
+    Author     : Liyuan Li
+    Version    : 0.0.0.3
+    Description: Tabs style for form.
+*/
+/* tab nav */
+.tabs-tabs-bg-form {
+    background: url(../images/tabs-form.png) repeat-x 0px -99px;
+}
+
+.tabs-nav-form {
+    height: 33px;
+    list-style: none outside none;
+}
+
+.tabs-nav-form, .tabs-nav-form li {
+    margin: 0;
+    padding: 0;
+}
+
+.tabs-nav-form li {
+    float: left;
+}
+
+.tabs-close-icon-form {
+    height: 8px;
+    width: 9px;
+    background-image: url("../images/tabs-default.png");
+    float: left;
+    margin-top: 4px;
+    line-height: 8px;
+    font-size: 0px;
+}
+
+.tabs-left-selected-form, .tabs-right-selected-form, .tabs-left-form,
+.tabs-right-form, .tabs-left-selected-right-form, .tabs-left-right-form,
+.tabs-left-right-selected-form, .tabs-middle-selected-form, .tabs-middle-form {
+    background-image: url("../images/tabs-form.png");
+    height: 33px;
+    float: left;
+}
+
+.tabs-left-selected-form {
+    width:5px;
+}
+
+.tabs-left-form {
+    background-position: -52px 0;
+    width: 5px;
+}
+.tabs-right-form {
+    background-position: -19px 0;
+    width: 5px;
+}
+
+.tabs-left-selected-right-form {
+    background-position: -6px 0;
+    width: 10px;
+}
+
+.tabs-left-right-form {
+    background-position: -33px 0;
+    width: 10px;
+}
+
+.tabs-right-selected-form {
+    background-position: -26px 0;
+    width: 5px;
+}
+
+.tabs-left-right-selected-form {
+    background-position: -42px 0;
+    width: 10px;
+}
+
+.tabs-middle-selected-form, .tabs-middle-form {
+    cursor: pointer;
+}
+
+.tabs-middle-selected-form {
+    background-position: 0px -33px;
+    height: 23px;
+    padding: 10px 3px 0
+}
+
+.tabs-middle-form {
+    background-position: 0px -66px;
+    height: 21px;
+    padding: 12px 3px 0;
+}
+
+
+/* tabs content*/
+.tabs-content-form {
+    border: 1px solid #4B95C8;
+    overflow: auto;
+    border-top-width: 0px;
+     padding: 12px;
+}

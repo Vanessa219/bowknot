@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Paginate Demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/paginate-adapter.css" />
+        <link type="text/css" rel="stylesheet" href="../../styles/docs-default.css" />
+        <script type="text/javascript" src="../../js/lib/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../../js/lib/paginate.js"></script>
+    </head>
+    <body>
+        <div class="demo">
+            <div>
+                <h2>Default and Current Page</h2>
+                <button onclick="update()">Update</button>
+                <div class="clear"></div>
+                <div id="paginationDemo1" style="margin: 12px 0;"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="code">
+                <div>
+                    <h2><span id="htmlCodeTitle"></span>HTML Code</h2>
+                    <textarea id="htmlCodeContent" readonly rows="14" cols="88" class="none">
+                    </textarea>
+                </div>
+                <div>
+                    <h2><span id="jsCodeTitle"></span>JavaScript Code</h2>
+                    <textarea readonly rows="57" id="jsCodeContent" cols="88" class="none">
+                    </textarea>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $("#paginationDemo1").paginate({
+                "bind": function(currentPage) {
+                    console.log(currentPage);
+                    return true;
+                },
+                "currentPage": 1,
+                "errorMessage": "input error",
+                "nextPageText": "next page",
+                "previousPageText": "previous page",
+                "goText": "go to",
+                "pageCount": 5,
+                "type": "custom",
+                "custom": [1, 2, 3]
+            });
+        </script>
+    </body>
+</html>

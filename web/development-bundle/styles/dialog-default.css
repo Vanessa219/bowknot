@@ -1,0 +1,126 @@
+/*
+    Document   : dialog default
+    Author     : Liyuan Li
+    Version    : 0.0.0.5
+    Description:
+        Default style for dialog.
+*/
+.dialog-background {
+    height: 100%;
+    left: 0;
+    opacity: .3;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    filter: alpha(opacity=30);
+    display: none;
+    background-color: #000000;
+}
+
+.dialog-panel {
+    position: absolute;
+    z-index: 100;
+    display: none;
+}
+
+.dialog-title {
+    float: left;
+    line-height: 27px;
+    margin-left: 3px;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+
+.dialog-header-bg, .dialog-close-icon, .dialog-close-icon-hover,
+.dialog-header-left, .dialog-header-right, .dialog-footer span {
+    background-image: url("../images/dialog-default.gif");
+    background-repeat: no-repeat;
+}
+
+.dialog-header-left {
+    float: left;
+    height: 28px;
+    width: 4px;
+}
+
+.dialog-header-middle {
+    float: left;
+}
+
+.dialog-header-right {
+    float: right;
+    height: 28px;
+    width: 4px;
+    background-position: 0px -28px;
+}
+
+.dialog-header-bg {
+    background-position: 0 -56px;
+    float: left;
+    height: 28px;
+    background-repeat:repeat;
+    cursor: move;
+}
+
+.dialog-close-icon {
+    background-position: -15px 0;
+    cursor: pointer;
+    float: right;
+    height: 18px;
+    margin: 5px 3px 0 0;
+    width: 18px;
+}
+
+.dialog-close-icon:hover {
+    background-position: -15px -18px;
+}
+
+.dialog-main {
+    border: 1px solid #4A95C9;
+    border-top-width: 0px;
+    padding: 12px;
+    background-color: #F2F9FD;
+}
+
+.dialog-footer {
+    float: right;
+}
+
+.dialog-footer a {
+    cursor: pointer;
+}
+
+.dialog-footer a span {
+    background-position: 0 -84px;
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-size: 12px;
+    height: 26px;
+    letter-spacing: 12px;
+    line-height: 25px;
+    margin-left: 12px;
+    padding: 0 5px 0 17px;
+}
+
+.dialog-footer a:hover span {
+    background-position: 0 -110px;
+    color: #005F97;
+}
+
+.dialog-footer a span.dialog-button-right {
+    background-position: -99px -84px;
+    display: block;
+    height: 26px;
+    margin-left: 0;
+    padding: 0;
+    width: 3px;
+}
+
+.dialog-footer a:hover span.dialog-button-right {
+    background-position: -99px -110px;
+}
+
+.dialog-clear {
+    clear:both;height:0px;font-size:0px;line-height:0px;overflow: hidden;border: 0px;background-color: transparent;display: block;
+}

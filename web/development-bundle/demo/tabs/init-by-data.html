@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tabs Demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/tabs-default.css" />
+        <link type="text/css" rel="stylesheet" href="../../styles/tabs-form.css" />
+        <link type="text/css" rel="stylesheet" href="../../styles/docs-default.css" />
+        <script type="text/javascript" src="../../js/lib/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../../js/lib/tabs.js"></script>
+        <script type="text/javascript" src="../../js/demos.js"></script>
+    </head>
+    <body>
+        <div class="demo">
+            <div>
+                <h2>Init by Data</h2>
+                <button onclick="getTabsLength();" class="marginTop12 marginBottom12">get tabs length</button>
+                <button onclick="setFirstTab();" class="marginTop12 marginBottom12">first tab is current tab</button>
+                <button onclick="destroyTabs();" class="marginTop12 marginBottom12">destroy tabs</button>
+                <button onclick="bindClick();" class="marginTop12 marginBottom12">bind click event at first tab</button>
+                <button onclick="unbindClick();" class="marginTop12 marginBottom12">unbind click event at first tab</button>
+                <button onclick="removeCurrentTab();" class="marginTop12 marginBottom12">remove current tab</button>
+                <button onclick="updateTab();" class="marginTop12 marginBottom12">update current tab</button>
+                <button onclick="updateHeight();" class="marginTop12 marginBottom12">update height</button>
+                <button onclick="removeFirstTab();" class="marginTop12 marginBottom12">remove first tab</button>
+                <br/>
+                <button onclick="addTab();" class="">Add Tab</button>
+                <input id="contentId"/>(tab id)
+                <br/>
+                <br/>
+                <div id="tabs">
+                </div>
+                <br/>
+                <br/>
+            </div>
+            <div class="code">
+                <div>
+                    <h2><span id="htmlCodeTitle"></span>HTML Code</h2>
+                    <textarea id="htmlCodeContent" readonly rows="2" cols="88" class="none">
+                    </textarea>
+                </div>
+                <div>
+                    <h2><span id="jsCodeTitle"></span>JavaScript Code</h2>
+                    <textarea readonly rows="23" id="jsCodeContent" cols="88" class="none">
+                    </textarea>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var index = 0;
+            $("#tabs").tabs({
+                "height": 280,
+                "data": [{
+                        "id": "newFile",
+                        "text": "新建的远程收文文档",
+                        "url": "init-by-HTML.html",
+                        "altCount": 6
+                    }],
+                "size": 3,
+                "close": function (data) {
+                    if (confirm("Save and do not close this tab?")) {
+                        alert("save...");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                },
+                "add": function (data) {
+                    alert(data.id);
+                    return true;
+                },
+                "load": function () {
+                    alert("loaded");
+                },
+                "bind":[{
+                        "type": "click",
+                        "action": function (event, data) {
+                            alert("mouseover: " + data.id);
+                        }
+                    }],
+                "closeSyn": false
+            });
+
+            var addTab = function () {
+                index++;
+                $("#tabs").tabs("add", {
+                    "altCount":7,
+                    "id": $("#contentId").val(),
+                    "isClose": true,
+                    "text": "Vanessa" + index,
+                    "content": index + ": Hello, I'm Vanessa. Follow me on <a href='http://vanessa.b3log.org'>http://vanessa.b3log.org</a> and let's kill IE 6."
+                }, 2);
+            }
+
+            var getTabsLength = function () {
+                alert($("#tabs").tabs("length"));
+            }
+
+            var setFirstTab = function () {
+                $("#tabs").tabs("select", "newFile");
+            }
+
+            var destroyTabs = function () {
+                $("#tabs").tabs("destroy");
+            }
+            
+            var unbindClick = function () {
+                $("#tabs").tabs("unbind", "click", "newFile");
+            }
+
+            var bindClick = function () {
+                $("#tabs").tabs("bind", [{
+                        "type": "click",
+                        "action": function (event) {
+                            alert("bind event id:" + event.data.data.id);
+                        }
+                    }], "newFile");
+            }
+
+            var removeCurrentTab = function () {
+                $("#tabs").tabs("remove", $("#tabs").tabs("getTab").id);
+            }
+
+            var updateTab = function () {
+                $("#tabs").tabs("update", {
+                    "text": "新建的远程收文文档",
+                    "altCount": 5,
+                    "url": "../paginate/paginate.html"
+                }, "newFile");
+            }
+
+            var updateHeight = function () {
+                $("#tabs").tabs("update", {
+                    "height": 100
+                });
+            }
+
+            var removeFirstTab = function () {
+                $("#tabs").tabs("remove", "newFile");
+            }
+        </script>
+        <script type="text/javascript" src="../../js/demos.js"></script>"
+    </body>
+</html>

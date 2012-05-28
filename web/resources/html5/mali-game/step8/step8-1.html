@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+
+
+<title>My first Game</title>
+
+<script type="text/javascript" src="./Base.js"></script>
+<script type="text/javascript" src="./Animation.js"></script>
+<script type="text/javascript" src="./Sprite.js"></script>
+<script type="text/javascript" src="./Game.js"></script>
+
+<script type="text/javascript" src="./player.js"></script>
+<script type="text/javascript" src="./enemy.js"></script>
+
+<style type="text/css">
+body {
+	border:none 0px;
+	margin:0px;
+	padding:10px;
+	font-size : 16px;
+	background-color : #f3f3f3;
+}
+
+canvas {
+	border : 1px solid blue; 
+}
+
+
+</style>
+
+
+<script type="text/javascript">
+// 页面初始化函数
+function init(){
+	
+	
+	//加载图片,并存入全局变量 ImgCache, 
+	// 加载完成后,调用startDemo
+	ImgCache=loadImage( [ 
+			{ 	id : "player",
+				url : "../res/player.png"
+			},
+			{ 	id : "enemy",
+				url : "../res/enemy.png"
+			},
+			{ 	id : "bg",
+				url : "../res/bg.png"
+			}
+		], 
+		startDemo );
+
+}
+
+
+//定义游戏所用 按键的keyCode的常量
+var Key={
+	A : 65,	
+	W : 87,
+	D : 68
+}
+
+
+
+var game=new Game({
+	FPS : 30,
+	width : 600,
+	height : 400,
+	sprites : [ ]
+
+});
+
+
+// Demo的启动函数
+function startDemo(){
+	
+	//加入马里奥
+	game.sprites.push(createPlayer());
+	
+	//加入五个敌人
+	for(var i=0;i<5;i++){
+		game.sprites.push(createEnemy());
+	}
+	
+	game.init();
+	game.start();
+
+}
+
+	
+</script>
+
+</head> 
+<body onload="init()"> 
+
+<div id="statebar" style="font-size:24px; position:absolute; top:10px; left:280px;" >
+Time : <span id="timeCount"></span>
+</div>
+
+</body> 
+</html>

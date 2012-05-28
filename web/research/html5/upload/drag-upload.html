@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>文件拖拽</title>
+        <meta charset="UTF-8">
+        <style type="text/css">
+            html, body {
+                overflow: hidden;
+            }
+
+            .bg, .bg-over {
+                background: url("$bimgServer/img/sys/ecmng/bg-nav.png") repeat-x scroll 0 0 #F2F2F2;
+                border: 3px solid #CCCCCC;
+                height: 265px;
+                overflow: hidden;
+                padding: 5px;
+                width: 265px;
+                border-radius: 12px 12px 12px 12px;
+            }
+
+            .bg-over {
+                background: none repeat scroll 0 0 #EEEEEE;
+                box-shadow: 2px 2px 5px #777777;
+                color: #D54E21;
+            }
+
+            .loading {
+                background: url("$bimgServer/img/sys/ecmng/ajax-loader.gif") no-repeat scroll center center #F3F7FD;
+            }
+
+            #tip {
+                color: #D54E21;
+                font-size: 12px;
+                width: 263px;
+            }
+
+            #files {
+                font-size: 12px;
+                height: 197px;
+                margin: 0;
+                overflow: auto;
+                padding: 12px 24px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content" class="bg">
+            将文件拖拽至此处
+            <ul id="files"></ul>
+            <div id="tip"></div>
+        </div>
+        <script type="text/javascript">                    
+            var dragOver = function (event) {
+                event.stopPropagation();
+                event.preventDefault(); 
+                this.className = "bg-over";
+            };
+            
+            var dragLeave = function (event) {
+                event.stopPropagation();
+                event.preventDefault(); 
+                this.className = "bg";
+            };
+            
+            var drop = function (event) {
+                event.stopPropagation();
+                event.preventDefault(); 
+                this.className = "bg";
+
+                var files = event.dataTransfer.files;
+                for (var i = 0; i < files.length; i++) {
+                    if (files[i].type === "image/png" ||
+                        files[i].type === "image/jpg" ||
+                        files[i].type === "image/jpeg" ||
+                        files[i].type === "image/gif" ||
+                        files[i].type === "application/x-shockwave-flash") {
+                        if (files[i].size > 10485760) {
+                            // 10 M
+                            tip.innerHTML = "请上传小于 10 兆的文件";
+                        } else {
+                            uploadFile(files[i]);
+                            tip.innerHTML = "";
+                        }
+                    } else {
+                        tip.innerHTML = "请上传格式为 JPG, JPEG, GIF, PNG, SWF 的文件";
+                    }
+                }
+        
+            };
+            
+            var content = document.getElementById("content"),
+            tip = document.getElementById("tip");
+            content.addEventListener("dragover", dragOver, false);
+            content.addEventListener("dragleave", dragLeave, false);
+            content.addEventListener("drop", drop, false);
+            
+            // upload file
+            var uploadFile = function(file) {
+                var postAction = "your action";
+                // Firefox 3.6, Chrome 6, WebKit
+                if(window.FileReader) { 
+                    // Once the process of reading file
+                    this.loadEnd = function() {
+                        content.className = "bg loading";
+                        
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('POST',postAction, true);
+				
+                        var formData = new FormData();
+                        formData.append('upload', file);
+                        xhr.send(formData);
+                        
+                        xhr.onload = function () {
+                            var result = JSON.parse(xhr.responseText);
+                            // append current window
+                            var li = document.createElement("li");
+                            li.innerHTML = "<img src=" + file.getAsDataURL() + " title='" + file.name + "' />" ;
+                            document.getElementById("files").appendChild(li);
+                            tip.innerHTML = "";
+                            content.className = "bg";
+                        };
+                    };
+                    
+                    var reader = new FileReader();
+                    // Firefox 3.6, WebKit
+                    if(reader.addEventListener) { 
+                        reader.addEventListener('loadend', this.loadEnd, false);		
+                    } else { 
+                        reader.onloadend = this.loadEnd;
+                    }
+                    reader.readAsBinaryString(file);
+                    // Safari 5 does not support FileReader
+                } else {
+                    content.innerHTML = "该浏览器不支持，请返回父页面使用文件上传功能！"
+                }				
+            };
+        </script>
+    </body>
+</html>

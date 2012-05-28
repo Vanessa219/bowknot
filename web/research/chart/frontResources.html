@@ -1,0 +1,336 @@
+##前端服务监控区块开始
+<!-- 前端服务监控区块结束 -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script charset="utf-8" language="javascript" type="text/javascript" src="protovis.min.js"></script>
+<script charset="utf-8" language="javascript" type="text/javascript" src="data.js"></script>
+<div id="panel">
+    <div id="ipanel" class="container_12 fn-clear">
+        <div id="chart-tab" class="fn-clear index-panel radius5 xf">
+            <div class="index-li grid_2">
+                <ul>
+                    <li><a href="?type=imgMmonitor" class="img#if(${type}=='imgMmonitor'|| $stringUtil.isEmpty(${type})) current #end">图片监控</a></li>
+                    <li><a href="?type=jsMmonitor" class="js#if(${type}=='jsMmonitor') current #end">JS 监控</a></li>
+                    <li><a href="?type=cssMmonitor" class="css#if(${type}=='cssMmonitor') current #end">CSS 监控</a></li>
+                </ul>
+            </div><!-- #index-li -->
+            <div class="content">
+                <div id="img-monitor" class="chart-tab-cnt">
+                    <div class="sub-panel radius5">
+                        <div class="title monitor-period">
+                            <h3>
+		                            #if(${type}=='imgMmonitor'|| $stringUtil.isEmpty(${type}))图片监控 #end
+		                            #if(${type}=='jsMmonitor')JS 监控 #end
+		                            #if(${type}=='cssMmonitor')CSS监控 #end
+
+                                <span>
+                                    #set($kbsize = $size/1024)
+								    资源总数<span class="t-pink">$count</span>
+									文件大小总计<span class="t-pink">$kbsize kb</span>
+                                </span>
+                            </h3>
+                            <div>
+                                <p>
+                                    <b>资源监控</b>，阐述的是从用户浏览器的角度访问支付宝所有应用时涉及到的静态资源，按照文件大小和请求次数分配，为优化性能提供依据。
+                                </p>
+                                <ul>
+                                    <li>
+                                        1). 图片监控，列出用户访问支付宝时所有图片资源地址和大小。
+                                    </li>
+                                    <li>
+                                        2). css监控，列出用户访问支付宝时所有样式资源地址和大小。
+                                    </li>
+                                    <li>
+                                        3). js监控，列出用户访问支付宝时所有脚本资源地址和大小。
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="fn-clear">
+                            <ul id="navTabs">
+                                <li><div data-index="resources">资源访问概况</div></li>
+                                <li><div data-index="not">404 未找到</div></li>
+                                <li><div data-index="size">文件大小 TOP30</div></li>
+                            </ul>   
+                        </div>
+                        <div class="i-sub-panel" id="navTabsContent">
+                            <div class="i-sub-panel-item sunburst" id="navTabs_resources">
+                                <div class="change-data">
+                                    <a onclick="changeData('size', this)" href="javascript:void(0)" class="cur">文件大小</a>
+                                    <br/>   <br/>
+                                    <a onclick="changeData('time', this)" href="javascript:void(0)">请求次数</a>
+                                </div>
+                                <dl class="explanation">
+                                    <dt><b>旭日图(Sunbursts)</b></dt>
+                                    <dd>一种圆环镶接图，可以表达清晰的层级或归属关系.</dd>
+                                    <dd>我们使用它来描述支付宝所有系统引用的资源情况.</dd>
+                                    <dd>如描述所有图片文件的存放结构,使用不同颜色表示不同目录.</dd>
+                                    <dd>每个区块的大小,表示文件大小和请求次数.</dd>
+                                    <dd>鼠标移上后,显示这个文件的详情.</dd>
+                                    <dd>点击每个文件夹后,显示这个文件夹内文件列表.</dd>
+                                </dl>									
+                                <div id="tip" onmousemove="this.style.display='block'"></div>
+                                <div id="dialog">
+                                    <div id="columnChart"></div>
+                                </div>
+                                <script type="text/javascript">
+                                    var partition;
+                                    (function () {
+                                        var sizeData = flare,
+                                        timeData = {};
+
+                                        var showDetails = function (n) {
+                                            var cs = n.childNodes,
+                                            categories = [],
+                                            data = [],
+                                            color = this.$properties[0].value(this.$properties[0].id).color;
+
+                                            if (cs.length < 2) {
+                                                return;
+                                            }
+
+                                            // build high chart
+                                            var height = cs.length * 38,
+                                            tempTag = "大小";
+                                            if (tag === "time") {
+                                                tempTag = "请求次数";	
+                                            }
+
+                                            for (var i = 0; i < cs.length; i++) {
+                                                var path = getPath(cs[i]);
+                                                categories.push(path);
+                                                if (tag === "time") {
+                                                    data.push(cs[i].size);
+                                                } else {
+                                                    data.push(parseInt(cs[i].size / 1024));
+                                                }
+                                            }
+
+                                            new Highcharts.Chart({
+                                                "chart":{
+                                                    "renderTo":"columnChart",
+                                                    "defaultSeriesType":"bar",
+                                                    "plotShadow":false,
+                                                    "height": height,
+                                                    "width": 550
+                                                },
+                                                "title":{"text":""},
+                                                "xAxis":{
+                                                    "categories": categories
+                                                },
+                                                "yAxis": {
+                                                    "title": {
+                                                        "text": ''
+                                                    }
+                                                },
+                                                "credits": {"enabled": false},
+                                                "legend":{"enabled":false},
+                                                "series":[{
+                                                        "name": tempTag,
+                                                        "data": data,
+                                                        "color": color
+                                                    }]
+                                            });
+
+                                            // update and open dialog
+                                            var dialogHeight = height > 500 ? 500 : height;
+                                            $("#dialog").dialog('update', {
+                                                "title" : n.nodeName,
+                                                "height": height > 500 ? 500 : height,
+                                                "position": {
+                                                    "top": 350,
+                                                    "left": 337
+                                                }
+                                            });
+
+                                            $("#dialog").dialog("open");
+                                        };
+
+                                        var getPath = function (n) {
+                                            var path = "";
+                                            while(n.nodeName !== "root") {
+                                                path = n.nodeName + "/" + path;
+                                                n = n.parentNode;
+                                            }
+                                            return path.substr(0, path.length - 1);
+                                        };
+
+                                        var showTip = function (n) {
+                                            var pos = vis.mouse();
+                                            if (n.childNodes.length > 1) {
+                                                $("#wrap").css("cursor", "pointer");
+                                            }
+
+                                            var tip = document.getElementById("tip");
+                                            //tip.innerHTML = "<b>" + getPath(n) + "</b><span class='t-pink'>" + n.size + "</span>";
+                                            tip.style.display = "block";
+
+                                            tip.style.top = pos.y + 15;
+                                            tip.style.left = pos.x - 20;
+                                            
+                                            this.fillStyle("red")
+                                          vis.render();
+                                        };
+
+                                        var hideTip = function (n) {
+                                            var tip = document.getElementById("tip");
+                                            tip.style.display = "none";
+                                            $("#wrap").css("cursor", "auto");
+                                        }
+
+                                        // init sub burst
+                                        var vis = new pv.Panel().width(800).height(800).top(0),
+                                        size = 117110;
+                                        if ("$type" !== "imgMmonitor") {
+                                            size = 13240;
+                                        }
+                                        // build sun burst by size
+                                        partition = vis.add(pv.Layout.Partition.Fill).nodes(pv.dom(sizeData).root("root").nodes())
+                                        .size(function(d) d.nodeValue).order("descending").orient("radial");
+
+                                        partition.node.add(pv.Wedge)
+                                        .fillStyle(function(d){ 
+                                            if (d.nodeName === "root") {
+                                                return "red"
+                                            }
+                                            return "blue";
+                                        })
+                                        .strokeStyle("#fff").lineWidth(.3)
+                                        .event("mousemove", showTip)
+                                        .event("mouseout", hideTip)
+                                        .event("click", showDetails)
+                                        .anchor("inner").add(pv.Label)
+                                        .text(function(n)n.size > size ? parseInt(n.size / 1024) + "K" : "");
+
+                                        // build sub brust by reference time
+                                       /* var partition2 = vis.add(pv.Layout.Partition.Fill).nodes(pv.dom(timeData).root("root").nodes())
+                                        .size(function(d) d.nodeValue).order("descending").orient("radial");
+
+                                        partition2.node.add(pv.Wedge)
+                                        .fillStyle(pv.Colors.category19().by(function(d) d.parentNode && d.parentNode.nodeName))
+                                        .strokeStyle("#fff").lineWidth(.5)
+                                        .event("mousemove", showTip)
+                                        .event("mouseout", hideTip)
+                                        .event("click", showDetails)
+                                        .anchor("inner").add(pv.Label)
+                                        .text(function(n)n.size > 20 ? n.size : "");*/
+
+                                        vis.render();
+
+                                        // show size sun burst
+                                        $(".i-sub-panel-item>span>svg>g")[1].style.display = "none";
+
+                                        $(document).ready(function () {
+                                            // init dialog										
+                                            $("#dialog").dialog({
+                                                "title": "Chart",
+                                                "width": 600,
+                                                "height":500,
+                                                "position": {
+                                                    "top": 350,
+                                                    "left": 337
+                                                },
+                                                "hideFooter": true,
+                                                "modal": true
+                                            });
+
+                                            // click other, close dialog 
+                                            $(".dialog-background").click(function (event) {
+                                                if (event.target.id !== "dialogDialog") {
+                                                    $("#dialog").dialog("close");
+                                                }
+                                            });
+
+                                            // press esc, close dialog 
+                                            $(document).keypress(function (event) {
+                                                if (event.keyCode === 27) {
+                                                    $("#dialog").dialog("close");
+                                                }
+                                            }); 
+                                        });
+                                    })();
+
+                                    var tag = "size";
+
+                                    var changeData = function (type, it) {
+                                        if (it.className === "cur") {
+                                            return;
+                                        }
+
+                                        var g = $(".i-sub-panel-item>span>svg>g");
+                                        tag = type;
+                                        switch(type) {
+                                            case "time":
+                                                g[1].style.display = "block";
+                                                g[0].style.display = "none";
+                                                break;
+                                            case "size":
+                                                g[0].style.display = "block";
+                                                g[1].style.display = "none";
+                                                break;
+                                            default:
+                                                alert("has no type");
+                                                break;
+                                        }
+
+                                        $(".sunburst .change-data a").removeClass("cur");
+                                        it.className = "cur";
+                                    }
+                                </script>
+                            </div>
+                            <div class="i-sub-panel-item" id="navTabs_not">
+                                <table id="tableSort" class="tablesorter">
+                                    <thead>
+                                        <tr>
+                                            <th>位置</th>
+                                            <th width="120">次数</th>
+                                            <th width="120">状态</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+									#foreach($file in $list_404)
+                                        <tr>
+                                            <td class="t-l">${file.uri}</td>
+                                            <td>${file.count}</td>
+                                            <td>${file.status}</td>
+                                        </tr>
+									#end
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="i-sub-panel-item" id="navTabs_size">
+                                <table id="tableSort2" class="tablesorter">
+                                    <thead>
+                                        <tr>
+                                            <th>位置</th>
+                                            <th width="120">次数</th>
+                                            <th width="120">大小(KB)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+									#foreach($file in $bigSize)
+                                        <tr>
+                                            <td class="t-l">${file.uri}</td>
+                                            <td>${file.count}</td>
+										#set($kbsize = ${file.getKbSize()}/1024)
+                                            <td>
+												$kbsize
+                                            </td>
+                                        </tr>
+									#end
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end #grid_10 -->
+            <!-- end tab cnt -->
+        </div><!-- end tab -->
+    </div>
+</div>
+<script type="text/javascript">
+    $("#navTabs").tabs();
+    $("#tableSort, #tableSort2").tablesorter();
+</script>
+<!-- 前端服务监控区块结束 -->
+##前端服务监控区块结束

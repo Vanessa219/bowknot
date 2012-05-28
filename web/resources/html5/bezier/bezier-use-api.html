@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">	
+        <link rel="stylesheet" href="css/main.css">
+            
+        <title>Curves</title>
+    </head>
+    <body>
+        <canvas height="400" width="600" id="canvas"></canvas>
+        <script src="js/jquery.js"></script>
+      
+        <script>
+    var canvas = document.getElementById('canvas'),
+    ctx = canvas.getContext('2d');
+    
+    var start = {x: 100, y: 300},
+    cp1   = {x: 200, y: 200},
+    cp2 =   {x: 300, y: 200},
+    end   = {x: 400, y: 300},
+    
+    qstart ={x: 100, y: 100},
+    qcp    ={x: 250, y: 25},
+    qend   ={x: 400, y: 100}
+    radius = 10;
+
+function drawCircle(x,y,r,fill){
+  ctx.save()
+  ctx.beginPath()
+  ctx.arc(x,y, r, 0, Math.PI * 2, true);
+  ctx.fillStyle=fill || "#000";
+  ctx.fill()
+  ctx.restore();
+}
+
+
+function draw(){
+  //Clear Canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+  
+  
+  // Draw Control Lines
+  ctx.strokeStyle="#0F0";
+  ctx.lineWidth = 2;
+
+  ctx.beginPath();
+  ctx.moveTo(start.x, start.y);
+  ctx.lineTo(cp1.x, cp1.y);
+  ctx.moveTo(end.x, end.y);
+  ctx.lineTo(cp2.x, cp2.y);
+  ctx.stroke();
+  
+  //Quad
+  ctx.beginPath();
+  ctx.moveTo(qstart.x, qstart.y);
+  ctx.lineTo(qcp.x, qcp.y);
+  ctx.lineTo(qend.x, qend.y);
+  ctx.stroke();
+  
+  
+  // Draw Points
+  drawCircle(start.x, start.y, radius, '#F00');
+  drawCircle(end.x, end.y, radius, '#F00');
+  drawCircle(cp1.x, cp1.y, radius, '#00F');
+  drawCircle(cp2.x, cp2.y, radius, '#00F');
+  
+  //Quadratic
+  drawCircle(qstart.x, qstart.y, radius, '#F00');
+  drawCircle(qend.x, qend.y, radius, '#F00');
+  drawCircle(qcp.x, qcp.y, radius, '#00F');
+  
+  // Draw Curve
+  ctx.strokeStyle = "#000"
+  ctx.lineWidth = 4;
+  
+  
+  
+  /* Bezier Curve */
+  ctx.beginPath();
+  ctx.moveTo(0,0)
+  ctx.lineTo(start.x, start.y);
+  ctx.bezierCurveTo(cp1.x, cp1.y, cp2.x, cp2.y, end.x, end.y);
+  ctx.lineTo(600, 400);
+  ctx.stroke();
+  /**/
+  
+  
+  /* Quadratic Curve */
+  ctx.beginPath();
+  
+  ctx.moveTo(50, 100);
+  ctx.lineTo(qstart.x, qstart.y);
+  
+  ctx.quadraticCurveTo(qcp.x, qcp.y, qend.x, qend.y);
+  ctx.lineTo(500, 50);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  /**/
+
+}
+
+var dragging = null,  // Set to the point being dragged, if any
+    lastX, lastY,     // Last X and Y Coordinates of mouse
+    points = [start, end, cp1, cp2, qstart, qend, qcp]; //All points 
+
+
+// On mousedown, determine if a point is clicked, if so: set up dragging
+$('canvas').mousedown(function(e){
+  var x = e.layerX, y = e.layerY;
+  for(i=0; i<points.length; i++){
+    // Calculate distance of click to point
+    // distance = √(x^2 + y^2)
+    var distance = Math.sqrt(Math.pow(points[i].x - x, 2) + Math.pow(points[i].y - y, 2));
+
+    // If the click is in (or close enough) to the point
+    if(distance < radius * 1.5){
+      // Set dragging to current point, and save lastX and lastY
+      dragging = points[i];
+      lastX = e.layerX;
+      lastY = e.layerY;
+
+      return;
+    }
+  }
+})
+
+$('canvas').mousemove(function(e){
+
+  // If we have a point we are dragging
+  if(dragging){
+    // Calculate the change in x and y from last check
+    var dx = lastX - e.layerX,
+        dy = lastY - e.layerY;
+    
+    // Set lastX and lastY for next mousemove check
+    lastX = e.layerX;
+    lastY = e.layerY;
+    
+    // Modify the dragging point's x and y by the change in x and y from the last check
+    dragging.x = dragging.x - dx;
+    dragging.y = dragging.y - dy;
+    
+    // Redraw the canvas since positions have changed
+    draw();
+  }
+});
+
+// On mouseup, end dragging by setting it to null
+$('canvas').mouseup(function(){
+  dragging = null;
+})
+
+draw();
+
+</script>
+</body>
+</html>

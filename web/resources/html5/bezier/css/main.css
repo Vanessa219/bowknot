@@ -1,0 +1,15 @@
+body {
+  background: #EEE;
+  font-family: arial, helvetica, sans-serif;
+}
+
+canvas {
+  border: solid 5px #000;
+  margin: 10px;
+  position: relative;
+}
+
+em.credit {
+  display: block;
+  color: #555;
+}

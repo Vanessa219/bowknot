@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+
+
+<title>My first Game</title>
+
+<style type="text/css">
+body {
+	border:none 0px;
+	margin:0px;
+	padding:10px;
+	font-size : 16px;
+	background-color : #f3f3f3;
+}
+
+canvas {
+	border : 1px solid blue; 
+}
+</style>
+
+
+<script type="text/javascript">
+
+// 加载图片
+function loadImage(srcList,callback){
+	var imgs={};
+	var totalCount=srcList.length;
+	var loadedCount=0;
+	for (var i=0;i<totalCount;i++){
+		var img=srcList[i];
+		var image=imgs[img.id]=new Image();		
+		image.src=img.url;
+		image.onload=function(event){
+			loadedCount++;
+		}		
+	}
+	if (typeof callback=="function"){
+		var Me=this;
+		function check(){
+			if (loadedCount>=totalCount){
+				callback.apply(Me,arguments);
+			}else{		
+				setTimeout(check,100);
+			}	
+		}
+		check();
+	}
+	return imgs;
+}
+
+//定义全局对象
+var ImgCache=null;
+var canvas=null;
+var context=null;
+
+// 页面初始化函数
+function init(){
+	
+	// 创建canvas，并初始化 （我们也可以直接以标签形式写在页面中，然后通过id等方式取得canvas）
+	canvas=document.createElement("canvas");
+	canvas.width=600;
+	canvas.height=400;
+	document.body.appendChild(canvas);
+		
+	// 取得2d绘图上下文 
+	context= canvas.getContext("2d");
+	
+	//加载图片,并存入全局变量 ImgCache, 
+	// 加载完成后,调用startDemo
+	ImgCache=loadImage( [ 
+			{ 	id : "player",
+				url : "../res/player.png"
+			},
+			{ 	id : "bg",
+				url : "../res/bg.png"
+			}
+		], 
+		startDemo );
+
+}
+
+
+// Animation类.
+// cfg为Object类型的参数集, 其属性会覆盖Animation原型中定义的同名属性.
+function Animation(cfg){
+	for (var attr in cfg ){
+		this[attr]=cfg[attr];
+	}
+}
+
+Animation.prototype={
+	constructor :Animation ,
+
+	// Animation 包含的Frame, 类型:数组
+	frames : null,
+	// 包含的Frame数目
+	frameCount : -1 ,
+	// 所使用的图片id(在ImgCache中存放的Key), 字符串类型. 
+	img : null,
+	currentFrame : null ,
+	currentFrameIndex : -1 ,
+	currentFramePlayed : -1 ,
+	
+	// 初始化Animation
+	init : function(){
+		// 根据id取得Image对象
+		this.img = ImgCache[this.img]||this.img;
+		
+		this.frames=this.frames||[];
+		this.frameCount = this.frames.length;
+		
+		// 缺省从第0帧播放
+		this.setFrame(0);
+	},
+	
+	//设置当前帧
+	setFrame : function(index){
+		this.currentFrameIndex=index;
+		this.currentFrame=this.frames[index];
+		this.currentFramePlayed=0;	
+	},
+	
+	// 更新Animation状态. deltaTime表示时间的变化量.
+	update : function(deltaTime){
+		//判断当前Frame是否已经播放完成, 
+		if (this.currentFramePlayed>=this.currentFrame.duration){
+			//播放下一帧
+			
+			if (this.currentFrameIndex >= this.frameCount-1){
+				//当前是最后一帧,则播放第0帧
+				this.currentFrameIndex=0;
+			}else{
+				//播放下一帧
+				this.currentFrameIndex++;
+			}
+			//设置当前帧信息
+			this.setFrame(this.currentFrameIndex);
+		
+		}else{
+			//增加当前帧的已播放时间.
+			this.currentFramePlayed += deltaTime;
+		}
+	},
+	
+	//绘制Animation
+	draw : function(gc,x,y){
+		var f=this.currentFrame;
+		gc.drawImage(this.img, f.x , f.y, f.w, f.h , x, y, f.w, f.h );
+	}
+};
+
+
+
+
+// Demo的启动函数
+function startDemo(){
+	
+	// 一些简单的初始化, 
+	var FPS=30;
+	var sleep=Math.floor(1000/FPS);
+
+	//初始坐标
+	var x=0, y=284;	
+	//移动速度 . speedY<0,向上移动.
+	var speedX = 65/1000 , speedY=-45/1000 ;
+	//x/y坐标的最大值和最小值, 可用来限定移动范围.
+	var minX=0, maxX=500, minY=0, maxY=284;
+	
+	// 创建一个Animation对象
+	var animation = new Animation({
+		img : "player" ,
+		//该动画由3帧构成
+		frames : [
+			{x : 0, y : 0, w : 50, h : 60, duration : 100},
+			{x : 50, y : 0, w : 50, h : 60, duration : 100},
+			{x : 100, y : 0, w : 50, h : 60, duration : 100}
+		]
+	} );
+	// 初始化Animation
+	animation.init();
+	
+	//主循环
+	var mainLoop=setInterval(function(){
+
+		//距上一次执行相隔的时间.(时间变化量), 目前可近似看作sleep.
+		var deltaTime=sleep;
+		
+		//每次循环,改变一下绘制的坐标. 
+		x=x+speedX*deltaTime; //向右移动
+		y=y+speedY*deltaTime; //向上移动, 坐标y减小,这点和数学中的坐标系不同.
+		
+		//限定移动范围
+		x=Math.max(minX,Math.min(x,maxX));
+		y=Math.max(minY,Math.min(y,maxY));
+		
+		// 更新Animation状态
+		animation.update(deltaTime);
+	
+		//使用背景覆盖的方式 清空之前绘制的图片
+		context.drawImage(ImgCache["bg"],0,0);
+		
+		//绘制Animation
+		animation.draw(context, x,y);
+		
+	},sleep);
+
+}
+
+
+
+	
+</script>
+
+</head> 
+<body onload="init()"> 
+
+
+</body> 
+</html>
