@@ -16,7 +16,7 @@
 (function ($) {
     $.fn.extend({
         dialog: {
-            version: "0.0.1.5",
+            version: "0.0.1.6",
             author: "lly219@gmail.com"
         }
     });
@@ -31,14 +31,11 @@
                 "panel": "dialog-panel",
                 "main": "dialog-main",
                 "footer": "dialog-footer",
-                "headerLeft": "dialog-header-left",
-                "headerRight": "dialog-header-right",
                 "headerMiddle": "dialog-header-middle",
                 "headerBg":  "dialog-header-bg",
                 "closeIcon": "dialog-close-icon",
                 "closeIconHover": "dialog-close-icon-hover",
-                "title": "dialog-title",
-                "buttonRight": "dialog-button-right"
+                "title": "dialog-title"
             }
         }
     };
@@ -90,9 +87,11 @@
             var inst = this._getInst(target);
             var id = inst.id,
             settings = inst.settings;
+            var windowH = $(window).height(),
+            windowW = $(window).width();
             var styleClass = this._getDefaults($.dialog._defaults, settings, "styleClass"),
-            height = settings.height,
-            width = settings.width;
+            dialogH = settings.height ? settings.height : parseInt(windowH * 0.6),
+            dialogW = settings.width ? settings.width : parseInt(windowW * 0.6);
 
             // get settings or default value.
             settings.title = settings.title ? settings.title : "";
@@ -101,32 +100,30 @@
 
             // build HTML.
             var footerHTML = "",
-            headerHTML = "<div class='" + styleClass.headerLeft + "'></div><div class='"
-            + styleClass.headerBg + "' style='width: " + (width + 24) + "px;'><div class='"
+            headerHTML = "<div class='"
+            + styleClass.headerBg + "'><div class='"
             + styleClass.title + "'>" 
             + settings.title + "</div><a href='javascript:void(0);' class='"
-            + styleClass.closeIcon + "'></a></div><div class='"
-            + styleClass.headerRight + "'></div><div class='clear'></div>";
+            + styleClass.closeIcon + "'></a></div>";
 
             // Sets footerHTML.
             if (!settings.hideFooter) {
-                footerHTML = "<a href='javascript:void(0);'><span>" + settings.okText + "</span><span class='"
-                + styleClass.buttonRight + "'></span></a><a href='javascript:void(0);'><span>"
-                + settings.cancelText + "</span><span class='" + styleClass.buttonRight
-                + "'></span></a>";
+                footerHTML = "<a href='javascript:void(0);'>" + settings.okText + 
+                    "</a><a href='javascript:void(0);'>"
+                + settings.cancelText + "</a>";
             }
 
             // width + 26 for IE7
             var dialogHTML = "<div id='" + id + "Dialog' class='" + styleClass.panel
-            + "' style='width: " + (width + 26) + "px;' onselectstart='return false;'><div>" + headerHTML
-            + "</div><div class='" + styleClass.main + "'><div style='overflow: auto; height: "
-            + height + "px; width: " + width + "px;'></div><div class='" + styleClass.footer + "'>"
-            + footerHTML + "</div><div class='clear'></div></div>";
+            + "' style='width: " + (dialogW + 26) + "px;' onselectstart='return false;'>" + headerHTML
+            + "<div class='" + styleClass.main + "'><div style='overflow: auto; height: "
+            + dialogH + "px;'></div><div class='" + styleClass.footer + "'>"
+            + footerHTML + "</div></div>";
 
             var bgHTML = "";
             if (settings.modal && $("." + styleClass.background).length === 0) {
-                var bgHeight = $(window).height() < $("body").height()
-                ? $("body").height() : $(window).height();
+               var bgHeight = windowH < document.documentElement.scrollHeight
+                ? document.documentElement.scrollHeight : windowH;
                 bgHTML = "<div style='height:" + bgHeight
                 + "px;' class='" + styleClass.background + "'></div>";
             }
@@ -146,8 +143,8 @@
                 top = settings.position.top;
                 left = settings.position.left;
             } else {
-                top = ($(window).height() - $dialog.height()) /2;
-                left = ($(window).width() - $dialog.width()) /2
+                top = parseInt((windowH - dialogH) / 2);
+                left = parseInt((windowW - dialogW) / 2);
             }
             $dialog.css({
                 "top": top + "px",
@@ -170,14 +167,7 @@
                 }
             });
 
-            this._bindMove(id, styleClass.headerBg, height, width);
-
-
-            $(window).resize(function () {
-                var bgHeight = $(window).height() < document.documentElement.clientHeight 
-                ? document.documentElement.clientHeight : $(window).height();
-                $("." + styleClass.background).height(bgHeight);
-            });
+            this._bindMove(id, styleClass.headerBg, dialogH, dialogW);
             
             // esc exit
             $(window).keyup(function (event) {
