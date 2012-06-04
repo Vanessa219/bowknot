@@ -16,7 +16,7 @@
 (function ($) {
     $.fn.extend({
         dialog: {
-            version: "0.0.1.6",
+            version: "0.0.1.7",
             author: "lly219@gmail.com"
         }
     });
@@ -109,7 +109,7 @@
             // Sets footerHTML.
             if (!settings.hideFooter) {
                 footerHTML = "<a href='javascript:void(0);'>" + settings.okText + 
-                    "</a><a href='javascript:void(0);'>"
+                "</a><a href='javascript:void(0);'>"
                 + settings.cancelText + "</a>";
             }
 
@@ -122,7 +122,7 @@
 
             var bgHTML = "";
             if (settings.modal && $("." + styleClass.background).length === 0) {
-               var bgHeight = windowH < document.documentElement.scrollHeight
+                var bgHeight = windowH < document.documentElement.scrollHeight
                 ? document.documentElement.scrollHeight : windowH;
                 bgHTML = "<div style='height:" + bgHeight
                 + "px;' class='" + styleClass.background + "'></div>";
@@ -172,7 +172,7 @@
             // esc exit
             $(window).keyup(function (event) {
                 if (event.keyCode === 27) {
-                     $.dialog._close(id, settings);
+                    $.dialog._close(id, settings);
                 }
             });
         },
@@ -234,6 +234,9 @@
         },
 
         _close: function (id, settings) {
+            if ($("#" + id + "Dialog").css("display") === "none"){
+                return;   
+            }
             if (settings.close === undefined || settings.close()) {
                 $("#" + id + "Dialog").hide();
                 if(settings.modal) {
