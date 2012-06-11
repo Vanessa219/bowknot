@@ -16,7 +16,7 @@
 (function ($) {
     $.fn.extend({
         paginate: {
-            version: "0.0.0.7",
+            version: "0.0.0.8",
             author: "lly219@gmail.com"
         }
     });
@@ -307,15 +307,13 @@
             if (settings.currentPage === currentPage) {
                 return;
             }
-            var r =/^[0-9]*[1-9][0-9]*$/;
+            var r = /^[0-9]*[1-9][0-9]*$/;
             if (currentPage > 0 && currentPage <= settings.pageCount &&
                 r.test(currentPage)) {
-                if (settings.bind(currentPage)) {
-                    settings.currentPage = currentPage;
-                    $.paginate._updatePaginate(target);
-                }
+               settings.bind(currentPage);
+               // XXX:因为异步调用，页码更新应由开发人员进行手动更新
             } else {
-                alert(settings.errorMessage);
+                settings.bind(currentPage, settings.errorMessage);
                 $("#" + id + "PaginateInput").val("");
             }
         },
