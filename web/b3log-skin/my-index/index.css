@@ -1,0 +1,97 @@
+@charset "utf-8";
+/*
+ * init, login and kill IE page style
+ *
+ * @author <a href="mailto:LLY219@gmail.com">Liyuan Li</a>
+ * @version 1.0.0.6, Jun, 2011
+*/
+/* start archive */
+*,html,body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: \5fae\8f6f\96c5\9ed1;
+    font-size: small;
+    height: 100%;
+    background-image: url(bg-grey.jpg);
+}
+
+.clear {
+    background-color: transparent;
+    border: 0px;
+    clear: both;
+    display: block;
+    font-size: 0px;
+    height: 0px;
+    line-height: 0px;
+    overflow: hidden;
+}
+
+.none {
+    display: none;
+}
+
+#wrap {
+    border-radius: 150px 0 150px 0;
+    box-shadow: 0 0 20px #BE0700;
+    height: 528px;
+    margin: 20px auto;
+    overflow: hidden;
+    padding: 10px;
+    width: 924px;
+}
+
+ul {
+    clear: both;
+}
+
+li {
+    background-image: url("bg-transparent.png");
+    border: 1px solid #999999;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    height: 120px;
+    list-style: none outside none;
+    margin: 5px;
+    overflow: hidden;
+    position: relative;
+    width: 120px;
+}
+
+li > img {
+    background-color: gray;
+    height: 120px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 120px;
+}
+
+li > div {
+    background-color: #D4D4D4;
+    color: #101010;
+    height: 120px;
+    left: 120px;
+    opacity: 0.8;
+    position: absolute;
+    width: 120px;
+}
+
+li.center {
+    background-color: rgba(232, 232, 232, 0.5);
+    color: #BE0700;
+    left: 0;
+    transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+}
+
+li.center:hover, ul.current > li.center {
+    background-color: #BE0700;
+    color: #E8E8E8;
+    text-shadow: 0 1px 1px #101010;
+    transform: rotate(360deg) scale(1.1);
+    -webkit-transform: rotate(360deg) scale(1.1);
+    -moz-transform: rotate(360deg) scale(1.1);
+}

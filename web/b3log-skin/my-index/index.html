@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Vanessa - 自由•平等•奔放</title>
+        <meta name="keywords" content="GAE,博客,b3log"/>
+        <meta name="description" content="免费的个人独立博客，自由•平等•奔放"/>
+        <link type="text/css" rel="stylesheet" href="index.css" charset="utf-8" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+    </head>
+    <body>
+        <div id="wrap">
+            <ul class="current">
+                <li>
+                    <img src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li class="center">
+                    About
+                </li>
+                <li>
+                    <img src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li class="center">
+                    Blog
+                </li>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+            </ul>  
+            <ul>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li class="center">
+                    follow me
+                </li>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li class="center">
+                    pay
+                </li>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+                <li>
+                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
+                    <div>kakakaka</div>
+                </li>
+            </ul>
+        </div>
+        <script src="http://vanessa.b3log.org:80/js/lib/jquery/jquery.min.js" ></script>
+        <script>
+            (function () {
+                // wrap margin
+                var $wrap = $("#wrap"),
+                windowH = $(window).height();
+                if (windowH > $wrap.height() + 40) {
+                    $wrap.css("marginTop", parseInt((windowH - $wrap.height()) / 2));
+                }
+                
+                // 非中间模块鼠标事件
+                $("li:not(.center)").hover(function () {
+                    var $it = $(this);
+                    $it.find("div").animate({
+                        "left": "0px"
+                    }, {
+                        queue: false,
+                        duration: 300
+                    });
+                }, function () {
+                    var $it = $(this);
+                    $it.find("div").animate({
+                        "left": "120px"
+                    }, {
+                        queue: false,
+                        duration: 300
+                    });
+                });
+                    
+                // 中间模块鼠标事件
+                $(".center").mouseenter(function () {
+                    var $it = $(this);
+                    
+                    if ($it.parent().hasClass("current")) {
+                        return;
+                    }
+                    
+                    // class
+                    $("ul").removeClass("current");
+                    $it.parent().addClass("current");
+                    
+                    $("ul.current img").show();
+                    $("ul:not(.current) img").hide();
+                    
+                });
+            })();
+        </script>
+    </body>
+</html>
