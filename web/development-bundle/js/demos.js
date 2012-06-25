@@ -1,11 +1,36 @@
-onmessage = function (event) {  
-    var test = {
-        "data1": "value1",
-        "data2": "value2"
+var yx = {};
+yx.init = {
+    frame: function () {
+        
+    },
+    
+    nav: function () {
+        $(".nav li").click(function () {
+            var $it = $(this);
+            if ($it.hasClass("current")) {
+                return;
+            }
+			
+            var $lastCur = $(".nav li.current"),
+            $cur = $("#" + $it.data("index"));
+			
+            // nav style
+            $lastCur.removeClass("current");
+            $it.addClass("current");
+			
+            // content
+            $("#" + $lastCur.data("index")).hide();
+            if ($cur.html().replace(/\s/g, "") === "") {
+                $cur.load("/" + $it.data("index") + "/index.html", function () {
+					
+                    });
+            } else {
+                $cur.show();
+            }
+        });
     }
-    for (var i = 0; i < event.data; i++) {  
-        if (0 === i % 10 ) {
-            postMessage(i);  
-        }
-    }
-};  
+};
+
+(function () {
+    yx.init.nav();
+})();
