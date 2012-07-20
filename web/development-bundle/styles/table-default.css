@@ -1,7 +1,7 @@
 /*
     Document   : table-defaule
     Author     : Vanessa
-    Version    : 0.0.0.8
+    Version    : 0.0.0.9
     Description:
         Default style for table.js.
 */
@@ -36,7 +36,6 @@
 }
 
 .table-header {
-    background: url("../images/icon.png") repeat-x scroll 0 -193px transparent;
 }
 
 .table-header th {
@@ -46,12 +45,15 @@
 
 .table-main td {
     border-top: 1px solid #D0D0D0;
-    border-right: 1px solid #D0D0D0;
     padding: 3px 0;
 }
 
-.table-lineSelected td, .table-lineHover td {
-    background-color: #FFFFCC;
+.table-main .table-selected {
+    background-color: #DFE8F6 !important;
+}
+
+.table-body tr:hover {
+    background-color: #eee;
 }
 
 .table-sortASC {
@@ -64,7 +66,6 @@
 }
 
 .table-sortDESC {
-    background:url("../images/icon.png") no-repeat scroll 0px -185px transparent;
     cursor:pointer;
     height:8px;
     width:9px;
@@ -73,11 +74,9 @@
 }
 
 .table-sortUnactiveDESC {
-    background:url("../images/icon.png") no-repeat scroll -10px -185px transparent;
 }
 
 .table-sortUnactiveASC {
-    background:url("../images/icon.png") no-repeat scroll -10px -176px transparent;
 }
 
 .table-sort {
@@ -88,42 +87,10 @@
     float: left;
 }
 
-.table-floatLayerIcon {
-    background: url(../images/icon.png) no-repeat -96px -16px;
-    height:16px;
-    width:16px;
-    margin: 0 10px;
-    float: left;
-}
-
 .table-oddRow {
     background-color: #FFFFFF;
 }
 
 .table-evenRow {
-    background-color: #EEF5FE;
-}
-
-.table-subTitle, .table-subTitleHover {
-    margin: 6px 0px 3px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.table-subTitleHide {
-    background:url("../images/icon.png") no-repeat scroll -81px -35px transparent;
-    height:11px;
-    width:16px;
-    margin-top: 3px;
-}
-
-.table-subTitleShow {
-    background:url("../images/icon.png") no-repeat scroll -97px -35px transparent;
-    height:11px;
-    width:16px;
-    margin-top: 3px;
-}
-
-.table-expendRow td {
-    border-top: 0px;
+    background-color: #FAFAFA;
 }

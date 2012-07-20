@@ -16,7 +16,7 @@
 (function ($) {
     $.fn.extend({
         paginate: {
-            version: "0.0.0.8",
+            version: "0.0.0.9",
             author: "lly219@gmail.com"
         }
     });
@@ -77,12 +77,9 @@
 
         _init: function (target) {
             var inst = this._getInst(target);
-            var id = inst.id,
-            settings = inst.settings;
+            var id = inst.id;
 
-            $("#" + id).html("<div id='" + id + "Paginate' class='"
-                +  this._getDefaults($.paginate._defaults, settings, "styleClass").paginateClass
-                + "'></div>");
+            $("#" + id).html("<div id='" + id + "Paginate' class='paginate-paginate'></div>");
 
             this._build(target);
         },
@@ -90,166 +87,37 @@
         _build: function (target) {
             var inst = this._getInst(target);
             var id = inst.id,
-            settings = inst.settings;
-            var styleClass = this._getDefaults(this._defaults, settings, "styleClass"),
+            settings = inst.settings,
             pageCount = settings.pageCount,
-            currentPage = settings.currentPage;
-            var prePageHTML = "<$tagStart class='button paginate-page'>\
-                <span class='button-left'></span>\
-                <span class='button-bg'>" + settings.previousPageText + "</span>\
-                <span class='button-right'></span>\
-            </$tagEnd>",
-            nextPageHTML = "<$tagStart class='button paginate-page'>\
-                <span class='button-left'></span>\
-                <span class='button-bg'>" + settings.nextPageText + "</span>\
-                <span class='button-right'></span>\
-            </$tagEnd>",
-            pagesHTML = "",
-            pageCountHTML = "<span class='" + styleClass.pageCountClass + "'>"
-            + currentPage + "/" + pageCount + "</span>",
-            goToPageHTML = "<div class='button'>\
-                <span class='button-left'></span>\
-                <span class='button-bg'>\
-                    <input class='" + styleClass.inputPageClass + "' id='"+ id + "PaginateInput'/>\
-                </span>\
-                <span class='button-right'></span>\
-            </div>\
-            <a href='javascript:void(0);' class='button' id='" + id + "PaginateSubmit'>\
-                <span class='button-left'></span>\
-                <span class='button-bg'>" + settings.goText + "</span>\
-                <span class='button-right'></span>\
-            </a>";
+            currentPage = settings.pageNo,
+            totalRecords = settings.totalRecords;
+            var pageCounts = Math.ceil(totalRecords / pageCount);
+            
+            var prePageHTML = "<$tagStart class='paginate-pre'>Pre</$tagEnd> ",
+            nextPageHTML = "<$tagStart class='paginate-next'>Next</$tagEnd> ",
+            goToPageHTML = "到<input class='paginate-input' id='"+ id + "PaginateInput'/>页\
+            <button class='paginatie-go' href='javascript:void(0);' id='" + id + "PaginateSubmit'>go</button>";
 
             if (currentPage === 1 || currentPage === 0) {
-                prePageHTML =  prePageHTML.replace("$tagStart", "div").replace("$tagEnd", "div");
+                prePageHTML =  prePageHTML.replace("$tagStart", "span").replace("$tagEnd", "span");
             } else {
                 prePageHTML = prePageHTML.replace("$tagStart", "a href='javascript:void(0)'").
                 replace("$tagEnd", "a");
             }
 
-            if (currentPage !== pageCount) {
+            if (currentPage === pageCounts) {
+                nextPageHTML = nextPageHTML.replace("$tagStart", "span").replace("$tagEnd", "span");
+            } else {
                 nextPageHTML = nextPageHTML.replace("$tagStart", "a href='javascript:void(0)'").
                 replace("$tagEnd", "a");
-            } else {
-                nextPageHTML = nextPageHTML.replace("$tagStart", "div").replace("$tagEnd", "div");
             }
 
-            switch (settings.type) {
-                case "taobao":
-                    var pages = this._getTaobaoPages(currentPage, pageCount),
-                    currentClass = "";
-                    goToPageHTML = "";
-                    for (var i = 0; i < pages.length; i++) {
-                        if (currentPage === pages[i].pageNum) {
-                            currentClass = " pagination-current-page";
-                        } else {
-                            currentClass = "";
-                        }
-                        pagesHTML += "<span data-page='" + pages[i].pageNum
-                        + "' class='pagination-pages" + currentClass + "'>"
-                        + pages[i].text + "</span>";
-                    }
-                    break;
-                case "custom":
-                    var pages = settings.custom,
-                    currentClass = "";
-                    for (var i = 0; i < pages.length; i++) {
-                        if (currentPage === pages[i]) {
-                            currentClass = " pagination-current-page";
-                        } else {
-                            currentClass = "";
-                        }
-                        pagesHTML += "<span data-page='" + pages[i]
-                        + "' class='pagination-pages" + currentClass + "'>"
-                        + pages[i] + "</span>";
-                    }
-                    break;
-                default:
-                    break;
-            }
-
-            if (pageCount === 1) {
-                $("#" + id + "Paginate").html(pageCountHTML);
-            } else {
-                $("#" + id + "Paginate").html(prePageHTML + pagesHTML + nextPageHTML
-                    + pageCountHTML + goToPageHTML);
-            }
+            $("#" + id + "Paginate").html("共" + totalRecords + "条 " 
+                +  currentPage + "/" + pageCounts + "页 " + prePageHTML + nextPageHTML + goToPageHTML);
 
             this._bindEvent(target);
         },
         
-        _getTaobaoPages: function (currentPage, pageCount) {
-            var pagination = [],
-            i = 2,
-            len = 4,
-            begin = 3,
-            end = 0,
-            maxEnd = 0,
-            pre = 0;
-
-            if (currentPage >= len) {
-                begin = currentPage - Math.ceil(len/2);
-                maxEnd = currentPage + Math.ceil(len/2) + 1;
-                if (maxEnd < pageCount) {
-                    end = maxEnd;
-                } else {
-                    end = pageCount;
-                }
-            } else if (currentPage < len) {
-                maxEnd = currentPage + Math.ceil(len/2) + 1;
-                if (maxEnd < pageCount) {
-                    end = maxEnd;
-                } else {
-                    end = pageCount;
-                }
-            }
-
-            if (begin < 3) {
-                begin = 3;
-            }
-
-            for (i = begin; i <= end; i++) {
-                pagination.push({
-                    "pageNum": i,
-                    "text": i
-                });
-            }
-
-            if (begin > 3) {
-                pre = 2 + (begin -2);
-                pagination.unshift({
-                    "pageNum": pre,
-                    "text": "..."
-                });
-            }
-
-            if (pageCount < 2) {
-                i = (currentPage === 0) ? 0 : 1;
-            } else {
-                i = 2;
-            }
-
-            for (; i >= 1; i = i-1) {
-                pagination.unshift({
-                    "pageNum": i,
-                    "text": i
-                });
-            }
-
-            if (end < pageCount) {
-                pre = end + Math.ceil(len/2);
-                if (pre > pageCount) {
-                    pre = pageCount;
-                }
-                pagination.push({
-                    "pageNum": pre,
-                    "text": "..."
-                });
-            }
-
-            return pagination;
-        },
-
         _bindEvent: function (target) {
             var inst = this._getInst(target);
             var id = inst.id;
@@ -262,21 +130,21 @@
                     $.paginate._goToPageAction(event);
                 }
             });
-
-            $("#" + id + "Paginate .pagination-pages").bind("click", {
-                target: target,
-                isPage: true
-            }, function (event) {
-                $.paginate._goToPageAction(event);
-            });
             
             $("#" + id + "PaginateSubmit").bind("click", {
                 target: target
             }, this._goToPageAction);
 
-            $("#" + id + "Paginate a.paginate-page").bind("click", {
+            $("#" + id + "Paginate a.paginate-pre").bind("click", {
                 target: target,
-                isPage: true
+                type: "pre"
+            }, function (event) {
+                $.paginate._goToPageAction(event);
+            });
+            
+            $("#" + id + "Paginate a.paginate-next").bind("click", {
+                target: target,
+                type: "next"
             }, function (event) {
                 $.paginate._goToPageAction(event);
             });
@@ -287,31 +155,28 @@
             var inst = $.paginate._getInst(target);
             var id = inst.id,
             settings = inst.settings;
-            var currentPage = $("#" + id + "PaginateInput").val();
+            var currentPage = parseInt($("#" + id + "PaginateInput").val());
+            
+            var pageCounts = Math.ceil(settings.totalRecords / settings.pageCount);
 
             // process click next page and pre page.
-            if (event.data.isPage) {
-                currentPage = settings.currentPage;
-                var text = event.target.parentNode.innerText ? event.target.parentNode.innerText : event.target.parentNode.text;
-                if ($.trim(text) === settings.previousPageText) {
-                    currentPage--;
-                } else if ($.trim(text) === settings.nextPageText){
-                    currentPage++;
-                } else {
-                    // click page
-                    currentPage = parseInt($(event.target).data("page"));
-                }
+            if (event.data.type === "next") {
+                currentPage = settings.pageNo;
+                currentPage++;
+            } else if (event.data.type === "pre") {
+                currentPage = settings.pageNo;
+                currentPage--;
             }
 
             // process input and submit.
-            if (settings.currentPage === currentPage) {
+            if (settings.pageNo === currentPage) {
                 return;
             }
             var r = /^[0-9]*[1-9][0-9]*$/;
-            if (currentPage > 0 && currentPage <= settings.pageCount &&
+            if (currentPage > 0 && currentPage <= pageCounts &&
                 r.test(currentPage)) {
-               settings.bind(currentPage);
-               // XXX:因为异步调用，页码更新应由开发人员进行手动更新
+                settings.bind(currentPage);
+            // XXX:因为异步调用，页码更新应由开发人员进行手动更新
             } else {
                 settings.bind(currentPage, settings.errorMessage);
                 $("#" + id + "PaginateInput").val("");
@@ -323,30 +188,6 @@
                 $.extend(this._getInst(target).settings, updateSettings);
             }
             this._build(target);
-        },
-
-        _getDefaults: function (defaults, settings, key) {
-            if (key === "styleClass") {
-                if (settings.theme === "default" || settings.theme === undefined) {
-                    return defaults.styleClass;
-                }
-
-                settings.styleClass = {};
-                for (var styleName in defaults[key]) {
-                    settings.styleClass[styleName] = settings.theme + "-" + defaults.styleClass[styleName];
-                }
-            } else if ((key === "height" && settings[key] !== "auto") || key === "width") {
-                if (settings[key] === null || settings[key] === undefined) {
-                    return defaults[key] + "px";
-                } else {
-                    return settings[key] + "px";
-                }
-            } else {
-                if (settings[key] === null || settings[key] === undefined) {
-                    return defaults[key];
-                }
-            }
-            return settings[key];
         },
 
         _destroyPaginate: function () {
