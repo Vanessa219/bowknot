@@ -1,51 +1,32 @@
-/*
- * Copyright (c) 2009, 2010, 2011, 2012, B3log Team
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /**
- * @fileoverview scroll top and down.
+ * @fileoverview 可编辑列表.
  *
  * @author <a href="mailto:LLY219@gmail.com">Liyuan Li</a>
- * @version 1.0.0.1, Jan 9, 2012
+ * @version 1.0.0.1, Aug 21, 2012
  */
 (function ($) {
     $.fn.extend({
-        demo: {
-            version: "1.0.0.1",
-            author: "lly219@gmail.com"
-        }
+        editlist: {}
     });
 
     var dpuuid = new Date().getTime();
-    var PROP_NAME = 'demo';
+    var PROP_NAME = 'editlist';
 
-    var Demo = function () {
+    var Editlist = function () {
         this._defaults = {
             "classNames": {
             }
         }
     };
 
-    $.extend(Demo.prototype, {
+    $.extend(Editlist.prototype, {
         _attach: function (target, settings) {
             if (!target.id) {
-                this.uuid++;
-                target.id = 'dp' + this.uuid;
+                target.id = 'el' + new Date().getTime();
             }
             var inst = this._newInst($(target));
 
-            inst.settings = $.extend({}, settings || {});
+            inst.settings = $.extend({}, settings || {}, this._defaults);
             $.data(target, PROP_NAME, inst);
             this._init(target);
         },
@@ -63,11 +44,11 @@
             try {
                 return $.data(target, PROP_NAME);
             } catch (err) {
-                throw 'Missing instance data for this demo';
+                throw 'Missing instance data for this editlist';
             }
         },
 
-        _destroyDemo: function (target) {
+        _destroyEditlist: function (target) {
            
         },
 
@@ -75,34 +56,51 @@
             var inst = this._getInst(target);
             var id = inst.id,
             settings = inst.settings;
-            var styleClass = this._getDefaults($.demo._defaults, settings, "styleClass"),
-            height = settings.height,
-            width = settings.width;
-
+            
+            $(target).find("input[type='checkbox']").prop("checked", false);
+            
+            this._bindEvent(target);
         },
-
-        _getClassName: function (theme, classNames) {
-            if (theme === "default" || theme === undefined) {
-                return classNames;
-            }
-            return theme + "-" + classNames;
-        }
+        
+        /**
+         * @descrption 绑定事件
+         */
+        _bindEvent: function (target) {
+        	// 行选择事件
+        	var $checkbox = $(target).find("input[type='checkbox']");
+        	$checkbox.click(function () {
+        		var $it = $(this);
+        		if ($it.prop("checked")) {
+        			$it.parents("tr").addClass("selected");
+        		} else {
+        			$it.parents("tr").removeClass("selected");
+        		}
+        	});
+        },
+        
+        /**
+         * @desciption 获取提交数据
+         */
+        _getDataEditlist: function () {
+        	
+        },
+        
     });
 
-    $.fn.demo = function (options) {
+    $.fn.editlist = function (options) {
         var otherArgs = Array.prototype.slice.call(arguments);
 
         if (typeof options === 'string') {
             otherArgs.shift();
-            return $.demo['_' + options + 'Demo'].apply($.demo, [this[0]].concat(otherArgs));
+            return $.editlist['_' + options + 'Editlist'].apply($.editlist, [this[0]].concat(otherArgs));
         }
         
         return this.each(function () {
-            $.demo._attach(this, options);
+            $.editlist._attach(this, options);
         });
     };
 
-    $.demo = new Demo();
+    $.editlist = new Editlist();
 
     // Add another global to avoid noConflict issues with inline event handlers
     window['DP_jQuery_' + dpuuid] = $;
