@@ -9,6 +9,7 @@
         <link rel="icon" type="image/png" href="/favicon.png" />
     </head>
     <body>
+        <h1>Vanessa</h1>
         <div id="wrap">
             <ul class="current">
                 <li>
@@ -97,46 +98,10 @@
                     <div>kakakaka</div>
                 </li>
             </ul>
-            <ul>
-                <li>
-                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
-                    <div>kakakaka</div>
-                </li>
-                <li>
-                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
-                    <div>kakakaka</div>
-                </li>
-                <li>
-                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
-                    <div>kakakaka</div>
-                </li>
-                <li class="center">
-                    pay
-                </li>
-                <li>
-                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
-                    <div>kakakaka</div>
-                </li>
-                <li>
-                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
-                    <div>kakakaka</div>
-                </li>
-                <li>
-                    <img class="none" src="http://www.lesscss.net/images/logo.png" />
-                    <div>kakakaka</div>
-                </li>
-            </ul>
         </div>
         <script src="http://vanessa.b3log.org:80/js/lib/jquery/jquery.min.js" ></script>
         <script>
             (function () {
-                // wrap margin
-                var $wrap = $("#wrap"),
-                windowH = $(window).height();
-                if (windowH > $wrap.height() + 40) {
-                    $wrap.css("marginTop", parseInt((windowH - $wrap.height()) / 2));
-                }
-                
                 // 非中间模块鼠标事件
                 $("li:not(.center)").hover(function () {
                     var $it = $(this);
