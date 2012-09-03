@@ -6,15 +6,28 @@
  * @version 1.0.0.6, Jun, 2011
 */
 /* start archive */
-*,html,body {
+html,
+body, 
+ul {
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: \5fae\8f6f\96c5\9ed1;
     font-size: small;
     height: 100%;
     background-image: url(bg-grey.jpg);
+}
+
+::selection {
+    background-color: #D5D5D5;
+    color: #FCFCFC;
+}
+
+::-moz-selection {
+    background-color: #D5D5D5;
+    color: #FCFCFC;
 }
 
 .clear {
@@ -40,7 +53,7 @@ h1 {
 
 #wrap {
     border-radius: 100px 0 100px 0;
-    box-shadow: 0 0 20px #BE0700;
+    box-shadow: 0 0 10px #BE0700;
     height: 396px;
     margin: 20px auto;
     overflow: hidden;
@@ -91,6 +104,9 @@ li.center {
     transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
+    font-size: 40px;
+    line-height: 113px;
+    text-align: center;
 }
 
 li.center:hover, ul.current > li.center {
