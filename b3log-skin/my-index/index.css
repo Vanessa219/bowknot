@@ -1,11 +1,9 @@
-@charset "utf-8";
 /*
- * init, login and kill IE page style
+ * about me
  *
  * @author <a href="mailto:LLY219@gmail.com">Liyuan Li</a>
- * @version 1.0.0.6, Jun, 2011
+ * @version 1.0.0.7, Sep 5, 2011
 */
-/* start archive */
 html,
 body, 
 ul {
@@ -17,7 +15,12 @@ body {
     font-family: \5fae\8f6f\96c5\9ed1;
     font-size: small;
     height: 100%;
-    background-image: url(bg-grey.jpg);
+    background-image: url(../images/about/bg-grey.jpg);
+}
+
+a {
+    color: #1C0177;
+    font-size: 14px;
 }
 
 ::selection {
@@ -46,18 +49,20 @@ body {
 }
 
 h1 {
-    color: #FFFFFF;
-    font-size: 100px;
+    color: #EBEBEB;
+    font-size: 60px;
+    line-height: 60px;
     text-align: center;
+    text-shadow: 0 0 30px #FECB3E;
 }
 
 #wrap {
-    border-radius: 100px 0 100px 0;
-    box-shadow: 0 0 10px #BE0700;
+    border-radius: 100px 15px 100px 15px;
+    box-shadow: 0 0 15px #fecb3e;
     height: 396px;
     margin: 20px auto;
     overflow: hidden;
-    padding: 10px;
+    padding: 15px;
     width: 924px;
 }
 
@@ -66,7 +71,7 @@ ul {
 }
 
 li {
-    background-image: url("bg-transparent.png");
+    background-image: url("../images/about/bg-transparent.png");
     border: 1px solid #999999;
     border-radius: 5px 5px 5px 5px;
     float: left;
@@ -89,12 +94,16 @@ li > img {
 
 li > div {
     background-color: #D4D4D4;
-    color: #101010;
+    color: #832621;
     height: 120px;
     left: 120px;
     opacity: 0.8;
+    padding: 10px;
     position: absolute;
-    width: 120px;
+    white-space: normal;
+    width: 100px;
+    word-wrap: break-word;
+    font-size: 12px;
 }
 
 li.center {
