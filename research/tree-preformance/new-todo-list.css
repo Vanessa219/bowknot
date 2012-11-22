@@ -1,0 +1,390 @@
+/*
+ * 待办列表样式
+ *
+ * @author <a href="mailto:LLY219@gmail.com">Liyuan Li</a>
+ * @version 1.0.0.0, Nov 13, 2012
+*/
+/* start reset */
+html,body {
+    margin: 0;
+    padding: 0;
+    font-family: '微软雅黑','宋体';
+    font-size: 13px;
+    min-width: 660px;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+/* end reset */
+
+/* start function */
+.fn-clear:before,
+.fn-clear:after {
+    display: table;
+    content: "";
+}
+
+.fn-clear:after {
+    clear: both;
+}
+
+.fn-left {
+    float: left;
+}
+
+.fn-right {
+    float: right;
+}
+
+.fn-none {
+    display: none;
+}
+/* end function */
+
+/* start icon */
+.ico-split1, 
+.ico-split2,
+.ico-split3,
+.btn:hover > span,
+.btn.current > span,
+.ico-arrow,
+.ico-refresh, 
+.btn-open,
+.btn-close,
+.ico-yellowCount,
+.ico-redCount,
+.ico-tejiCount, 
+.ico-jijianCount,
+.ico-open,
+.ico-close,
+.ico-check,
+.ico-checked,
+.ico-turnoff,
+.ico-finished,
+.first-level,
+.ico-group,
+#groupTip {
+    background-image: url(todo-list.png);
+}
+
+.ico-group {
+    background-position: -81px -135px;
+    float: left;
+    height: 23px;
+    margin-right: 9px;
+    width: 22px;
+}
+
+.ico-finished {
+    background-position: 0 -68px;
+    float: left;
+    height: 19px;
+    width: 17px;
+}
+
+.ico-turnoff {
+    background-position: -18px -68px;
+    float: right;
+    height: 20px;
+    width: 20px;
+}
+
+.ico-open,
+.ico-close {
+    background-position: 0 -173px;
+    float: left;
+    height: 17px;
+    margin-right: 3px;
+    width: 12px;
+}
+
+.ico-open {
+    background-position: -17px -173px;
+}
+
+.ico-close:hover {
+    background-position: -32px -173px;
+}
+
+.ico-open:hover {
+    background-position: -49px -173px;
+}
+
+.ico-yellowCount,
+.ico-redCount,
+.ico-tejiCount, 
+.ico-jijianCount,
+.ico-check,
+.ico-checked {
+    background-position: 0 -35px;
+    float: left;
+    height: 25px;
+    width: 18px;
+}
+
+.ico-check {
+    background-position: -74px -170px;
+    cursor: pointer;
+}
+
+.ico-checked {
+    background-position: -97px -170px;
+    cursor: pointer;
+}
+
+.ico-yellowCount {
+    background-position: -79px -35px;
+}
+
+.ico-redCount {
+    background-position: -53px -35px;
+}
+
+.ico-jijianCount {
+    background-position: -26px -35px;
+}
+
+.ico-refresh {
+    background-position: 2px -132px;
+    float: left;
+    height: 30px;
+    width: 17px;
+}
+
+
+.btn:hover .ico-refresh {
+    background-position: -18px -132px;
+}
+
+.ico-arrow {
+    background-position: -108px -131px;
+    float: right;
+    height: 20px;
+    width: 12px;
+}
+
+.ico-split1 {
+    background-position: -67px -132px;
+    float: left;
+    height: 30px;
+    width: 10px;
+}
+
+.ico-split2 {
+    background-position: -46px -132px;
+    float: left;
+    height: 30px;
+    width: 7px;
+}
+
+.ico-split3 {
+    background-position: -49px -136px;
+    float: right;
+    height: 22px;
+    width: 12px;
+}
+/*end icon */
+
+/* start btn */
+.btn {
+    float: left;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.btn > .r {
+    float: left;
+    height: 30px;
+    width: 4px;
+    background-position: 0 -214px;
+}
+
+.btn > .m {
+    background-position: 0 -243px;
+    float: left;
+    height: 30px;
+    padding-left: 4px;
+}
+
+.btn.current > .r {
+    background-position: -12px -214px;
+}
+
+.btn.current > .m {
+    background-position: 0 -272px;
+    color: #FFF;
+}
+
+.btn-open,
+.btn-close {
+    background-position: 1px -104px;
+    float: left;
+    height: 22px;
+    width: 48px;
+    cursor: pointer;
+}
+
+.btn-close {
+    background-position: -50px -104px;
+}
+
+.btn-open:hover {
+    background-position: -99px -104px;
+}
+
+.btn-close:hover {
+    background-position: -150px -104px;
+}
+/* end btn */
+
+/* start top bar */
+.top-bar {
+    background-color: #EFF2F5;
+    border-bottom: 1px solid #999999;
+    border-top: 1px solid #F7F8FA;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+}
+
+#groupTip {
+    background-position: 0 -310px;
+    height: 60px;
+    overflow: hidden;
+    position: absolute;
+    right: 15px;
+    top: 25px;
+    width: 139px;
+}
+
+#groupTip ul {
+    line-height: 23px;
+    list-style: none outside none;
+    margin: 7px 5px;
+    padding-left: 0;
+}
+
+#groupTip li {
+    cursor: pointer;
+}
+
+#groupTip li:hover {
+    background-color: #D4E6EC;
+}
+
+.btn-refreshing {
+    color: #999999;
+    margin-right: 5px;
+}
+
+.btn-refreshing .ico-waiting {
+    margin: -2px 3px 0 0;
+    vertical-align: middle;
+}
+
+#refreshStatus {
+    background-color: #FFFFE9;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    cursor: pointer;
+    border-top: 2px solid #EEE;
+}
+
+#refreshStatus img {
+    margin: -3px 3px 0 0;
+    vertical-align: middle;
+}
+
+#refreshStatus:hover .ico-turnoff {
+    background-position: -38px -68px;
+}
+
+#refreshStatus > span.tip {
+    float: left;
+    margin-left: 45%;
+}
+/* end top bar */
+
+/* start list */
+.list-header {
+    background-color: #EEF2F5;
+    border-bottom: 1px solid #C5C5C5;
+    border-top: 1px solid #DEDEDE;
+    line-height: 22px;
+}
+
+.list-header td {
+    text-align: center;
+}
+
+.second-level {
+    background-color: #F7FBFE;
+    border-bottom: 1px solid #F0F0F0;
+    border-top: 1px solid #FBFBFB;
+    color: #3D6B85;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 20px;
+}
+
+.second-level:hover {
+    background-color: #E2F4FC;
+}
+
+.second-level > span, 
+.first-level > span {
+    cursor: pointer;
+    float: left;
+}
+
+.second-level .ico-open,
+.second-level .ico-close {
+    margin-top: 3px;
+}
+
+.first-level {
+    background-position: 0 -1px;
+    color: #3D6B85;
+    height: 24px;
+    line-height: 23px;
+    padding-left: 5px;
+}
+
+.list-node td {
+    border-bottom: 1px solid #F0F0F0;
+    border-top: 1px solid #FBFBFB;
+    height: 28px;
+    text-align: center;
+    overflow: hidden;
+    word-break: keep-all;
+    line-height: 28px;
+}
+
+.list-node tr:hover td {
+    background-color: #F2F2F2;
+}
+
+.list-node tr.checked td,
+.list-node tr.opened td {
+    background-color: #DFE8F6;
+}
+
+.list-node .title {
+    padding-left: 35px;
+    text-align: left;
+    height: 28px;
+    cursor: pointer;
+}
+
+.no-list {
+    background-color: #FFFFE9;
+    border: 1px solid #C5C5C5;
+    margin: 25px auto;
+    padding: 10px 50px;
+    text-align: center;
+    width: 200px;
+}
+/* end list */
