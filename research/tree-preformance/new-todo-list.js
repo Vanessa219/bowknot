@@ -54,9 +54,9 @@ var ToDoList = {
     _genList: function (data) {
         var treeHTML = "";
         for (var i = 0; i < data.length; i++) {
-            var childData = data[i].children;
+            var childData = data[i].map;
             
-            if (childData[0].children) {
+            if (childData[0].map) {
                 // 三级
                 var expandedAll = false,
                 secondHTML = "";
@@ -65,7 +65,7 @@ var ToDoList = {
                     + i + "-" + j + "\");ToDoList.setToggleStatus(" + i + "," + childData.length + ");' ><span id='toggle-" 
                     + i + "-" + j + "' class='ico-" + (childData[j].expanded ? "open" : "close") + "'></span>"
                     + childData[j].text + "</span></div>";
-                    secondHTML += this._genNodeItem(childData[j].children, childData[j].expanded, i, j);
+                    secondHTML += this._genNodeItem(childData[j].map, childData[j].expanded, i, j);
                     
                     if (childData[j].expanded) {
                         expandedAll = true;
@@ -80,7 +80,7 @@ var ToDoList = {
                 treeHTML += "<div class='second-level'><span onclick='ToDoList.toggleSecond(this, \"node-" 
                 + i + "\")' ><span  id='toggle-" 
                 + i + "' class='ico-" + (data[i].expanded ? "open" : "close") + "'></span>" + data[i].text + "</span></div>";
-                treeHTML += this._genNodeItem(data[i].children, data[i].expanded, i);
+                treeHTML += this._genNodeItem(data[i].map, data[i].expanded, i);
             }
         }
         
@@ -207,7 +207,7 @@ var ToDoList = {
             data[levels[1]].expanded = expanded;
         } else {
             // 三级
-            data[levels[1]].children[levels[2]].expanded = expanded;
+            data[levels[1]].map[levels[2]].expanded = expanded;
         }
     },
     
@@ -224,14 +224,14 @@ var ToDoList = {
             for (var i = 0; i < nextLevelCount; i++) {
                 $("#node-" + currentLevel + "-" + i).hide();
                 $("#toggle-" + currentLevel + "-" + i).get(0).className = "ico-close";
-                data[currentLevel].children[i].expanded = false;
+                data[currentLevel].map[i].expanded = false;
             }
             btn.className = "ico-close";
         } else {
             for (var i = 0; i < nextLevelCount; i++) {
                 $("#node-" + currentLevel + "-" + i).show();
                 $("#toggle-" + currentLevel + "-" + i).get(0).className = "ico-open";
-                data[currentLevel].children[i].expanded = true;
+                data[currentLevel].map[i].expanded = true;
             }
             btn.className = "ico-open";
         }
@@ -245,9 +245,9 @@ var ToDoList = {
         var data = this._data.list;
         
         for (var i = 0; i < data.length; i++) {
-            var childData = data[i].children;
+            var childData = data[i].map;
             
-            if (childData[0].children) {
+            if (childData[0].map) {
                 // 三级
                 if ("close" === type) {
                     $("#toggle-" + i).get(0).className = "ico-close";
@@ -375,10 +375,10 @@ var ToDoList = {
             var levels = $($checked[k]).parent().attr("id").split("-");
             if (levels.length === 4) {
                 // 三级
-                returns.push(data[levels[1]].children[levels[2]].children[levels[3]]);
+                returns.push(data[levels[1]].map[levels[2]].map[levels[3]]);
             } else {
                 // 两级
-                returns.push(data[levels[1]].children[levels[2]]);
+                returns.push(data[levels[1]].map[levels[2]]);
             }
         }
         return returns;
@@ -457,9 +457,9 @@ var ToDoList = {
         ids = [];
         
         for (var i = 0; i < data.length; i++) {
-            var childData = data[i].children;
+            var childData = data[i].map;
             
-            if (childData[0].children) {
+            if (childData[0].map) {
                 // 三级
                 for (var j = 0; j < childData.length; j++) {
                     if (childData[j].expanded) {
