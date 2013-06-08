@@ -1,0 +1,96 @@
+/**
+ * Copyright (c) 2013, Yunnan Yuan Xin technology Co., Ltd.
+ *
+ * All rights reserved.
+ */
+/*
+* eCooeModel Base Style
+*
+* @author <a href="mailto:LLY219@gmail.com">Liyuan Li</a>
+* @version 1.0.0.5, Apr 18, 2013
+*/
+/* start base */
+html, body, div, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Verdana,arial,'\5fae\8f6f\96c5\9ed1';
+    font-size: 12px;
+}
+
+::selection {
+    background-color: #D5D5D5;
+    color: #FCFCFC;
+}
+
+::-moz-selection {
+    background-color: #D5D5D5;
+    color: #FCFCFC;
+}
+
+a {
+    outline: none;
+    color: #009EB8;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #00b4d2;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: #00889f;
+}
+
+img {
+    vertical-align: middle;
+    border: 0;
+}
+
+textarea, 
+input,
+select {
+    outline: none;
+    vertical-align: sub;
+    font-family: Verdana,arial,'\5fae\8f6f\96c5\9ed1';
+    font-size: 12px;
+}
+
+sup {
+    font-size: 10px;
+    font-weight: normal;
+    -webkit-text-size-adjust: none;
+}
+
+.fn-left {
+    float: left;
+}
+
+.fn-right {
+    float: right;
+}
+
+.fn-clear:before,
+.fn-clear:after {
+    display: table;
+    content: "";
+}
+
+.fn-clear:after {
+    clear: both;
+}
+
+.fn-none {
+    display: none;
+}
+
+.ft-red {
+    color: red;
+}
+/* end base */

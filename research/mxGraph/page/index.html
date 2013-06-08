@@ -1,0 +1,321 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link type="text/css" href="../css/component/base.css" rel="stylesheet" />
+        <link type="text/css" href="../css/component/model.css" rel="stylesheet" />
+        <link type="text/css" href="../css/component/config.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div>
+            <div class="header">
+                <span id="modelTip">加载中...</span>
+                <span class="toolbar-ico"></span>
+                <button class="save-ico" id="toolbarSave" title="Save"></button>
+                <span class="split-ico"></span>
+                <button class="undo-disabled-ico" id="toolbarUndo" disabled="disabled" title="undo"></button>
+                <button class="redo-disabled-ico" id="toolbarRedo" disabled="disabled" title="redo"></button>
+                <span class="split-ico"></span>
+                <span id="toolbarAlign">
+                    <button class="left-align-disabled-ico" id="toolbarLeftAlign" title="left align"></button>
+                    <button class="center-disabled-ico" id="toolbarCenter" title="center"></button>
+                    <button class="right-align-disabled-ico" id="toolbarRightAlign" title="right align"></button>
+                    <button class="top-align-disabled-ico" id="toolbarTopAlign" title="top align"></button>
+                    <button class="middle-disabled-ico" id="toolbarMiddle" title="middle"></button>
+                    <button class="bottom-align-disabled-ico" id="toolbarBottomAlign" title="bottom align"></button>
+                </span>
+            </div>
+            <div class="content">
+                <div class="side">
+                    <dl>
+                        <dt>
+                        事件
+                        <span class="arrow-down-ico"></span>
+                        </dt>
+                        <dd>
+                            <ul>
+                                <li id="sideStartEvent">
+                                    <span class="hover"></span>
+                                    <span class="start-ico"></span>开始事件
+                                </li>
+                                <li id="sideEndEvent">
+                                    <span class="hover"></span>
+                                    <span class="end-ico"></span>结束事件
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>任务<span class="arrow-down-ico"></span></dt>
+                        <dd>
+                            <ul>
+                                <li id="sideUserTask">
+                                    <span class="hover"></span>
+                                    <span class="user-ico"></span>用户任务
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>网关<span class="arrow-down-ico"></span></dt>
+                        <dd>
+                            <ul>
+                                <li id="sideExclusiveGateway">
+                                    <span class="hover"></span>
+                                    <span class="exclusive-gateway-ico"></span>单一网关
+                                </li>
+                                <li id="sideParallelGateway">
+                                    <span class="hover"></span>
+                                    <span class="parallel-gateway-ico"></span>并行网关
+                                </li>
+                                <li id="sideInclusiveGateway">
+                                    <span class="hover"></span>
+                                    <span class="inclusive-gateway-ico"></span>多路网关
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>泳道<span class="arrow-down-ico"></span></dt>
+                        <dd>
+                            <ul>
+                                <li id="sideSwimlane">
+                                    <span class="hover"></span>
+                                    <span class="swimline-ico"></span>泳道
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="panel-wrap">
+                    <div class="panel" id ="mxGraph">
+                    </div>
+                </div>
+            </div>
+            <div class="footer"></div>
+        </div>
+
+        <div class="dialog fn-none" id="flowDialog">
+            <div class="dialog-header">
+                流程属性设置<span class="close-ico"></span>
+            </div>
+            <div class="dialog-body">
+                <div class="dialog-content">
+                    <#include "/app/eCooeModel/pc/ie9/component/model/config/flow/index.ftl">
+                </div>
+                <div class="dialog-footer">
+                    <button class="btn-save">保存</button> 
+                    <button class="button">取消</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="dialog fn-none" id="laneDialog">
+            <div class="dialog-header">
+                设置泳道属性<span class="close-ico"></span>
+            </div>
+            <div class="dialog-body">
+                <div class="dialog-content">
+                    <#include "/app/eCooeModel/pc/ie9/component/model/config/lane/index.ftl">
+                </div>
+                <div class="dialog-footer">
+                    <button class="btn-save">保存</button> 
+                    <button class="button">取消</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="dialog fn-none" id="taskDialog">
+            <div class="dialog-header">
+                环节属性设置<span class="close-ico"></span>
+            </div>
+            <div class="dialog-body">
+                <div class="dialog-content">
+                    <#include "/app/eCooeModel/pc/ie9/component/model/config/task/index.ftl">
+                </div>
+                <div class="dialog-footer">
+                    <button class="btn-save">保存</button> 
+                    <button class="button">取消</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="dialog fn-none" id="sequenceDialog">
+            <div class="dialog-header">
+                连线属性设置<span class="close-ico"></span>
+            </div>
+            <div class="dialog-body">
+                <div class="dialog-content">
+                    <#include "/app/eCooeModel/pc/ie9/component/model/config/sequence/index.ftl">
+                </div>
+                <div class="dialog-footer">
+                    <button class="btn-save">保存</button> 
+                    <button class="button">取消</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="dialog fn-none" id="gatewayDialog">
+            <div class="dialog-header">
+                网关属性设置<span class="close-ico"></span>
+            </div>
+            <div class="dialog-body">
+                <div class="dialog-content">
+                    <#include "/app/eCooeModel/pc/ie9/component/model/config/gateway/index.ftl">
+                </div>
+                <div class="dialog-footer">
+                    <button class="btn-save">保存</button> 
+                    <button class="button">取消</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="dialog fn-none" id="participantDialog">
+            <div class="dialog-header">
+                选择参与者范围<span class="close-ico"></span>
+            </div>
+            <div class="dialog-body">
+                <div class="dialog-content">
+                    <#include "/app/eCooeModel/pc/ie9/component/model/plugins/common/choose-participant.ftl">
+                </div>
+                <div class="dialog-footer">
+                    <button class="btn-save">确定</button> 
+                    <button class="button">取消</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="dialog fn-none" id="configGroupDialog">
+            <div class="dialog-header">
+                意见栏分组配置<span class="close-ico"></span>
+            </div>
+            <div class="dialog-body">
+                <div class="dialog-content">
+                    <#include "/app/eCooeModel/pc/ie9/component/model/plugins/common/config-group.ftl">
+                </div>
+                <div class="dialog-footer">
+                    <button class="btn-save">确定</button> 
+                    <button class="button">取消</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            var eCooeModel = {
+                "staticServePath": "",
+                "servePath": "",
+                "model": {
+                    "data": {
+                        "configData": {},
+                        "configGraph": '',
+                        "pluginsStr": {
+                            "plugins": {
+                                "task": {
+                                    "baseInfo": {
+                                        "base": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/task/base-info/base"
+                                        }
+                                    },
+                                    "actorScope": {
+                                        "base": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/task/actor-scope/base"
+                                        }
+                                    },
+                                    "flowAction": {
+                                        "base": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/task/flow-action/base"
+                                        },
+                                        "advance": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/task/flow-action/advance"
+                                        }
+                                    },
+                                    "appAction": {
+                                        "base": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/task/app-action/base"
+                                        },
+                                        "advance": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/task/app-action/advance"
+                                        }
+                                    },
+                                    "commentAction": {
+                                        "base": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/task/comment-action/base"
+                                        },
+                                        "advance": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/task/comment-action/advance"
+                                        }
+                                    },
+                                    "stepConfig": {
+                                        "base": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/task/step-config/base"
+                                        }
+                                    }
+                                },
+                                "flow": {
+                                    "baseInfo": {
+                                        "base": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/flow/base-info/base"
+                                        }
+                                    },
+                                    "comments": {
+                                        "base": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/flow/comments/base"
+                                        }
+                                    },
+                                    "appAction": {
+                                        "base": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/flow/app-action/base"
+                                        }
+                                    },
+                                    "flowVariable": {
+                                        "base": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/flow/flow-variable/base"
+                                        }
+                                    },
+                                    "flowScript": {
+                                        "base": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/flow/flow-script/base"
+                                        }
+                                    }
+                                },
+                                "gateway": {
+                                    "flowAction": {
+                                        "base": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/gateway/flow-action/base"
+                                        },
+                                        "advance": {
+                                            "path": "/app/eCooeModel/pc/ie9/component/model/plugins/gateway/flow-action/advance"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            mxBasePath = '../js/component/lib/mxgraph/';
+            if (!eCooeModel.model.data.configData.property) {
+                eCooeModel.model.data.configData = {
+                    "property": {
+                        "baseProperty": {
+                            "name": decodeURIComponent(location.search.split("=")[2]),
+                            "desc": ""
+                        },
+                        "appCfgs": []
+                    },
+                    "tasks": []
+                };
+            }
+        </script> 
+        <script type="text/javascript" src="../js/component/lib/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/component/lib/json2.js"></script>
+        <script type="text/javascript" src="../js/component/lib/uuid.js"></script>
+        <script type="text/javascript" src="../js/component/lib/mxgraph/mxClient.js"></script>
+        <script type="text/javascript" src="../js/component/model/model.js"></script>
+        <script type="text/javascript" src="../js/component/model/dialog.js"></script>
+        <script type="text/javascript" src="../js/component/model/edit-list.js"></script>
+        <script type="text/javascript" src="../js/component/model/graph.js"></script>
+        <script type="text/javascript" src="../js/component/model/toolbar.js"></script>
+        <script type="text/javascript" src="../js/component/model/sidebar.js"></script>
+        <script type="text/javascript" src="../js/component/model/plugins/common/choose-participant.js"></script>
+        <script type="text/javascript" src="../js/component/model/config/config.js"></script>
+    </body>
+</html>

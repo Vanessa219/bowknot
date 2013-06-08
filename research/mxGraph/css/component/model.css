@@ -1,0 +1,322 @@
+/**
+ * Copyright (c) 2013, Yunnan Yuan Xin technology Co., Ltd.
+ *
+ * All rights reserved.
+ */
+/*
+* eCooeModel model Style
+*
+* @author <a href="mailto:LLY219@gmail.com">Liyuan Li</a>
+* @version 1.0.1.2, May 24, 2013
+*/
+/* start model */
+html {
+    overflow: hidden;    
+}
+
+body {
+    overflow: hidden;
+}
+
+.header {
+    background-color: #F2F2F2;
+    border-bottom: 1px solid #C0C0C0;
+    height: 30px;
+}
+
+.content {
+    overflow: auto;
+    position: relative;
+    overflow-x: hidden;
+    background-color: #F9F9F9;
+}
+
+.side {
+    background-color: #F9F9F9;
+    width: 170px;
+}
+
+.panel-wrap {
+    border-left: 1px solid #C0C0C0;
+    left: 170px;
+    overflow: auto;
+    position: absolute;
+    top: 0;
+}
+
+.panel {
+    background-image: url(../../images/component/model/editor-bg.gif);
+    background-color: #FFFFFF;
+    height: 560px;
+    margin: 10px 10px 160px;
+    width: 1040px;
+}
+
+.footer {
+    background-color: #F2F2F2;
+    border-top: 1px solid #C0C0C0;
+    height: 30px;
+    width: 100%;
+}
+/* end model */
+
+/* start side */
+.side dl, 
+.side dd {
+    margin: 0;
+}
+
+.side dt {
+    background-color: #F3F3F3;
+    border-bottom: 1px solid #D1D1D1;
+    color: #777777;
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+.side dt:hover {
+    background-color: #E4E4E4;
+}
+
+.side li {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #D1D1D1;
+    color: #333333;
+    cursor: pointer;
+    height: 36px;
+    line-height: 36px;
+    list-style: none outside none;
+}
+
+.side li:hover {
+    background-color: #FFF;
+    padding: 0;
+}
+/* end side */
+
+/* start icon */
+.start-ico,
+.user-ico,
+.end-ico, 
+.swimline-ico,
+.side li:hover .hover,
+.arrow-up-ico,
+.arrow-down-ico,
+.toolbar-ico,
+.undo-ico,
+.undo-disabled-ico,
+.redo-ico,
+.redo-disabled-ico,
+.left-align-ico,
+.left-align-disabled-ico,
+.center-ico,
+.center-disabled-ico,
+.right-align-ico,
+.right-align-disabled-ico,
+.top-align-ico,
+.top-align-disabled-ico,
+.middle-ico,
+.middle-disabled-ico,
+.bottom-align-ico,
+.bottom-align-disabled-ico,
+.split-ico,
+.save-ico,
+.exclusive-gateway-ico,
+.inclusive-gateway-ico,
+.parallel-gateway-ico {
+    background-image: url(../../images/component/model/icons.png);
+}
+
+.start-ico,
+.user-ico,
+.end-ico, 
+.swimline-ico,
+.exclusive-gateway-ico,
+.inclusive-gateway-ico,
+.parallel-gateway-ico {
+    background-position: -20px -59px;
+    float: left;
+    height: 20px;
+    margin-top: 9px;
+    width: 30px;
+}
+
+.user-ico {
+    background-position: -83px -59px;
+}
+
+.end-ico {
+    background-position: -52px -59px;
+}
+
+.swimline-ico {
+    background-position: -116px -58px;
+}
+
+.exclusive-gateway-ico {
+    background-position: -245px -58px;
+    height: 21px;
+    margin-right: 2px;
+    width: 27px;
+}
+
+.inclusive-gateway-ico {
+    background-position: -299px -58px;
+    height: 21px;
+    margin-right: 2px;
+    width: 27px;
+}
+
+.parallel-gateway-ico {
+    background-position: -272px -58px;
+    height: 21px;
+    margin-right: 2px;
+    width: 27px;
+}
+
+.side li .hover {
+    background-position: 0 -60px;
+    float: left;
+    height: 16px;
+    margin-top: 10px;
+    width: 12px;
+}
+
+.arrow-up-ico,
+.arrow-down-ico {
+    background-position: -152px -65px;
+    float: right;
+    height: 6px;
+    margin: 14px 10px 0 0;
+    width: 8px;
+}
+
+.arrow-up-ico {
+    background-position: -174px -65px;
+}
+
+.undo-ico,
+.undo-disabled-ico,
+.redo-ico,
+.redo-disabled-ico,
+.left-align-ico,
+.left-align-disabled-ico,
+.center-ico,
+.center-disabled-ico,
+.right-align-ico,
+.right-align-disabled-ico,
+.top-align-ico,
+.top-align-disabled-ico,
+.middle-ico,
+.middle-disabled-ico,
+.bottom-align-ico,
+.bottom-align-disabled-ico,
+.save-ico {
+    background-color: transparent;
+    background-position: -113px 3px;
+    border-width: 0;
+    cursor: pointer;
+    float: left;
+    font-size: 0;
+    margin: 0 5px;
+    padding: 11px 9px;
+    vertical-align: middle;
+}
+
+.save-ico {
+    background-position: -17px 1px;
+    margin-top: 2px;
+}
+
+.save-ico:active {
+    background-position: -16px 1px;
+    margin-top: 3px;
+}
+
+.toolbar-ico {
+    float: left;
+    height: 20px;
+    margin: 4px 7px 0 3px;
+    width: 6px;
+}
+
+.undo-disabled-ico {
+    background-position: -113px -25px;
+}
+
+.redo-ico {
+    background-position: -143px 3px;
+}
+
+.redo-disabled-ico {
+    background-position: -143px -25px;
+}
+
+.left-align-ico {
+    background-position: -528px 2px;
+}
+
+.left-align-disabled-ico {
+    background-position: -528px -29px;
+}
+
+.center-ico {
+    background-position: -552px 2px; 
+}
+
+.center-disabled-ico {
+    background-position: -552px -29px; 
+}
+
+.right-align-ico {
+    background-position: -576px 2px;
+}
+
+.right-align-disabled-ico {
+    background-position: -576px -29px;
+}
+
+.top-align-ico {
+    background-position: -447px 2px;
+}
+
+.top-align-disabled-ico {
+    background-position: -447px -29px;
+}
+
+.middle-ico {
+    background-position: -471px 2px;
+}
+
+.middle-disabled-ico {
+    background-position: -471px -29px;
+}
+
+.bottom-align-ico {
+    background-position: -496px 2px;
+}
+
+.bottom-align-disabled-ico {
+    background-position: -496px -29px;
+}
+
+.split-ico {
+    background-position: 3px -25px;
+    float: left;
+    height: 27px;
+    width: 19px;
+}
+/* end icon */
+
+/* start other */
+#modelTip {
+    background-color: #666666;
+    color: #EEEEEE;
+    left: 50%;
+    padding: 8px 10px;
+    position: fixed;
+    top: 0;
+}
+/* end other */

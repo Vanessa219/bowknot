@@ -1,0 +1,662 @@
+/**
+ * Copyright (c) 2013, Yunnan Yuan Xin technology Co., Ltd.
+ *
+ * All rights reserved.
+ */
+/*
+* eCooeModel config Style
+*
+* @author <a href="mailto:LLY219@gmail.com">Liyuan Li</a>
+* @version 1.0.2.7, May 30, 2013
+*/
+/* start config */
+.tab-header {  
+    background-color: #F9F9F9;
+    border-bottom: 1px solid #A8AAAC;
+    height: 30px;
+    line-height: 30px;
+    color: #555;
+    font-size: 13px;
+}
+
+.tab-header li.first {
+    border-left-width: 0;
+}
+
+.tab-header li {
+    border-left: 1px solid #A8AAAC;
+    cursor: pointer;
+    float: left;
+    list-style-type: none;
+    padding: 0 25px;    
+}
+
+.tab-header li.current {
+    background-color: #FFFFFF;
+    color: #333333;
+    font-weight: bold;
+    height: 31px;
+}
+
+.tab-content {
+    height: 429px;
+    overflow: auto;
+    padding: 10px 10px 0 10px;
+}
+/* end config*/
+
+/* start common */
+.fn-pointer {
+    cursor: pointer;
+}
+
+.dialog-header,
+.dialog-header .close-ico,
+.add-ico,
+.plus-ico,
+.new-ico, 
+.remove-ico,
+.table-bar-ico,
+.top-ico, 
+.down-ico,
+.top-disabled-ico, 
+.down-disabled-ico
+.remove-disabled-ico,
+.add-disabled-ico,
+.new-disabled-ico,
+.remove-disabled-ico,
+.top-disabled-ico,
+.down-disabled-ico,
+.select-ico,
+.include-ico,
+.exclude-ico,
+.config-group-ico {
+    background-image: url("../../images/component/config/icons.png");
+}
+
+
+.include-ico {
+    background-position: -26px -117px;
+    float: left;
+    height: 20px;
+    width: 20px;
+}
+
+.exclude-ico {
+    background-position: -1px -117px;
+    float: left;
+    height: 20px;
+    width: 20px;
+}
+
+.select-ico {
+    background-color: #FAFAFA;
+    background-position: -55px -117px;
+    border: 1px solid #E3E3E3;
+    cursor: pointer;
+    float: right;
+    height: 27px;
+    margin-top: 5px;
+    width: 20px;
+    border-left-width: 0;
+}
+
+.add-ico,
+.plus-ico {
+    background-position: -22px -37px;
+    cursor: pointer;
+    float: left;
+    height: 14px;
+    width: 18px;
+}
+
+.plus-ico {
+    background-position: -4px -37px;
+}
+
+.solid {
+    border-bottom: 1px solid #A9A9A9;
+    float: right;
+    margin-top: 6px;
+    width: 722px;
+}
+
+.input {
+    width: 450px;
+    font-family: Verdana,arial,'\5fae\8f6f\96c5\9ed1';
+    height: 25px;
+    border: 1px solid #E9E9E9;
+    margin: 5px 0;
+}
+
+.textarea {
+    width: 450px;
+    height: 75px;
+    border: 1px solid #E9E9E9;
+    margin: 5px 0;
+    padding: 3px 0;
+}
+
+.form {
+    margin-left: 30px;
+}
+
+.form th {
+    font-weight: normal;
+    padding-top: 10px;
+    text-align: right;
+    vertical-align: top;
+}
+
+.table-bar {
+    background-color: #F9F9F9;
+    border: 1px solid #D0D0D0;
+    height: 30px;
+    line-height: 30px;
+    border-bottom-width: 0;
+}
+
+.table-bar-ico {
+    background-position: -36px -34px;
+    float: left;
+    height: 29px;
+    margin-top: 1px;
+    width: 16px;
+}
+
+.new-ico,
+.remove-ico,
+.top-ico,
+.down-ico,
+.new-disabled-ico,
+.remove-disabled-ico,
+.top-disabled-ico,
+.down-disabled-ico,
+.config-group-ico {
+    background-position: -4px -60px;
+    float: left;
+    height: 28px;
+    margin-top: 1px;
+    width: 24px;
+}
+
+.remove-ico {
+    background-position: -27px -60px;
+}
+
+.top-ico {
+    background-position: -75px -59px;
+}
+
+.down-ico {
+    background-position: -50px -59px;
+}
+
+.fn-pointer:hover .remove-ico,
+.dialog-side-header .remove-ico:hover {
+    background-position: -27px -144px;
+}
+
+.fn-pointer:hover .top-ico,
+.dialog-side-header .top-ico:hover {
+    background-position: -75px -143px;
+}
+
+.fn-pointer:hover .down-ico,
+.dialog-side-header .down-ico:hover {
+    background-position: -50px -143px;
+}
+
+.fn-pointer:hover .new-ico,
+.dialog-side-header .new-ico:hover {
+    background-position: -4px -144px;
+}
+
+.config-group-ico {
+    background-position: -81px -117px;
+}
+
+.fn-pointer:hover .config-group-ico {
+    background-position: -106px -117px;
+}
+
+.new-disabled-ico {
+    background-position: -4px -90px;
+}
+
+.remove-disabled-ico {
+    background-position: -29px -90px;
+}
+
+.top-disabled-ico {
+    background-position: -57px -92px;
+}
+
+.down-disabled-ico {
+    background-position: -82px -93px;
+}
+
+.label-ico {
+    float: left;
+    padding-right: 10px;
+}
+
+.table {
+    border: 1px solid #D0D0D0;
+    border-left-width: 0;
+}
+
+.table th {
+    background-color: #F9F9F9;
+    border-left: 1px solid #D0D0D0;
+    color: #777777;
+    height: 26px;
+}
+
+.table td {
+    border-top: 1px solid #D0D0D0;
+    border-left: 1px solid #D0D0D0;
+    height: 26px;
+    text-align: center;
+}
+
+.table input[type="text"] {
+    border: 1px solid #E9E9E9;
+    height: 20px;
+    width: 97%;
+}
+
+.button {
+    background-color: #FFF;
+    border: 1px solid #E2E2E2;
+    border-radius: 3px 3px 3px 3px;
+    color: #565D74;
+    cursor: pointer;
+    margin: 6px;
+    padding: 3px 20px;
+}
+
+.btn-save {
+    background-color: #92C617;
+    border: 1px solid #82B613;
+    border-radius: 3px 3px 3px 3px;
+    color: #FFF;
+    cursor: pointer;
+    margin: 6px;
+    padding: 3px 20px;
+}
+
+.hr {
+    border-bottom: 1px solid #E0E0E0;
+    border-width: 0 0 1px;
+    height: 1px;
+    margin: 10px 0;
+}
+/* end common */
+
+/* start dialog */
+.dialog-bg {
+    background-color: #000000;
+    display: none;
+    left: 0;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.dialog {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    width: 840px;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+}
+
+.dialog-header {
+    cursor: move;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    height: 33px;
+    line-height: 33px;
+    padding-left: 10px;
+}
+
+.dialog-header .close-ico {
+    background-position: -166px -33px;
+    cursor: move;
+    float: right;
+    height: 20px;
+    margin-right: 2px;
+    width: 20px;
+    background-image: none;
+}
+
+.dialog-header .close-ico:hover {
+    background-position: -189px -33px;
+}
+
+.dialog-body {
+    background-color: #F9F9F9;
+    border: 1px solid #A8AAAC;
+    border-top-width: 0;
+    padding-top: 5px;
+}
+
+.dialog-content {
+    overflow: auto;
+    background-color: #FFFFFF;
+    border: 1px solid #A9A9A9;
+    margin: 0 5px;
+}
+
+.dialog-footer {
+    text-align: center;
+}
+
+.dialog-side {
+    border: 1px solid #C9C9C9;
+    border-width: 1px 1px 0 0;
+    height: 428px;
+    margin-left: -10px;
+    width: 165px;
+}
+
+.dialog-main {
+    border: 1px solid #C9C9C9;
+    border-width: 1px 0 0 1px;
+    height: 428px;
+    margin-left: 10px;
+    margin-right: -10px;
+    overflow: auto;
+    width: 649px
+}
+
+.dialog-main .solid {
+    width: 88%;
+}
+
+.dialog-main > div {
+    padding: 10px;
+}
+
+.dialog-side-header {
+    background-color: #F7F7F7;
+    border-bottom: 1px solid #CDCDCD;
+    height: 30px;
+}
+/* end dialog */
+
+/* start dialog side list */
+.dialog-side li {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 15px;
+    border-bottom: 1px solid #FFF;
+    border-top: 1px solid #FFF;
+}
+
+.dialog-side-header .new-ico,
+.dialog-side-header .remove-ico,
+.dialog-side-header .top-ico,
+.dialog-side-header .down-ico {
+    cursor: pointer;
+}
+
+#taskAppActionList li span.disabled {
+    color: #999999;
+    cursor: auto;
+}
+
+.dialog-side li.current {
+    background-color: #F1F1F1;
+    border-bottom: 1px solid #CDCDCD;
+    border-top: 1px solid #CDCDCD;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.dialog-side li.current.first {
+    border-top-width: 0;
+}
+/* end dialig side list */
+
+/* start task panel */
+.eCooeModel-all-tasks {
+    position: relative;
+    display: inline;
+}
+
+.eCooeModel-all-tasks-input {
+    width: 214px;
+}
+
+.eCooeModel-all-tasks-panel, 
+.eCooeModel-all-tasks-advance-panel {
+    background-color: #F4F4F4;
+    border: 1px solid #DDDDDD;
+    left: 156px;
+    position: absolute;
+    top: 22px;
+    width: 214px;
+}
+
+.eCooeModel-all-tasks-advance-panel {
+    left: 0;
+    width: 411px;
+}
+
+.eCooeModel-all-tasks-panel ul,
+.eCooeModel-all-tasks-advance-panel ul {
+    height: 100px;
+    overflow: auto;
+}
+
+.eCooeModel-all-tasks-panel li,
+.eCooeModel-all-tasks-advance-panel li {
+    color: #333333;
+    height: 30px;
+    line-height: 30px;
+    list-style-type: none;
+    padding-left: 10px;
+    border-bottom: 1px solid #F4F4F4;
+}
+
+.eCooeModel-all-tasks-panel li.current,
+.eCooeModel-all-tasks-advance-panel li.current {
+    background-color: #EAEAEA;
+    border-bottom: 1px solid #D4D4D5;
+}
+
+
+.eCooeModel-all-tasks-panel > span,
+.eCooeModel-all-tasks-advance-panel > span {
+    border-top: 1px solid #D7D8D8;
+    display: block;
+    height: 36px;
+    text-align: right;
+    width: 214px;
+}
+
+.eCooeModel-all-tasks-advance-input,
+.eCooeModel-all-tasks-advance-panel > span {
+    width: 411px;
+}
+
+#taskStepConfigAction {
+    margin-top: 7px;
+    max-height: 301px;
+    overflow: auto;
+    position: inherit;
+    width: auto;
+}
+
+#taskStepConfigAction li.last.current {
+    border-bottom-color: #F4F4F4;
+}
+/* end task panel */
+
+/* start task */
+.actor-scope-box {
+    border: 1px solid #E9E9E9;
+    margin-left: 10px;
+    min-height: 55px;
+    padding: 10px;
+    width: 648px;
+}
+
+.actor-scope-box li {
+    list-style-type: none;
+}
+/* end task */
+
+/* start choose user */
+#participantDialog .dialog-content  {
+    background-color: #F9F9F9;
+    border-width: 0;
+    font-size: 13px;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.choose-user .left-panel {
+    float: left;
+    width: 290px;
+}
+
+.choose-user .middle-panel {
+    float: left;
+    text-align: center;
+    width: 90px;
+    padding-top: 100px;
+}
+
+.choose-user .right-panel {
+    border: 1px solid #E3E3E3;
+    float: left;
+    height: 338px;
+    width: 240px;
+    background-color: #FFF;
+}
+
+.choose-user .middle-panel > button {
+    padding: 3px 10px;
+}
+
+.choose-user .org-tree,
+.choose-user .user-tree,
+.choose-user .role-tree {
+    background-color: #FFFFFF;
+    border: 1px solid #E3E3E3;
+    float: right;
+    height: 300px;
+    width: 218px;
+    overflow: auto;
+}
+
+.choose-user .user-tree {
+    height: 334px;
+    width: 288px;
+    margin-top: 5px;
+}
+
+.choose-user .role-tree {
+    height: 286px;
+    left: 80px;
+    padding: 10px;
+    position: absolute;
+    top: 62px;
+    width: 198px;
+}
+
+.choose-user .role-tree ul {
+    margin-left: 30px;
+}
+
+.choose-user li {
+    line-height: 28px;
+    list-style-type: none;
+    border-bottom: 1px solid #FFF;
+    font-size: 12px;
+}
+
+.choose-user li.current {
+    background-color: #EAEAEA;
+    border-bottom: 1px solid #D0D0D0;
+}
+
+.choose-user li.no-list {
+    border-bottom-width: 0;
+}
+
+.choose-user .org-tree > ul > li > span,
+.choose-user .user-tree > ul > li > span {
+    margin-left: 10px;
+    margin-top: 6px;
+}
+
+.choose-user .org-tree > ul > li > ul > li > span,
+.choose-user .user-tree > ul > li > ul > li > span {
+    margin-left: 25px;
+    margin-top: 6px;
+}
+
+.choose-user .org-tree > ul > li > ul > li > ul > li > input,
+.choose-user .user-tree > ul > li > ul > li > ul > li > input {
+    margin-left: 60px;
+}
+
+.choose-user .user-tree > ul > li > ul > li > ul > li > span {
+    margin-left: 42px;
+    margin-top: 6px;
+} 
+
+.choose-user .user-tree > ul > li > ul > li > ul > li > ul > li > input {
+    margin-left: 73px;
+}
+
+.choose-user .user-tree > ul > li > ul > li > ul > li > ul > li > ul > li > span {
+    margin-left: 75px;
+    margin-top: 6px;
+} 
+
+.choose-user .user-tree > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > input {
+    margin-left: 96px;
+}
+
+.choose-user .fn-blank {
+    float: left;
+    height: 14px;
+    width: 18px;
+}
+/* end choose user */
+
+/* start config group */
+#configGroupDialog .dialog-content  {
+    background-color: #F9F9F9;
+    font-size: 13px;
+    padding: 10px;
+}
+
+#configGroupDialog .form th {
+    font-weight: normal;
+    height: 30px;
+    text-align: right;
+}
+/* end config group */
+
+/* start gateway */
+#gatewayDialog .dialog-side {
+    border-top: 0 none;
+    height: 470px;
+}
+
+#gatewayDialog .dialog-main {
+    border-top-width: 0;
+    height: 470px;
+    margin: 0;
+}
+/* end gateway */
