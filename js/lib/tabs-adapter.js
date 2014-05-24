@@ -1,8 +1,0 @@
-/*
-    Document   : tabs adapter
-    Author     : Liyuan Li
-    Version    : 0.0.0.2
-    Description:
-        Adapter for Tabs.
-*/
-var Tabs=function(a){var b="#"+a.id;this.getId=function(){return b},$(b).tabs(a)};$.extend(Tabs.prototype,{add:function(a){var b=this.getId();$(b).tabs("add",a)},activate:function(a){var b=this.getId();$(b).tabs("select",a)},getActivateTab:function(){var a=this.getId();return this._newTab($(a).tabs("getTab"))},getTab:function(a){var b=this.getId();return this._newTab($(b).tabs("getTab",a))},getLength:function(){var a=this.getId();return $(a).find("li").length},setHeight:function(a){var b=this.getId();$(b).tabs("update",{height:a})},destroy:function(){var a=this.getId();$(a).tabs("destroy")},addListenerEvent:function(a,b,c){var d=this.getId();$(d).tabs("bind",[{type:a,action:function(a){b(a,a.data.data)}}],c)},removeListenerEvent:function(a,b){var c=this.getId();$(c).tabs("unbind",a,b)},_newTab:function(a){var b=this.getId();return new Tab(b,a)}});var Tab=function(a,b){this.getTabsId=function(){return a},this.getTabId=function(){return b.id}};$.extend(Tab.prototype,{getNext:function(){var a=this.getTabsId(),b=this.getTabId();return new Tab(a,$(a).tabs("getTab",b,"next"))},getPre:function(){var a=this.getTabsId(),b=this.getTabId();return new Tab(a,$(a).tabs("getTab",b,"pre"))},update:function(a){var b=this.getTabsId(),c=this.getTabId();$(b).tabs("update",a,c)},remove:function(){var a=this.getTabsId(),b=this.getTabId();$(a).tabs("remove",b)}})
