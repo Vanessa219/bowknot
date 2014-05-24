@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Upload</title>
+        <link href="../../styles/upload-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../styles/dialog-default.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../js/lib/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../../js/lib/upload/swfobject.js"></script>
+        <script type="text/javascript" src="../../js/lib/upload/upload.js"></script>
+        <script type="text/javascript" src="../../js/lib/dialog.js"></script>
+    </head>
+    <body>
+        <button onclick="openUpload();">Upload</button>
+        <p>
+            <a href="javascript:jQuery('#upload').upload('clearQueue')">Cancel All Uploads</a>
+            <a href="javascript:jQuery('#upload').upload('upload')">Uploads All</a>
+        </p>
+        <div id="dialog" class="none">
+            <input type="file" id="upload" />
+            <img alt="upload" src="../../images/upload-logo.gif"/>
+            <div id="fileQueue"></div>
+        </div>
+        <script type="text/javascript">
+            var openUpload = function () {
+                $("#dialog").dialog("open");
+                $("#fileQueue").html("");
+            }
+
+            $("#dialog").dialog({
+                "title": "Upload",
+                "width": 560,
+                "height":279,
+                "position": {
+                    "top": 34,
+                    "left": 137
+                },
+                "okText": "确定",
+                "cancelText": "取消",
+                "modal": false,
+                "hideFooter": false,
+                "ok": function () {
+                    $('#upload').upload('upload');
+                    return false;
+                }
+            });
+            
+            $("#upload").upload({
+                'uploader': '../../js/lib/upload/upload.swf',
+                'script': '/web_plugins/uploadOrRemoveFile?operate=flashUpload',
+                'folder': '/folder1',
+                'queueID': 'fileQueue',
+                'fileExt': '*.jpg;*.png;',
+                'fileDesc': 'Image Files',
+                'multi': true,
+                'removeCompleted': false,
+                'buttonImg': '../../images/upload-button.gif',
+                'buttonText': '',
+                'height': 64,
+                'width': 216,
+                onComplete: function (event, id, fileObj, response, data) {
+                },
+                onError: function (id, fileObj, info) {
+                },
+                onCancel: function (event, id, fileObj, data) {
+                    if (fileObj === null) {
+                        alert("remove: " + $("#upload" + id).data("response")[0].url + " form server.")
+                    } else {
+                        alert("remove form this queue.")
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

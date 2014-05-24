@@ -1,0 +1,189 @@
+/*
+    Document   : doc
+    Created on : Jul 26, 2010, 2:50:46 PM
+    Author     : Vanessa
+    Description:
+        Purpose of the stylesheet follows.
+*/
+/* common */
+*, html, body {
+    height:auto;
+    margin:0;
+    padding:0;
+}
+
+body {
+    background-color:#FFFFFF;
+    color:#000000;
+    font-family:'微软雅黑',Helvetica,Arial,sans-serif;
+    font-size:12px;
+}
+
+a {
+    color:#0000CC;
+}
+
+a:active {
+    color:red;
+}
+
+a:visited {
+    color:#551A8B;
+}
+
+p {
+    line-height:125%;
+    margin:0;
+    padding:1em 0 0;
+}
+
+img {
+    border:medium none;
+    margin:0;
+    padding:0;
+    vertical-align:middle;
+}
+
+h1 {
+    font-size:160%;
+}
+
+h2 {
+    font-size:140%;
+}
+
+h3 {
+    font-size:120%;
+}
+
+h4 {
+    font-size:110%;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-left: 12px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.none {
+    display: none;
+}
+
+.clear {
+    clear: both;
+    height: 0px;
+    font-size: 0px;
+    line-height: 0px;
+    overflow: hidden;
+    border: 0px;
+    background-color: transparent;
+    display: block;
+}
+
+.marginBottom12 {
+    margin-bottom: 12px;
+}
+
+.marginTop12 {
+    margin-top: 12px;
+}
+
+.note {
+    color: red;
+}
+
+/* doc */
+.side {
+    width: 173px;
+}
+
+#main {
+    background-color: #BBCCFF;
+    padding: 6px;
+    min-height: 300px;
+}
+
+#allPanel {
+    min-width: 885px;
+    margin-top: 24px;
+}
+
+#content {
+    height: 100%;
+    background-color: #E3E9FF;
+    padding: 12px;
+}
+
+#content dl {
+    margin: 12px;
+}
+
+#content dt {
+    font-weight: bold;
+}
+
+#content dd {
+    margin-left: 12px;
+}
+
+/* navi */
+#navi li {
+    padding: 2px 0 2px 24px;
+    margin-left: 0px;
+}
+
+#navi li {
+    cursor: pointer;
+}
+
+#navi li.hover {
+    background-color: #DDE5FF;
+}
+
+#navi li.selected {
+    background-color: #BBCCFF;
+    font-weight: bold;
+}
+
+/* demo */
+.demo {
+    width: 80%;
+    min-width: 600px;
+    margin: 12px auto;
+}
+
+#htmlCodeTitle, #jsCodeTitle {
+    background:url("../images/icon.png") no-repeat scroll -82px -32px transparent;
+    height:16px;
+    width:16px;
+    cursor: pointer;
+    display: inline-table
+}
+
+#htmlCodeTitle.expand, #jsCodeTitle.expand {
+    background:url("../images/icon.png") no-repeat scroll -98px -32px transparent;
+    height:16px;
+    width:16px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.popPanel {
+    background-color:#FFFFFF;
+    border:1px solid #639ECD;
+    cursor:pointer;
+    font-size:13px;
+    padding:0 3px;
+    position:absolute;
+}

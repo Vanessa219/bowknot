@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Table Demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/table-default.css" />
+        <link type="text/css" rel="stylesheet" href="../../styles/docs-default.css" />
+        <script type="text/javascript" src="../../js/lib/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../../js/lib/table-oa.js"></script>
+        <script type="text/javascript" src="../../js/demos.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var mockTableData = [{
+                        id: "1",
+                        ck: {
+                            value:false,
+                            disabled:false
+                        },
+                        title:"标题1",
+                        ngPeople:"user1",
+                        ngDate:"2010-05-21",
+                        ngPart:"部门1",
+                        number:"文号1",
+                        key1: "key1-1",
+                        key2: "key2-1"
+                    }, {
+                        id: "2",
+                        ck: {
+                            value:true,
+                            disabled:true
+                        },
+                        title:"标题2",
+                        ngPeople:"user2",
+                        ngDate:"2010-05-22",
+                        ngPart:"部门2",
+                        number:"文号2",
+                        key1: "key1-2",
+                        key2: "key2-2"
+                    }, {
+                        id: "3",
+                        ck: {
+                            value:false,
+                            disabled:true
+                        },
+                        title:"标题3",
+                        ngPeople:"user3",
+                        ngDate:"2010-05-23",
+                        ngPart:"部门3",
+                        number:"文号3",
+                        key1: "key1-3",
+                        key2: "key2-3"
+                    },{
+                        id: "4",
+                        ck: {
+                            value:false,
+                            disabled:false
+                        },
+                        title:"标题4",
+                        ngPeople:"user4",
+                        ngDate:"2010-05-24",
+                        ngPart:"部门4",
+                        number:"文号4",
+                        key1: "key1-4",
+                        key2: "key2-4"
+                    }],
+                mockTableModel = [{
+                        text:"序号",
+                        index: "ck",
+                        width:60,
+                        type: 'checkbox',
+                        align: 'center'
+                    }, {
+                        text:"标题",
+                        index:"title",
+                        minWidth: 85
+                    }, {
+                        text:"拟稿人",
+                        index:"ngPeople",
+                        width:80
+                    }, {
+                        text:"拟稿日期",
+                        index:"ngDate",
+                        width:100
+                    }, {
+                        text:"拟稿部门",
+                        index:"ngPart",
+                        width:100
+                    }, {
+                        text:"文号",
+                        index:"number",
+                        width:80,
+                        align: "center"
+                    }];
+
+                $("#tableDemo1").table({
+                    colModel: mockTableModel,
+                    data: mockTableData,
+                    height: 80
+                });
+            });
+
+
+            var getTableDemo1SelectedDatas = function() {
+                var datas = $("#tableDemo1").table("getSelectedRows");
+                for (var i = 0; i < datas.length; i++) {
+                    alert("id: "  + datas[i].id);
+                }
+            }
+            
+            var setTableDemo1SelectedDatas = function() {
+                $("#tableDemo1").table("setSelectedRows", ["1", "2"]);
+            }
+        </script>
+    </head>
+    <body>
+        <div class="demo">
+            <div>
+                <h2>allSelected</h2>
+                <button onclick="getTableDemo1SelectedDatas()">get selected datas</button>
+                <button onclick="setTableDemo1SelectedDatas()">set selected datas</button>
+                <div id="tableDemo1"></div>
+                <div class="none popPanel" id="floatLayer">
+                    <span onclick="floatEvent();">
+                        Hi!
+                    </span>
+                </div>
+                <br/>
+                <br/>
+            </div>
+            <div class="code">
+                <div>
+                    <h2><span id="htmlCodeTitle"></span>HTML Code</h2>
+                    <textarea id="htmlCodeContent" readonly rows="10" cols="88" class="none">
+&lt;button onclick="getTableDemo1SelectedDatas()"&gt;get selected datas&lt;/button&gt;
+&lt;div id="tableDemo1"&gt;&lt;/div&gt;
+&lt;div class="none popPanel" id="floatLayer"&gt;
+    &lt;span onclick="floatEvent();"&gt;
+        Hi!
+    &lt;/span&gt;
+&lt;/div&gt;
+
+&lt;button onclick="getTableDemo2SelectedDatas()"&gt;get selected datas&lt;/button&gt;
+&lt;div id="tableDemo2"&gt;&lt;/div&gt;
+                    </textarea>
+                </div>
+                <div>
+                    <h2><span id="jsCodeTitle"></span>JavaScript Code</h2>
+                    <textarea readonly rows="50" id="jsCodeContent" cols="88" class="none">
+                    </textarea>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

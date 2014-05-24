@@ -1,0 +1,411 @@
+/*
+ * Copyright (c) 2012, Yunnan Yuan Xin technology Co., Ltd.
+ *
+ * All rights reserved.
+ */
+
+/**
+* base style
+*
+* @author <a href="http://vanessa.b3log.org">Liyuan Li</a>
+* @version 1.0.0.1, Jan 30, 2014
+*/
+/* start reset */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: '\5fae\8f6f\96c5\9ed1';
+    font-size: 12px;
+    background-color: #FFF;
+    color: #656C78;
+}
+
+::-moz-selection {
+    text-shadow: none;
+    background: #4183FF;
+}
+
+::selection { 
+    text-shadow: none;
+    background: #4183FF;
+}
+
+ul,
+ol {
+    margin:0;
+    padding:0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dd,
+p {
+    margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+    display: block;
+}
+
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+audio:not([controls]) {
+    display: none;
+}
+
+a {
+    outline: 0;
+    text-decoration: none;
+    color: #4183C4;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+sub,
+sup {
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+button,
+input,
+select,
+textarea {
+    margin: 0;
+    font-size: 100%;
+    vertical-align: middle;
+    font-family: '\5fae\8f6f\96c5\9ed1';
+    outline: none;
+}
+
+button,
+input {
+    line-height: normal;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+
+input[type="search"] {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+}
+/* end reset */
+
+/* start function */
+.fn-clear:before,
+.fn-clear:after {
+    display: table;
+    content: "";
+}
+
+.fn-clear:after {
+    clear: both;
+}
+
+.fn-left {
+    float: left;
+}
+
+.fn-right {
+    float: right;
+}
+
+.fn-none {
+    display: none;
+}
+
+.fn-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+.header .logo { 
+    background-image: url("../images/icons.png");
+}
+/* end function */
+
+/* start framework */
+.wrapper {
+    width: 1000px;
+    margin: 0 auto;
+}
+/* end framework */
+
+/* start header */
+.header {
+    height: 55px;
+    opacity: 0.9;
+    background-color: #000;
+}
+
+.header li {
+    float: left;
+    list-style: none;
+}
+
+.header a {
+    color: #FFFFFF;
+    display: block;
+    font-size: 13px;
+    margin: 18px 10px 0;
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+.header a.blue {
+    color: #65B6DC;
+    font-size: 12px;
+    margin-right: 5px;
+    padding-right: 5px;
+}
+
+.header a.blue.last {
+    margin-right: 10px;
+    padding-right: 10px;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+
+.header .split {
+    border-left: 1px solid #474747;
+    display: block;
+    height: 10px;
+    margin-top: 23px;
+}
+
+.header a.login,
+.header a.register {
+    background-color: #2F80D4;
+    border-radius: 10px;
+    font-size: 12px;
+    height: 23px;
+    line-height: 23px;
+    margin: 15px 0 0 20px;
+}
+
+.header a.register {
+    background-color: #85C143;
+}
+
+.header .logo {
+    float: left;
+    height: 22px;
+    margin-top: 16px;
+    width: 97px;
+}
+/* end header */
+/* start footer */
+.footer {
+    background-color: #FAFBFB;
+    border-top: 1px solid #E2E5EA;
+    height: 158px;
+}
+
+.footer .copyright {
+    color: #666666;
+    float: left;
+    margin-top: 64px;
+}
+
+.footer a {
+    background-color: #85C143;
+    border-radius: 20px;
+    color: #FFFFFF;
+    float: right;
+    font-size: 16px;
+    height: 41px;
+    line-height: 40px;
+    margin-top: 57px;
+    text-align: center;
+    text-decoration: none;
+    width: 189px;
+}
+/* end footer */
+
+/* start gtd-intro */
+.gtd .nav {
+    background-color: #EDEDED;
+    height: 280px;
+    text-align: center;
+}
+
+.gtd .nav h2 {
+    color: #646464;
+    font-size: 36px;
+}
+
+.gtd .nav h1 {
+    color: #333333;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 35px 0 15px;
+}
+
+.gtd .nav a {
+    background-color: #85C143;
+    border-radius: 20px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 16px;
+    height: 41px;
+    line-height: 40px;
+    margin: 40px 20px 0;
+    text-decoration: none;
+    width: 189px;
+}
+
+.gtd .nav a.blue {
+    background-color: #47A8DB;
+}
+
+.gtd .nav a.orange {
+    background-color: #F0905A;
+}
+
+.gtd-intro dt {
+    border-bottom: 1px solid #E6E9ED;
+    margin-top: 25px;
+    position: relative;
+}
+
+.gtd-intro dt h2 {
+    color: #0085CC;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.gtd-intro .hr {
+    background-color: #0085CC;
+    display: inline-block;
+    height: 3px;
+    position: absolute;
+    top: 57px;
+    width: 380px;
+}
+
+.gtd-intro dd {
+    padding: 45px 0 0 20px;
+}
+
+.gtd-intro dd.last {
+    margin-bottom: 20px;
+}
+
+.gtd-intro dd > div {
+    float: left;
+    width: 550px;
+}
+
+.gtd-intro dd h3 {
+    color: #333333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.gtd-intro dd p {
+    line-height: 29px;
+    text-indent: 25px;
+}
+
+.gtd-view {
+    text-align: center;
+}
+
+.gtd-view h3 {
+    color: #0085CC;
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.gtd-view dt {
+    color: #333333;
+    font-size: 24px;
+    margin: 40px 0 25px;
+}
+
+.gtd-view li {
+    list-style: none;
+    float: left;
+    margin-bottom: 30px;
+}
+
+.gtd-view li > div {
+    background-color: #EEEEEE;
+    border: 2px solid #BCBCBC;
+    border-radius: 5px;
+    height: 180px;
+    margin: 45px 7px 15px;
+    width: 315px;
+}
+/* end gtd-intro */
+

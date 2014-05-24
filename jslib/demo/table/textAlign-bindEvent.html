@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Table Demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/table-default.css" />
+        <link type="text/css" rel="stylesheet" href="../../styles/docs-default.css" />
+        <script type="text/javascript" src="../../js/lib/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../../js/lib/table.js"></script>
+        <script type="text/javascript" src="../../js/lib/table-adapter.js"></script>
+        <script type="text/javascript" src="../../js/demos.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var mockTableData1 = [{
+                        id: 1,
+                        title:"标题1",
+                        ngPeople:"user1",
+                        ngDate:"2010-05-21",
+                        ngPart:"部门1",
+                        number:"文号1"
+                    }, {
+                        id: 2,
+                        title:"标题2",
+                        ngPeople:"user2",
+                        ngDate:"2010-05-22",
+                        ngPart:"部门2",
+                        number:"文号2"
+                    }, {
+                        id: 3,
+                        title:"标题3",
+                        ngPeople:"user3",
+                        ngDate:"2010-05-23",
+                        ngPart:"部门3",
+                        number:"文号3"
+                    }],
+                mockTableModel1 = [{
+                        text:"序号",
+                        index: "id",
+                        width:60,
+                        align: 'center'
+                    }, {
+                        text:"标题",
+                        index:"title",
+                        minWidth: 65
+                    }, {
+                        text:"拟稿人",
+                        index:"ngPeople",
+                        width:100
+                    }, {
+                        text:"拟稿日期",
+                        index:"ngDate",
+                        width:120
+                    }, {
+                        text:"拟稿部门",
+                        index:"ngPart",
+                        width:100
+                    }, {
+                        text:"文号",
+                        index:"number",
+                        align: 'right',
+                        width:100
+                    }];
+
+                var mockTableData2 = [{
+                        id: 1,
+                        title:"标题1",
+                        ngPeople:"user1",
+                        ngDate:"2010-05-21",
+                        ngPart:"部门1",
+                        number:"文号1",
+                        key1: "key1-1",
+                        key2: "key2-1"
+                    }, {
+                        id: 2,
+                        title:"标题2",
+                        ngPeople:"user2",
+                        ngDate:"2010-05-22",
+                        ngPart:"部门2",
+                        number:"文号2",
+                        key1: "key1-2",
+                        key2: "key2-2"
+                    }, {
+                        id: 3,
+                        title:"标题3",
+                        ngPeople:"user3",
+                        ngDate:"2010-05-23",
+                        ngPart:"部门3",
+                        number:"文号3",
+                        key1: "key1-3",
+                        key2: "key2-3"
+                    }],
+                mockTableModel2 = [{
+                        text:"序号",
+                        index: "id",
+                        width:60
+                    }, {
+                        text:"标题",
+                        index:"title",
+                        minWidth: 65,
+                        bind: [{
+                                'type': 'click',
+                                'action': function(event, data) {
+                                    alert("Hi, I come from click event. key1:" + data.key1
+                                        + "; key2: " + data.key2);
+                                }
+                            }, {
+                                'type': 'mouseover',
+                                'action': function(event, data) {
+                                    alert("Hi, I come from mouse event. key1:" + data.key1
+                                        + "; key2: " + data.key2);
+                                }
+                            }]
+                    }, {
+                        text:"拟稿人",
+                        index:"ngPeople",
+                        width:80
+                    }, {
+                        text:"拟稿日期",
+                        index:"ngDate",
+                        width:130
+                    }, {
+                        text:"拟稿部门",
+                        index:"ngPart",
+                        width:100
+                    }, {
+                        text:"文号",
+                        index:"number",
+                        width:80
+                    }];
+                $("#tableDemo1").table({
+                    colModel: mockTableModel1,
+                    data: [{
+                            "groupName": "all",
+                            "groupData": mockTableData1
+                        }]
+                });
+                $("#tableDemo2").table({
+                    colModel: mockTableModel2,
+                    data: [{
+                            "groupName": "all",
+                            "groupData": mockTableData2
+                        }]
+                });
+
+                showOrHide("#htmlCodeTitle", "#htmlCodeContent");
+                showOrHide("#jsCodeTitle", "#jsCodeContent");
+            });
+        </script>
+    </head>
+    <body>
+        <div class="demo">
+            <div>
+                <h2>textAlign</h2>
+                <div id="tableDemo1"></div>
+                <br/>
+                <br/>
+                <h2>bindEvent</h2>
+                <div id="tableDemo2"></div>
+                <br/>
+                <br/>
+            </div>
+            <div class="code">
+                <div>
+                    <h2><span id="htmlCodeTitle"></span>HTML Code</h2>
+                    <textarea id="htmlCodeContent" readonly rows="2" cols="88" class="none">
+&lt;div id="tableDemo1"&gt;&lt;/div&gt;
+&lt;div id="tanleDemo2"&gt;&lt;/div&gt;
+                    </textarea>
+                </div>
+                <div>
+                    <h2><span id="jsCodeTitle"></span>JavaScript Code</h2>
+                    <textarea readonly rows="55" id="jsCodeContent" cols="88" class="none">
+                    </textarea>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

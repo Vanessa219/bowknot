@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>企业GTD</title>
+        <#include "../common/meta.ftl">
+    </head>
+    <body>
+        <#include "../common/header.ftl">
+        <div class="gtd-view gtd">
+            <div class="nav">
+                <div class="wrapper">
+                    <h1>企业GTD</h1>
+                    <h2>了解企业GTD，了解不一样的侎佧</h2>
+                    <a href="#gtd">GTD</a>
+                    <a href="#gtd" class="blue">企业GTD</a>
+                    <a href="#gtd" class="orange">LOGO</a>
+                </div>
+            </div>
+            <div class="wrapper">
+                <h3>企业GTD，您团队、企业的润滑剂</h3>
+                <dl>
+                    <dt>“卸荷减负”，摆脱杂事束缚</dt>
+                    <dd>
+                        <div>帮你梳理所有要做的事，随时记录、实时跟踪、适时计划，给大脑减轻负担，让你轻装上阵，专注眼前、忙而不乱</div>
+                        <ul class="fn-clear">
+                            <li>
+                                <div></div>
+                                <span>记事项，工作有备忘</span>
+                            </li>
+                            <li>
+                                <div></div>
+                                <span>看状态，工作有条理</span>
+                            </li>
+                            <li>
+                                <div></div>
+                                <span>做计划，工作有缓急</span>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dt>“高效稳定”，事项全程跟进</dt>
+                    <dd>
+                        <div>两大核心功能-安排、审批，全面囊括企业核心业务，让工作责任到个人，过程可监控，协作无障碍，效果可保障，推动企业高效稳定运转</div>
+                        <ul class="fn-clear">
+                            <li>
+                                <div></div>
+                                <span>私事安排，把个人事务管起来</span>
+                            </li>
+                            <li>
+                                <div></div>
+                                <span>公事安排，把团队工作管起来</span>
+                            </li>
+                            <li>
+                                <div></div>
+                                <span>审批发起，把请示、汇报管起来</span>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dt>“减少摩擦”，沟通迅速直达</dt>
+                    <dd>
+                        <div>评论、@我、通讯录功能，打破传统沟通壁垒，实现有效、即时沟通，保障协作相得无间</div>
+                        <ul class="fn-clear">
+                            <li>
+                                <div></div>
+                                <span>评论，问题讨论有空间</span>
+                            </li>
+                            <li>
+                                <div></div>
+                                <span>@我，特别提醒有渠道</span>
+                            </li>
+                            <li>
+                                <div></div>
+                                <span>通讯录，查找同事有方法</span>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dt>“抗腐防锈”，绩效考核无忧</dt>
+                    <dd>
+                        <div>统计与排名，三大维度（质、量、效率）全面展现企业、个人工作成效，为绩效考核提供权威依据，全面激发员工积极性、焕发企业活力</div>
+                        <ul class="fn-clear">
+                            <li>
+                                <div></div>
+                                <span>数量PK，能者多劳</span>
+                            </li>
+                            <li>
+                                <div></div>
+                                <span>质量PK，以质取胜</span>
+                            </li>
+                            <li>
+                                <div></div>
+                                <span>效率PK，唯快不破</span>
+                            </li>
+                        </ul>
+                    </dd> 
+                    <dt>“传递动力”，分享成长点滴</dt>
+                    <dd>
+                        <div>企业微博，为企业量身打造私密的交流空间，知识分享、活动召集、投票发起，提升员工参与度与归属感，传递满满正能量</div>
+                        <ul class="fn-clear">
+                            <li>
+                                <div></div>
+                                <span>知识分享，传递正能量</span>
+                            </li>
+                            <li>
+                                <div></div>
+                                <span>活动召集，工作添乐趣</span>
+                            </li>
+                            <li>
+                                <div></div>
+                                <span>投票发起，尊重最高民意</span>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <#include "../common/footer.ftl">
+    </body>
+</html>
