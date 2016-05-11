@@ -33,7 +33,7 @@
                 "footer": "dialog-footer",
                 "headerMiddle": "dialog-header-middle",
                 "headerBg":  "dialog-header-bg",
-                "closeIcon": "dialog-close-icon",
+                "closeIcon": "icon-close",
                 "closeIconHover": "dialog-close-icon-hover",
                 "title": "dialog-title"
             }
@@ -100,7 +100,7 @@
 
             // build HTML.
             var footerHTML = "",
-            headerHTML = "<div class='"
+            headerHTML = "<div class='fn-clear "
             + styleClass.headerBg + "'><div class='"
             + styleClass.title + "'>" 
             + settings.title + "</div><a href='javascript:void(0);' class='"
@@ -113,11 +113,11 @@
                 + settings.cancelText + "</a>";
             }
 
-            // width + 26 for IE7
             var dialogHTML = "<div id='" + id + "Dialog' class='" + styleClass.panel
-            + "' style='width: " + (dialogW + 26) + "px;' onselectstart='return false;'>" + headerHTML
-            + "<div class='" + styleClass.main + "'><div style='overflow: auto; height: "
-            + dialogH + "px;'></div><div class='" + styleClass.footer + "'>"
+            + "' style='width: " + dialogW + "px; height: "
+            + dialogH + "px;' onselectstart='return false;'>" + headerHTML
+            + "<div class='" + styleClass.main + "'><div style='overflow: auto;height:" 
+            + (dialogH - 78)+ "px'></div><div class='" + styleClass.footer + "'>"
             + footerHTML + "</div></div>";
 
             var bgHTML = "";
