@@ -37,7 +37,7 @@
                 "closeIconHover": "dialog-close-icon-hover",
                 "title": "dialog-title"
             }
-        }
+        };
     };
 
     $.extend(Dialog.prototype, {
