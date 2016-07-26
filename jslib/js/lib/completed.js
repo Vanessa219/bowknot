@@ -93,17 +93,18 @@
                     classStyle = this._getDefaults($.completed._defaults, settings, "styleClass");
             var $it = $("#" + id);
             var panelHTML = '';
-            
+
             if (!settings.onlySelect) {
-                panelHTML +="<button onclick=\"$('#" + id +
-                    "CheckboxPanel').toggle()\">" + settings.buttonText + "</button>";
+                panelHTML += "<button onclick=\"$('#" + id +
+                        "CheckboxPanel').toggle()\">" + settings.buttonText + "</button>";
             }
             panelHTML += "<div id='" + id +
                     "SelectedPanel' class='" + classStyle.panelClass + "' style='height:" +
                     height + ";'></div><div class='none " +
                     classStyle.ckClass + "' id='" + id + "CheckboxPanel'><div>";
-
-            settings.data.sort();
+            if (typeof(settings.data) === 'object') {
+                settings.data.sort();
+            }
 
             $it.after(panelHTML).bind("keyup", {
                 settings: settings
@@ -382,6 +383,13 @@
                     }
                 }
             });
+        },
+        _updateDataCompleted: function (target, action, data) {
+            var inst = this._getInst(target);
+            var id = inst.id,
+                    settings = inst.settings;
+            settings.data = data;
+            $.completed._buildSelectedPanel(id, data, settings, '2011');
         },
         _getDefaults: function (defaults, settings, key) {
             if (key === "styleClass") {
