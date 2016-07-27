@@ -1,27 +1,28 @@
 {
-    "name": "bowknot",
-    "version": "1.0.0",
-    "description": "Vanessa 自己 YY 的",
-    "homepage": "https://github.com/Vanessa219/bowknot",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Vanessa219/bowknot.git"
-    },
-    "bugs": {
-        "url": "https://github.com/Vanessa219/bowknot/issues"
-    },
-    "license": "Apache License",
-    "private": true,
-    "author": "Vanessa <lly219@gmail.com> (http://vanessa.b3log.org)",
-    "maintainers": [
-        {
-            "name": "Vanessa",
-            "email": "lly219@gmail.com"
-        }
-    ],
-    "devDependencies": {
-        "gulp": "3.9.0",
-        "gulp-uglify": "1.5.1",
-        "gulp-rename": "*"
+  "name": "bowknot",
+  "version": "1.0.0",
+  "description": "Vanessa 自己 YY 的",
+  "homepage": "https://github.com/Vanessa219/bowknot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vanessa219/bowknot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Vanessa219/bowknot/issues"
+  },
+  "license": "Apache License",
+  "private": true,
+  "author": "Vanessa <lly219@gmail.com> (http://vanessa.b3log.org)",
+  "maintainers": [
+    {
+      "name": "Vanessa",
+      "email": "lly219@gmail.com"
     }
+  ],
+  "devDependencies": {
+    "gulp": "3.9.0",
+    "gulp-uglify": "1.5.1",
+    "gulp-rename": "*",
+    "gulp-clean": "^0.3.2"
+  }
 }

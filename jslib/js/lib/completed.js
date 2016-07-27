@@ -102,7 +102,7 @@
                     "SelectedPanel' class='" + classStyle.panelClass + "' style='height:" +
                     height + ";'></div><div class='none " +
                     classStyle.ckClass + "' id='" + id + "CheckboxPanel'><div>";
-            if (typeof(settings.data) === 'object') {
+            if (typeof (settings.data) === 'object') {
                 settings.data.sort();
             }
 
@@ -326,6 +326,7 @@
                         + temp.substring(currentWordObj.endPos, temp.length);
                 settings.tipNum = 0;
                 $(target).focus();
+                settings.afterSelected ? settings.afterSelected($(this)) : '';
             });
         },
         /*

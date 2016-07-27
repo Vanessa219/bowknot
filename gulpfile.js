@@ -22,8 +22,12 @@
  */
 var gulp = require("gulp"),
         uglify = require('gulp-uglify'),
-        rename = require('gulp-rename');
+        rename = require('gulp-rename'),
+        clean = require('gulp-clean');
 
+gulp.task ('clean', function () {
+	gulp.src('./jslib/js/lib/*.min.js').pipe(clean({force: true}));
+});
 gulp.task('cc', function () {
     gulp.src('./jslib/js/lib/*.js')
             .pipe(rename({suffix: '.min'}))
