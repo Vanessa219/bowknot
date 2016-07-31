@@ -111,10 +111,7 @@
             }, this._keyupAction).bind("keydown", function (event) {
                 settings.chinese = event.keyCode;
             }).addClass(classStyle.inputClass).width($it.width() - 78);
-
-            var $panel = $("#" + id + "SelectedPanel");
             settings.tipNum = 0;
-            $panel.width($it.width() + 2);
         },
         /*
          * @description 监听放开按钮时间
@@ -390,7 +387,7 @@
             var id = inst.id,
                     settings = inst.settings;
             settings.data = data;
-            $.completed._buildSelectedPanel(id, data, settings, '2011');
+            $.completed._buildSelectedPanel(id, data, settings, $('#' + id).val());
         },
         _getDefaults: function (defaults, settings, key) {
             if (key === "styleClass") {
