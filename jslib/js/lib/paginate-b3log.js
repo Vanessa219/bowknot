@@ -16,7 +16,7 @@
 (function ($) {
     $.fn.extend({
         paginate: {
-            version: "0.0.0.8",
+            version: "0.0.1.8",
             author: "lly219@gmail.com"
         }
     });
@@ -292,7 +292,7 @@
             // process click next page and pre page.
             if (event.data.isPage) {
                 currentPage = settings.currentPage;
-                var text = event.target.parentNode.innerText ? event.target.parentNode.innerText : event.target.parentNode.text;
+                var text = $(event.target).closest('a').text();
                 if ($.trim(text) === settings.previousPageText) {
                     currentPage--;
                 } else if ($.trim(text) === settings.nextPageText){
