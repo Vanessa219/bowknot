@@ -1,0 +1,10 @@
+{
+  "name": "gen html",
+  "version": "1.0.0",
+  "homepage": "https://hacpai.com",
+  "author": "Vanesse <lly219@gmail.com> (https://vanesse.b3log.org)",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "marked": "^0.3.6"
+  }
+}

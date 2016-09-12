@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-break: break-all;
+    font-size: 14px;
+}
+ul {
+    list-style: none;
+}
+.copy {
+    text-align: center;
+    line-height: 30px;
+    padding-bottom: 10px;
+}
+.page-wrap {
+	width: 100%; 
+	position: relative; 
+	font-size: 23px; 
+	color: #645647; 
+	background: #fffcf6; 
+	border-top: 1px solid #fffcf6; 
+	border-bottom: 1px solid #fffcf6; 
+	font-family: Helvetica,ST-Heiti,'Microsoft Yahei'; 
+	min-height: 736px;
+}
+.page-border {
+	border: 1px solid #e9e5d9;
+	margin: 10px;
+	padding: 2px;
+}
+.page-wrap .wrap-bottom,.page-wrap .wrap-left,.page-wrap .wrap-right,.page-wrap .wrap-top {
+	width: 4px; 
+	height: 4px; 
+	border: 1px solid #e9e5d9; 
+	position: absolute 
+}
+.page-wrap .wrap-top {
+	top: 7px; 
+	left: 7px;
+}
+.page-wrap .wrap-right {
+	top: 7px; 
+	right: 7px;
+}
+.page-wrap .wrap-bottom {
+	bottom: 7px; 
+	right: 7px;
+}
+.page-wrap .wrap-left {
+	bottom: 7px; 
+	left: 7px;
+}
+.page-container {
+	border: 1px solid #e9e5d9;
+	position: relative;
+	padding: 10px 20px;
+}
+.page-container * {
+	line-height: 25px;
+}
+.txt-c {
+	text-align: center;
+}
+
+.markdown {
+	font-size: 14px;
+}
+.markdown h1,.markdown h2,.markdown h3 {
+    font-weight: 400;
+    color: #645647;
+    line-height: 25px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin: 0
+}
+
+.markdown h1 {
+    font-size: 20px
+}
+
+.markdown h2 {
+    font-size: 18px
+}
+
+.markdown h3 {
+    font-size: 16px
+}
+
+.markdown .tac {
+    text-align: center
+}
+
+.markdown .pmg {
+    padding-bottom: 14px;
+}
+
+.markdown blockquote.pmg {
+    padding-bottom: 0;
+    margin-bottom: 14px
+}
+
+.markdown p {
+    margin: 0;
+    padding: 0
+}
+
+.markdown blockquote {
+    font-size: 14px;
+    line-height: 25px;
+    margin: 0;
+    margin-left: 6px;
+    padding-left: 12px;
+    border-left: 2px #ece7da solid;
+    position: relative
+}
+
+.markdown strong {
+    font-weight: 700
+}
+
+.markdown ol,.markdown ul {
+    padding-left: 14px;
+    padding-bottom: 10px
+}
+
+.markdown ul li {
+    line-height: 25px;
+    position: relative;
+    text-indent: 12px
+}
+
+.markdown ol li {
+    line-height: 25px;
+    list-style: decimal inside
+}
+
+.markdown ul li:after {
+    content: '.';
+    width: 4px;
+    position: absolute;
+    top: 10px;
+    height: 4px;
+    background: #645647;
+    overflow: hidden;
+    left: 1px;
+    border-radius: 4px
+}
+
+.markdown .ul {
+    margin-left: 14px;
+    line-height: 25px;
+    text-indent: 12px;
+    position: relative
+}
+
+.markdown .ul:after {
+    content: '.';
+    width: 4px;
+    position: absolute;
+    top: 10px;
+    height: 4px;
+    background: #645647;
+    overflow: hidden;
+    left: 1px;
+    border-radius: 4px
+}
+
+.markdown .ol {
+    padding-left: 14px;
+    line-height: 25px
+}
+
+.markdown p.end-line {
+    padding-bottom: 0
+}
+
+.markdown blockquote.end-line,.markdown p.end-line {
+    padding-bottom: 0
+}
+
+.markdown blockquote .emoji img {
+    margin-top: 4px;
+    height: 10px
+}	
+
+.markdown img {
+    max-width: 100%;
+}
