@@ -117,7 +117,7 @@
             + "' style='width: " + dialogW + "px; height: "
             + dialogH + "px;' onselectstart='return false;'>" + headerHTML
             + "<div class='" + styleClass.main + "'><div style='overflow: auto;height:" 
-            + (dialogH - 78)+ "px'></div><div class='" + styleClass.footer + "'>"
+            + (dialogH - 53)+ "px'></div><div class='" + styleClass.footer + "'>"
             + footerHTML + "</div></div>";
 
             var bgHTML = "";
