@@ -18,7 +18,7 @@
  * @fileoverview auto completed.
  *
  * @author <a href="mailto:LLY219@gmail.com">Liyuan Li</a>
- * @version 1.0.1.3, Oct 29, 2011
+ * @version 1.1.1.3, Nov 8, 2016
  */
 (function ($) {
     var j = new Date().getTime();
@@ -110,6 +110,7 @@
                 settings: settings
             }, this._keyupAction).bind("keydown", function (event) {
                 settings.chinese = event.keyCode;
+                settings.keydownVal = $(this).val();
             }).addClass(classStyle.inputClass).width($it.width() - 78);
             settings.tipNum = 0;
         },
@@ -122,7 +123,7 @@
                     currentWordObj = $.completed._getCurrentWord(this, settings);
             // 当前词组为空或者使用 Esc / Shift / Backspace 键后提示消失
             if (currentWordObj.currentWord === "" || event.keyCode === 27 ||
-                    event.keyCode === 16 || event.keyCode === 16) {
+                    event.keyCode === 16) {
                 $("#" + this.id + "SelectedPanel").hide();
                 settings.tipNum = 0;
                 settings.afterKeyup ? settings.afterKeyup(event) : '';
