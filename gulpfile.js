@@ -28,7 +28,7 @@ var gulp = require("gulp"),
 gulp.task ('clean', function () {
 	gulp.src('./jslib/js/lib/*.min.js').pipe(clean({force: true}));
 });
-gulp.task('cc', function () {
+gulp.task('build', function () {
     gulp.src('./jslib/js/lib/*.js')
             .pipe(rename({suffix: '.min'}))
             .pipe(uglify())

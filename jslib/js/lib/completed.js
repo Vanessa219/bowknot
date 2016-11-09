@@ -18,7 +18,7 @@
  * @fileoverview auto completed.
  *
  * @author <a href="mailto:LLY219@gmail.com">Liyuan Li</a>
- * @version 1.1.1.3, Nov 8, 2016
+ * @version 1.1.2.3, Nov 8, 2016
  */
 (function ($) {
     var j = new Date().getTime();
@@ -111,7 +111,7 @@
             }, this._keyupAction).bind("keydown", function (event) {
                 settings.chinese = event.keyCode;
                 settings.keydownVal = $(this).val();
-            }).addClass(classStyle.inputClass).width($it.width() - 78);
+            }).addClass(classStyle.inputClass);
             settings.tipNum = 0;
         },
         /*
@@ -340,7 +340,7 @@
             }
             $("#" + id + "CheckboxPanel").html(ckHTML + "<div class='clear'></div>");
 
-            $("#" + id + "CheckboxPanel" + " span").click(function () {
+            $("#" + id + "CheckboxPanel").on('click','span', function () {
                 var inputVal = $input.val(),
                         currentVal = this.innerHTML;
                 if (this.className === "selected") {
